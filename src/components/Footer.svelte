@@ -34,7 +34,6 @@
 <footer class="Footer">
     <div class="Footer-container">
         <div class="Footer-content">
-            <div class="Footer-copy">Hecho con amor en Platzi</div>
             <div class="Footer-svelte">Proudly powered by svelte
                 <img src="svelte.png" alt="Svelte">
             </div>

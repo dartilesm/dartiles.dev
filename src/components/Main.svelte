@@ -13,8 +13,15 @@
         margin: 2em 0 0 0;
         display: grid;
         grid-template-columns: 3fr 1fr;
+        padding: 0 1em;
         grid-gap: 60px;
         justify-content: space-between;
+    }
+
+    @media screen and (max-width: 576px) {
+        .Main-content {
+            grid-template-columns: 3fr;
+        }
     }
 </style>
 

@@ -48,7 +48,8 @@
 	[aria-current]::after {
 		position: absolute;
 		content: '';
-		width: calc(100% - 1em);
+		width: 100%;
+    	left: 0;
 		height: 2px;
 		background-color: rgb(255,62,0);
 		display: block;
@@ -74,11 +75,10 @@
 		<div class="Nav-content">
 			<div class="Nav-social">
 				<ul>
-					<li><a aria-current="{segment === undefined ? 'page' : undefined}" href=".">home</a></li>
-					<li><a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a></li>
-					<li><a aria-current="{segment === 'contact' ? 'page' : undefined}" href="contact">contact</a></li>
-					<li><a aria-current="{segment === 'general' ? 'page' : undefined}" href="general">general</a></li>
-					<li><a rel=prefetch aria-current="{segment === 'blog' ? 'page' : undefined}" href="blog">blog</a></li>
+					<li><a aria-current="{segment === undefined ? 'page' : undefined}" href=".">Inicio</a></li>
+					<li><a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">Acerca de mi</a></li>
+					<li><a aria-current="{segment === 'contact' ? 'page' : undefined}" href="contact">Contacto</a></li>
+					<!-- <li><a rel=prefetch aria-current="{segment === 'blog' ? 'page' : undefined}" href="blog">blog</a></li> -->
 				</ul>
 			</div>
 		</div>
