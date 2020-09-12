@@ -38,7 +38,6 @@
 	<meta name="og:url" content="https://blog.dartiles.live" />
 	<meta name="og:locale" content="es_ES">
 	<meta name="og:type" content="article">
-	<meta name="fb:app_id" content="">
 </svelte:head>
 
 <div class="Home">
