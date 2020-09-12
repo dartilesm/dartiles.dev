@@ -87,7 +87,7 @@ const createRss = async data => {
     return template
 }
 
-export const fetchData = async () => {
+const fetchData = async () => {
     const response = await fetch(API)
     const data = await response.json()
     const posts = await data.posts.map(post => ({
@@ -104,4 +104,6 @@ export const fetchData = async () => {
     writeFile(posts)
     return posts
 }
+
+module.exports = fetchData
 

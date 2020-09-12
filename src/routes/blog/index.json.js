@@ -1,5 +1,5 @@
 import posts from './_posts.js';
-import { fetchData } from '../../bin/index'
+import fetchData from '../../bin/index'
 
 export function get(req, res) {
 	res.writeHead(200, {
