@@ -12,6 +12,74 @@ const writeFile = obj => {
     console.log('datos guardados')
 }
 
+const blogTitle = 'Diego Artiles Blog'
+const blogDesc = 'Blog de Diego Artiles'
+const blogFavicon = 'Diego Artiles Blog'
+const blogUrl = 'https://blog.dartiles.live'
+
+const getDate = date => date ? new Date(date).toUTCString() : new Date().toUTCString()
+
+const createRss = async () => {
+    const pubDate = getDate(item.createdAt);
+    const parseItems = await data.map(item => `
+    <item>
+        <title>
+            <![CDATA[${item.title}]]>
+        </title>
+        <link>
+            ${blogUrl}/blog/${item.slug}
+        </link>
+        <description>
+            <![CDATA[ ${item.desc} ]]>
+        </description>
+        <category>
+            <![CDATA[ ${item.tag} ]]>
+        </category>
+        <dc:creator>
+            <![CDATA[ ${blogTitle} ]]>
+        </dc:creator>
+        <pubDate>
+            ${pubDate}
+        </pubDate>
+        <media:content url="${blogCover}" medium="image" />
+        <content:encoded>
+            <![CDATA[ ${item.html} ]]>
+        </content:encoded>
+    </item>
+    `).join('')
+
+    const template = `<?xml version="1.0" encoding="UTF-8" ?>
+    <rss version="2.0">
+
+    <channel>
+    <title>
+        <![CDATA[${blogTitle}]]>
+    </title>
+    <description>
+        <![CDATA[${blogDesc}]]>
+    </description>
+    <image>
+        <url>${blogFavicon}</url>
+        <title>
+            <![CDATA[${blogTitle}]]>
+        </title>
+        <title>
+            ${blogUrl}
+        </title>
+    </image>
+    <generator>
+        Svelte
+    </generator>
+    <lastBuildDate>
+
+    </lastBuildDate>
+    <atom:link href="${blogUrl}/rss.xml" rel="self" type="application/rss+xml" />
+    <ttl></ttl>
+    </channel>
+
+    </rss>`
+}
+
 const fetchData = async () => {
     const response = await fetch(API)
     const data = await response.json()
