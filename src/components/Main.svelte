@@ -21,6 +21,7 @@
     @media screen and (max-width: 576px) {
         .Main-content {
             grid-template-columns: 3fr;
+            padding: 0;
         }
     }
 </style>
