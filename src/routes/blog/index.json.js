@@ -1,10 +1,10 @@
 import posts from './_posts.js';
 import { fetchData } from '../../bin/index'
 
-export function get(req, res) {
+export async function get(req, res) {
 	res.writeHead(200, {
 		'Content-Type': 'application/json'
 	});
-	fetchData()
+	await fetchData()
 	res.end(JSON.stringify(posts));
 }

@@ -6,7 +6,7 @@
     "data": "node src/bin/index.js",
     "dev": "sapper dev",
     "build": "sapper build",
-    "export": "sapper export",
+    "export": "sapper export --entry blog",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open"

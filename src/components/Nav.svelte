@@ -75,10 +75,9 @@
 		<div class="Nav-content">
 			<div class="Nav-social">
 				<ul>
-					<li><a aria-current="{segment === undefined ? 'page' : undefined}" href=".">Inicio</a></li>
-					<li><a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">Acerca de mi</a></li>
-					<li><a aria-current="{segment === 'contact' ? 'page' : undefined}" href="contact">Contacto</a></li>
-					<!-- <li><a rel=prefetch aria-current="{segment === 'blog' ? 'page' : undefined}" href="blog">blog</a></li> -->
+					<li><a rel=prefetch aria-current="{segment === undefined ? 'page' : undefined}" href=".">Inicio</a></li>
+					<li><a rel=prefetch aria-current="{segment === 'about' ? 'page' : undefined}" href="about">Acerca de mi</a></li>
+					<li><a rel=prefetch aria-current="{segment === 'contact' ? 'page' : undefined}" href="contact">Contacto</a></li>
 				</ul>
 			</div>
 		</div>
