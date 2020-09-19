@@ -129,6 +129,4 @@ const fetchData = async () => {
     return posts
 }
 
-fetchData()
-
 module.exports = { fetchData }
