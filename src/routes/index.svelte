@@ -17,8 +17,14 @@
 		display: grid;
 		justify-content: space-between;
 		grid-gap: 15px;
-		grid-template-columns: 1fr;
+		grid-template-columns: 1fr 1fr;
 	}
+
+	@media screen and (max-width: 768px) {
+		.Posts {
+			grid-template-columns: 1fr; 
+		}
+    }
 </style>
 
 <svelte:head>

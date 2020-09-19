@@ -131,4 +131,4 @@ const fetchData = async () => {
 
 fetchData()
 
-module.exports = fetchData
+module.exports = { fetchData }

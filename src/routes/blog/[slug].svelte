@@ -33,18 +33,36 @@
 </script>
 
 <style>
+
+	.Post-image {
+		width: 100%;
+		height: 400px;
+		margin-bottom: 20px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		position: relative;
+	}
+
+	.Post-title {
+		position: absolute;
+		width: 100%;
+		background-color: rgba(0,0,0,0.5);
+		padding: 10px;
+		color: white;
+		box-sizing: border-box;
+    	bottom: 0;
+	}
+
 	h2 {
-		color: #222;
 		font-size: 28px;
 		margin: 0;
 		padding: 0;
 	}
 
 	p {
-		color: #555555;
 		font-size: 14px;
 		font-weight: 300;
-		margin-top: 5px;
+		margin: 0px;
 		padding: 0;
 	}
 	.Post-comments {
@@ -74,13 +92,15 @@
 </svelte:head>
 
 <div class="Post">
-	<div class="Post-title">
-		<h2>{post.title}</h2>
+	<div class="Post-image" style="background-image: url({post.feature_image})">
+		<div class="Post-title">
+			<h2>{post.title}</h2>
+			<p>
+				<time datatime="{post.createdTime}">📅 {timeFormatter(post.published_at)}</time>
+				<span>{readingTime(post.html)}</span>
+			</p>
+		</div>
 	</div>
-	<p>
-		<time datatime="{post.createdTime}">📅 {timeFormatter(post.createdAt)}</time>
-		<span>{readingTime(post.html)}</span>
-	</p>
 	<div class="Post-content">
 		{@html post.html}
 	</div>

@@ -58,7 +58,7 @@
 
 	a {
 		text-decoration: none;
-		padding: 1em 1em 1em 0;
+		padding: 1em;
 		display: block;
 		font-size: 14px;
 		font-weight: 300;

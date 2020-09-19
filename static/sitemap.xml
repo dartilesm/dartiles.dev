@@ -2,7 +2,7 @@
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
        <url>
           <loc>https://blog.dartiles.live</loc>
-          <lastmod>Sat, 19 Sep 2020 13:37:43 GMT</lastmod>
+          <lastmod>Sat, 19 Sep 2020 15:57:37 GMT</lastmod>
           <priority>1.0</priority>
        </url>
        <url>
@@ -36,6 +36,10 @@
      </url><url>
         <loc>https://blog.dartiles.live/themes</loc>
         <lastmod>Sun, 06 Sep 2020 22:22:42 GMT</lastmod>
+        <priority>0.8</priority>
+     </url><url>
+        <loc>https://blog.dartiles.live/aprende-mas-sobre-los-frontend-developers</loc>
+        <lastmod>Sat, 19 Sep 2020 15:33:42 GMT</lastmod>
         <priority>0.8</priority>
      </url>
     </urlset>

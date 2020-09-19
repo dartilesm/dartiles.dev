@@ -2,6 +2,12 @@
     import readingTime from '../utils/readingTime'
     import randomEmojis from '../utils/randomEmoji'
     import timeFormatter from '../utils/timeFormater'
+    import { goto } from '@sapper/app';
+
+    const navigateTo = path => {
+        goto(path);
+    }
+
     export let post
 </script>
 
@@ -9,6 +15,24 @@
     .Post-item {
         color: #191a22;
         position: relative;
+        cursor: pointer;
+        border-radius: 5px;
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(184,184,184,1);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(184,184,184,1);
+        box-shadow: 0px 0px 5px 0px rgba(184,184,184,1);
+    }
+    .Post-item:hover {
+        -webkit-box-shadow: 0px 0px 10px 0px rgba(184,184,184,1);
+        -moz-box-shadow: 0px 0px 10px 0px rgba(184,184,184,1);
+        box-shadow: 0px 0px 10px 0px rgba(184,184,184,1);
+    }
+    .Post-image {
+        width: 100%;
+        height: 200px;
+        border-radius: 5px 5px 0px 0px;
+        background-size: cover;
+        background-position: bottom;
+        background-repeat: no-repeat;
     }
     .Post-content {
         font-size: 16px;
@@ -17,6 +41,9 @@
         justify-content: space-between;
         grid-gap: 5px;
         grid-template-columns: 1fr;
+    }
+    .Post-head {
+        padding: 10px;
     }
     .Post-title {
         font-size: 20px;
@@ -30,10 +57,6 @@
         margin-top: 5px;
         padding: 0;
     }
-    a {
-        text-decoration: none;
-        color: #22215b;
-    }
     .Post-desc p {
         color: #333;
         font-size: 16px;
@@ -46,15 +69,17 @@
     }
 </style>
 
-<div class="Post-item">
+<div class="Post-item" on:click="{navigateTo(`blog/${post.slug}`)}">
     <div class="Post-content">
+        <div class="Post-image" style="background-image: url({post.feature_image})">
+        </div>
         <div class="Post-head">
             <div class="Post-title">
-                <h2>
-                    <a rel="prefetch" href="blog/{post.slug}">{randomEmojis()} {post.title}</a>
-                </h2>
+                <h3>
+                    {post.title}
+                </h3>
                 <p>
-                    <time datetime={post.createdAt}>📅 {timeFormatter(post.createdAt)}</time>
+                    <time datetime={post.published_at}>📅 {timeFormatter(post.published_at)}</time>
                     <span class="dot">.</span>
                     <span>{readingTime(post.html)}</span>
                 </p>
