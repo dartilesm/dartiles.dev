@@ -3,7 +3,7 @@
         background: rgba(28, 41, 56, 0.8);
         color: white;
         padding: 1.5em 0;
-        margin: 2em 0 0 0;
+        margin: 0;
         font-size: 13px;
         padding: 16px;
         font-weight: 300;

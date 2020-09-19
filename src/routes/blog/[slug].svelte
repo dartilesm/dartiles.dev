@@ -33,24 +33,34 @@
 </script>
 
 <style>
-
+	.Post {
+		background-color: white;
+		border-left: 1px solid #e6e6e6;
+		border-right: 1px solid #e6e6e6;
+	}
 	.Post-image {
 		width: 100%;
 		height: 400px;
-		margin-bottom: 20px;
 		background-size: cover;
 		background-repeat: no-repeat;
+		background-position: center;
 		position: relative;
+		top: 0;
+		left: 0;
 	}
 
 	.Post-title {
 		position: absolute;
 		width: 100%;
-		background-color: rgba(0,0,0,0.5);
-		padding: 10px;
+		background: linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,.7) 100%);
+		padding: 20px 10px 10px 10px;
 		color: white;
 		box-sizing: border-box;
     	bottom: 0;
+	}
+
+	.Post-content {
+		padding: 10px;
 	}
 
 	h2 {
@@ -67,6 +77,7 @@
 	}
 	.Post-comments {
 		margin: 2em 0 0 0 0;
+		padding: 10px;
 	}
 </style>
 

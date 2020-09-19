@@ -17,21 +17,22 @@
         position: relative;
         cursor: pointer;
         border-radius: 5px;
-        -webkit-box-shadow: 0px 0px 5px 0px rgba(184,184,184,1);
-        -moz-box-shadow: 0px 0px 5px 0px rgba(184,184,184,1);
-        box-shadow: 0px 0px 5px 0px rgba(184,184,184,1);
+        background-color: white;
+        -webkit-box-shadow: 0 8px 30px rgba(0,0,0,.12);;
+        -moz-box-shadow: 0 8px 30px rgba(0,0,0,.12);;
+        box-shadow: 0 8px 30px rgba(0,0,0,.12);;
     }
     .Post-item:hover {
-        -webkit-box-shadow: 0px 0px 10px 0px rgba(184,184,184,1);
-        -moz-box-shadow: 0px 0px 10px 0px rgba(184,184,184,1);
-        box-shadow: 0px 0px 10px 0px rgba(184,184,184,1);
+        -webkit-box-shadow: 0 8px 30px rgba(0,0,0,.2);;
+        -moz-box-shadow: 0 8px 30px rgba(0,0,0,.2);;
+        box-shadow: 0 8px 30px rgba(0,0,0,.2);;
     }
     .Post-image {
         width: 100%;
         height: 200px;
         border-radius: 5px 5px 0px 0px;
         background-size: cover;
-        background-position: bottom;
+        background-position: center;
         background-repeat: no-repeat;
     }
     .Post-content {

@@ -13,6 +13,9 @@
 </script>
 
 <style>
+	.Home {
+		margin: 2em 0;
+	}
 	.Posts {
 		display: grid;
 		justify-content: space-between;
