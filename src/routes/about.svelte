@@ -1,7 +1,19 @@
+<script>
+	import { onMount } from 'svelte'
+	let viewportHeight = ''
+
+	onMount(async () => {
+		if (document.readyState === 'complete') viewportHeight = `${window.innerHeight}px`
+
+		document.addEventListener('readystatechange', async () => {
+			viewportHeight = document.readyState === 'complete' ?  `${window.innerHeight}px` : '100vh'
+		})
+	})
+</script>
 <style>
 	.About {
 		padding: 10px;
-		min-height: calc(100vh - 207px);
+		min-height: calc(var(--viewport-height) - 207px);
 	}
 </style>
 
@@ -26,7 +38,7 @@
 	<meta name="og:type" content="article">
 </svelte:head>
 
-<div class="About">
+<div class="About" style="--viewport-height: {viewportHeight}">
 	<h1>Acerca de mi</h1>
 	<p>Este sitio se encuentra en construcción, por favor vuelve más tarde 🤓</p>
 </div>
