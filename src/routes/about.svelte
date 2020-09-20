@@ -13,7 +13,7 @@
 <style>
 	.About {
 		padding: 10px;
-		min-height: calc(var(--viewport-height) - 207px);
+		min-height: calc(var(--viewport-height) - 205px);
 	}
 </style>
 
