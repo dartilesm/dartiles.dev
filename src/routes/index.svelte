@@ -27,6 +27,12 @@
 		.Posts {
 			grid-template-columns: 1fr; 
 		}
+	}
+	
+	@media screen and (max-width: 576px) {
+		.Home {
+			padding: 0 1em;
+		}
     }
 </style>
 
