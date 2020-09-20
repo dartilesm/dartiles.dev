@@ -2,40 +2,12 @@
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
        <url>
           <loc>https://blog.dartiles.live</loc>
-          <lastmod>Sat, 19 Sep 2020 19:50:11 GMT</lastmod>
+          <lastmod>Sun, 20 Sep 2020 02:47:42 GMT</lastmod>
           <priority>1.0</priority>
        </url>
        <url>
-        <loc>https://blog.dartiles.live/test-svelte</loc>
-        <lastmod>Sun, 06 Sep 2020 23:06:20 GMT</lastmod>
-        <priority>0.8</priority>
-     </url><url>
-        <loc>https://blog.dartiles.live/welcome</loc>
-        <lastmod>Sun, 06 Sep 2020 22:22:43 GMT</lastmod>
-        <priority>0.8</priority>
-     </url><url>
-        <loc>https://blog.dartiles.live/the-editor</loc>
-        <lastmod>Sun, 06 Sep 2020 22:22:43 GMT</lastmod>
-        <priority>0.8</priority>
-     </url><url>
-        <loc>https://blog.dartiles.live/publishing-options</loc>
-        <lastmod>Sun, 06 Sep 2020 22:22:42 GMT</lastmod>
-        <priority>0.8</priority>
-     </url><url>
-        <loc>https://blog.dartiles.live/admin-settings</loc>
-        <lastmod>Sun, 06 Sep 2020 22:22:42 GMT</lastmod>
-        <priority>0.8</priority>
-     </url><url>
-        <loc>https://blog.dartiles.live/organising-content</loc>
-        <lastmod>Sun, 06 Sep 2020 22:22:42 GMT</lastmod>
-        <priority>0.8</priority>
-     </url><url>
-        <loc>https://blog.dartiles.live/apps-integrations</loc>
-        <lastmod>Sun, 06 Sep 2020 22:22:42 GMT</lastmod>
-        <priority>0.8</priority>
-     </url><url>
-        <loc>https://blog.dartiles.live/themes</loc>
-        <lastmod>Sun, 06 Sep 2020 22:22:42 GMT</lastmod>
+        <loc>https://blog.dartiles.live/novedades-de-ecmascript-2020-o-es11</loc>
+        <lastmod>Sat, 19 Sep 2020 23:49:23 GMT</lastmod>
         <priority>0.8</priority>
      </url><url>
         <loc>https://blog.dartiles.live/aprende-mas-sobre-los-frontend-developers</loc>

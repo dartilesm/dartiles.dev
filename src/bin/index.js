@@ -1,5 +1,6 @@
 const fetch = require('node-fetch')
 const fs = require('fs')
+const request = require('request')
 const dotenv = require('dotenv')
 dotenv.config()
 
@@ -114,16 +115,34 @@ const createSitemap = async data => {
 const fetchData = async () => {
     const response = await fetch(API)
     const data = await response.json()
-    const posts = await data.posts.map(post => ({
-        ...post,
-        title: post.title,
-        html: post.html,
-        slug: post.slug,
-        createdAt: post.created_at,
-        id: post.id,
-        desc: post.excerpt,
-        image: post.feature_image,
-    }))
+    const posts = await data.posts
+        .map(post => {
+            // Generate feature image
+            const postDir = `./static/media/${post.slug}`
+            const coverImg = `${postDir}/${post.slug}.png`
+            !fs.existsSync(postDir) && fs.mkdirSync(postDir)
+
+            !fs.existsSync(coverImg) && request(post.feature_image).pipe(fs.createWriteStream(coverImg))
+
+            // Generate internal post image
+            post.html = post.html.replace(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/g, url => {
+                const fileName = url.split('/images/')[1].replace(/[`~!@#$%^&*()_|+\-=?;:'",<>\{\}\[\]\\\/]/gi, '-')
+                !fs.existsSync(`${postDir}/${fileName}`) && request(url).pipe(fs.createWriteStream(`${postDir}/${fileName}`))
+                url = `./media/${post.slug}/${fileName}`
+                return url;
+            })
+
+            return {
+                ...post,
+                title: post.title,
+                html: post.html,
+                slug: post.slug,
+                createdAt: post.created_at,
+                id: post.id,
+                desc: post.excerpt,
+                image: `media/${post.slug}/${post.slug}.png`,
+            }
+        })
     
     writeFile(posts)
     return posts

@@ -91,19 +91,19 @@
 	<meta name="twitter:creator" content="@dartilesm" />
 	<meta name="twitter:title" content="Blog de Diego Artiles" />
 	<meta name="twitter:description" content="{post.title}" />
-	<meta name="twitter:image" content="{post.feature_image}" />
+	<meta name="twitter:image" content="{post.image}" />
 	
 	<meta name="og:title" content="Blog de Diego Artiles" />
 	<meta name="og:site_name" content="Blog de Diego Artiles" />
 	<meta name="og:description" content="{post.title}" />
-	<meta name="og:image" content="{post.feature_image}" />
+	<meta name="og:image" content="{post.image}" />
 	<meta name="og:url" content="https://blog.dartiles.live" />
 	<meta name="og:locale" content="es_ES">
 	<meta name="og:type" content="article">
 </svelte:head>
 
 <div class="Post">
-	<div class="Post-image" style="background-image: url({post.feature_image})">
+	<div class="Post-image" style="background-image: url({post.image})">
 		<div class="Post-title">
 			<h2>{post.title}</h2>
 			<p>

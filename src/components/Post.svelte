@@ -72,7 +72,7 @@
 
 <div class="Post-item" on:click="{navigateTo(`blog/${post.slug}`)}">
     <div class="Post-content">
-        <div class="Post-image" style="background-image: url({post.feature_image})">
+        <div class="Post-image" style="background-image: url({post.image})">
         </div>
         <div class="Post-head">
             <div class="Post-title">
