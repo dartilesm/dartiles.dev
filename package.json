@@ -22,6 +22,7 @@
     "request": "^2.88.2",
     "sapper": "^0.28.0",
     "svelte": "^3.17.3",
+    "svelte-feather-icons": "^3.2.2",
     "svelte-loader": "^2.9.0",
     "webpack": "^4.7.0",
     "webpack-modules": "^1.0.0"

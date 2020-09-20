@@ -1,3 +1,6 @@
+<script>
+    import { ToolIcon } from 'svelte-feather-icons'
+</script>
 <style>
     .Footer {
         background: rgba(28, 41, 56, 0.8);
@@ -35,8 +38,11 @@
 <footer class="Footer">
     <div class="Footer-container">
         <div class="Footer-content">
-            <div class="Footer-svelte">Proudly powered by svelte
+            <div class="Footer-svelte">Sitio desarrollado con Svelte
                 <img src="svelte.png" alt="Svelte">
+            </div>
+            <div class="Footer-svelte">Sitio en construcción 
+                <ToolIcon size="24" />
             </div>
         </div>
     </div>

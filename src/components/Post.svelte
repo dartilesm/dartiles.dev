@@ -18,14 +18,14 @@
         cursor: pointer;
         border-radius: 5px;
         background-color: white;
-        -webkit-box-shadow: 0 8px 30px rgba(0,0,0,.12);;
-        -moz-box-shadow: 0 8px 30px rgba(0,0,0,.12);;
-        box-shadow: 0 8px 30px rgba(0,0,0,.12);;
+        -webkit-box-shadow: 0 8px 30px rgba(0,0,0,.12);
+        -moz-box-shadow: 0 8px 30px rgba(0,0,0,.12);
+        box-shadow: 0 8px 30px rgba(0,0,0,.12);
     }
     .Post-item:hover {
-        -webkit-box-shadow: 0 8px 30px rgba(0,0,0,.2);;
-        -moz-box-shadow: 0 8px 30px rgba(0,0,0,.2);;
-        box-shadow: 0 8px 30px rgba(0,0,0,.2);;
+        -webkit-box-shadow: 0 8px 30px rgba(0,0,0,.2);
+        -moz-box-shadow: 0 8px 30px rgba(0,0,0,.2);
+        box-shadow: 0 8px 30px rgba(0,0,0,.2);
     }
     .Post-image {
         width: 100%;

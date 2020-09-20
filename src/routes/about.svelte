@@ -1,3 +1,10 @@
+<style>
+	.About {
+		padding: 10px;
+		min-height: calc(100vh - 207px);
+	}
+</style>
+
 <svelte:head>
 	<title>About</title>
 
@@ -20,7 +27,7 @@
 </svelte:head>
 
 <div class="About">
-	<h1>About this site</h1>
-	<p>This is the 'about' page. There's not much here.</p>
+	<h1>Acerca de mi</h1>
+	<p>Este sitio se encuentra en construcción, por favor vuelve más tarde 🤓</p>
 </div>
 

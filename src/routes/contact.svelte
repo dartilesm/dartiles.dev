@@ -20,6 +20,6 @@
 </svelte:head>
 
 <div class="Contact">
-    <h2>Contact</h2>
-    <p>Your contact information</p>
+    <h2>Contacto</h2>
+    <p>Este sitio se encuentra en construcción, por favor vuelve más tarde 🤓</p>
 </div>

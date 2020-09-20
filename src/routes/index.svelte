@@ -15,6 +15,7 @@
 <style>
 	.Home {
 		margin: 2em 0;
+		min-height: calc(100vh - 251px);
 	}
 	.Posts {
 		display: grid;
