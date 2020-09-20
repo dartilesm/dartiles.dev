@@ -23,6 +23,7 @@ const blogCover = 'https://www.filepicker.io/api/file/vPMx0ySXm2L1l53rR77Q'
 const blogFavicon = 'favicon.png'
 
 const getDate = date => date ? new Date(date).toUTCString() : new Date().toUTCString()
+const getSiteMapDate = date => date ? new Date(date).toISOString() : new Date().toISOString()
 
 const createRss = async data => {
     const parseItems = await data.map(item => {
@@ -94,7 +95,7 @@ const createSitemap = async data => {
     const parseItems = await data.map(item => {
         return `<url>
         <loc>${blogUrl}/${item.slug}</loc>
-        <lastmod>${getDate(item.createdAt)}</lastmod>
+        <lastmod>${getSiteMapDate(item.createdAt)}</lastmod>
         <priority>0.8</priority>
      </url>`
     }).join('')
@@ -103,7 +104,7 @@ const createSitemap = async data => {
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
        <url>
           <loc>${blogUrl}</loc>
-          <lastmod>${getDate()}</lastmod>
+          <lastmod>${getSiteMapDate()}</lastmod>
           <priority>1.0</priority>
        </url>
        ${parseItems}
