@@ -2,16 +2,16 @@
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
        <url>
           <loc>https://blog.dartiles.live</loc>
-          <lastmod>Sun, 20 Sep 2020 02:47:42 GMT</lastmod>
+          <lastmod>2020-09-20T13:40:21.723Z</lastmod>
           <priority>1.0</priority>
        </url>
        <url>
         <loc>https://blog.dartiles.live/novedades-de-ecmascript-2020-o-es11</loc>
-        <lastmod>Sat, 19 Sep 2020 23:49:23 GMT</lastmod>
+        <lastmod>2020-09-19T23:49:23.000Z</lastmod>
         <priority>0.8</priority>
      </url><url>
         <loc>https://blog.dartiles.live/aprende-mas-sobre-los-frontend-developers</loc>
-        <lastmod>Sat, 19 Sep 2020 15:33:42 GMT</lastmod>
+        <lastmod>2020-09-19T15:33:42.000Z</lastmod>
         <priority>0.8</priority>
      </url>
     </urlset>
