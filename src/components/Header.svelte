@@ -65,7 +65,7 @@
                 <ul>
                     <li>
                         <a href="https://github.com/dartilesm" target="_blank" rel="noreferrer" on:click={analyticsTracking('github')}>
-                            <img src="github-icon.png" alt="GitHub">
+                            <img src="media/github-icon.png" alt="GitHub">
                         </a>
                     </li>
                 </ul>
