@@ -17,18 +17,20 @@
 	import { onMount } from 'svelte'
 	import timeFormatter from '../../utils/timeFormater'
 	import readingTime from '../../utils/readingTime'
+	import highlightCode from '../../utils/highlightCode';
 	export let post;
 
-	const disqus = () => {
-			let d = document, s = d.createElement('script');
-			s.src = 'https://dartilesdev.disqus.com/embed.js';
-			s.setAttribute('data-timestamp', +new Date());
-			(d.head || d.body).appendChild(s);
+	const init = () => {
+		highlightCode()
+		let d = document, s = d.createElement('script');
+		s.src = 'https://dartilesdev.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
 	}
 
 	onMount(async () => {
-		document.readyState === 'complete' ? await disqus() : 
-			document.addEventListener('readystatechange', async () => document.readyState === 'complete' && await disqus())
+		document.readyState === 'complete' ? await init() : 
+			document.addEventListener('readystatechange', async () => document.readyState === 'complete' && await init())
 	})
 </script>
 

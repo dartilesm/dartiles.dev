@@ -19,8 +19,11 @@
     }
 
     @media screen and (max-width: 576px) {
+        .Main-container {
+            display: block;
+        }
         .Main-content {
-            grid-template-columns: 3fr;
+            display: block;
             padding: 0;
         }
     }

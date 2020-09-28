@@ -1,8 +1,8 @@
 <script>
-    import readingTime from '../utils/readingTime'
-    import randomEmojis from '../utils/randomEmoji'
-    import timeFormatter from '../utils/timeFormater'
     import { goto } from '@sapper/app';
+    import readingTime from '../utils/readingTime';
+    import timeFormatter from '../utils/timeFormater';
+
 
     const navigateTo = path => {
         goto(path);
@@ -12,6 +12,7 @@
 </script>
 
 <style>
+    /* @import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/atom-one-dark.min.css'); */
     .Post-item {
         color: #191a22;
         position: relative;

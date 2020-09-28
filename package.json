@@ -15,6 +15,7 @@
     "dotenv": "^8.2.0",
     "node-fetch": "^2.6.1",
     "polka": "next",
+    "prismjs": "^1.21.0",
     "sirv": "^1.0.0"
   },
   "devDependencies": {

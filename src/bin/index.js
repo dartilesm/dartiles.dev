@@ -123,7 +123,7 @@ const fetchData = async () => {
             const coverImg = `${postDir}/${post.slug}.png`
             !fs.existsSync(postDir) && fs.mkdirSync(postDir)
 
-            !fs.existsSync(coverImg) && request(post.feature_image).pipe(fs.createWriteStream(coverImg))
+            !fs.existsSync(coverImg) && post.feature_image && request(post.feature_image).pipe(fs.createWriteStream(coverImg))
 
             // Generate internal post image
             post.html = post.html.replace(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/g, url => {

@@ -21,7 +21,7 @@
         Svelte
     </generator>
     <lastBuildDate>
-        Sun, 20 Sep 2020 14:51:43 GMT
+        Mon, 28 Sep 2020 01:26:27 GMT
     </lastBuildDate>
     <atom:link href="https://blog.dartiles.live/rss.xml" rel="self" type="application/rss+xml" />
     <ttl>68</ttl>
@@ -47,7 +47,144 @@
             </pubDate>
             <media:content url="https://www.filepicker.io/api/file/vPMx0ySXm2L1l53rR77Q" medium="image" />
             <content:encoded>
-                <![CDATA[ <p>En este artículo me gustaría explicar un poco, todas las novedades ya disponibles en JavaScript.</p><p>Pero antes de empezar quisiera explicar algunas cosas:</p><h2 id="-qu-es-ecmascript"><strong>¿Qué es Ecmascript?</strong></h2><p>Ecmascript es el estándar definido en ECMA-262 para los lenguajes de <em>scripting de propósito general,</em> entre ellos se encuentra nuestro lenguaje favorito <em>JavaScript.</em></p><p>Esto es bastante confuso incluso hasta para mi, la forma más fácil que se me hace de entender esto, es ver a EcmaScript como si fuese la RAE (quien es la que establece las normativas para el idioma Español) de JavaScript.</p><p>Bueno, a continuación en este artículo quisiera compartir, las nuevas características presentadas en este estándar.</p><p>Ahora si, ¿Qué hay de nuevo en esta versión?</p><h2 id="importaciones-din-micas-dynamic-imports-">Importaciones Dinámicas (Dynamic Imports)</h2><p>Algo que pasaba mucho en JavaScript, es que no podíamos importar módulos según sean necesarios.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://cdn-images-1.medium.com/max/1000/1*dreYpsIyrH6wHEzzO9ds_g.png" class="kg-image" alt><figcaption>Importación de Módulos antes de&nbsp;ES11</figcaption></figure><p>En este ejemplo estaríamos utilizando el método <em>doSomething() </em>de <em>myModule, </em>en el evento click de algún botón. Independientemente de cuando ocurra el evento click, aquí hay varios temas que debemos tener en cuenta:</p><ul><li>La importación de nuestro modulo se produce durante el tiempo de carga del módulo actual.</li><li>No hay forma de cambiar la “dirección” u “origen” de nuestro modulo, dinámicamente.</li><li>Muy probablemente nuestro módulo quede sin usarse (aunque este ya haya sido cargado), si no se produce el click tan esperado.</li></ul><p>Todo esto afecta el rendimiento de la aplicación que estemos desarrollando.</p><p>Con los <em>imports dinámicos, </em>nos despedimos de estos problemas:</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://cdn-images-1.medium.com/max/1000/1*BGcwjysn8h8LQlsTZGhlIA.png" class="kg-image" alt><figcaption>Importación dinámica de modulos implementada en&nbsp;ES11</figcaption></figure><p><strong>Import</strong> recibe el path donde se encuentra nuestro módulo y devuelve una promesa al terminar.</p><h2 id="n-meros-enteros-m-s-grandes-bigint-">Números Enteros más “grandes” (BigInt)</h2><p>Hasta ahora en JavaScript podíamos hacer cálculos matemáticos cuyos resultados no sean mayores a 2⁵³ — 1, es decir, hasta <strong>Number.MAX_SAFE_INTEGER.</strong></p><p>Les muestro un ejemplo sencillo de que pasa cuando nos sobrepasamos de este valor.</p><figure class="kg-card kg-image-card"><img src="https://cdn-images-1.medium.com/max/1000/1*7SdJ-Ra4XGG6OiPEtH2sqw.png" class="kg-image" alt></figure><p>Con este ejemplo sabemos que JavaScript, no es capaz de representar cálculos matemáticos que superen el valor de <strong>Number.MAX_SAFE_INTEGER.</strong></p><p>Para solventar este problema se ha añadido un nuevo tipo de dato numérico, llamado BigInt que como su nombre indica solo soporta números enteros.</p><p>La forma de utilizar este tipo de dato, es igual que <strong>Number </strong>o con la terminación “n” precedido del número.</p><figure class="kg-card kg-image-card"><img src="https://cdn-images-1.medium.com/max/1000/1*SO2xSwGBTjDyVGlXMBfXiQ.png" class="kg-image" alt></figure><blockquote>BigInt y Number, no son compatibles entre sí por lo que no podemos hacer operaciones entre ambos.</blockquote><h2 id="promise-allsettled-">Promise.allSettled()</h2><p>Este método para las promesas viene añadir una característica que le faltaba al <strong>Promise.all()</strong>, el cual era resolver todas las promesas que le pasábamos independientemente de que alguna sea rechazada.</p><p>Recordemos <strong>Promise.all() </strong>lo que hacía es devolver un array con las respuestas de todas nuestras promesas SIEMPRE Y CUANDO NO HAYA SIDO RECHAZADA NINGUNA, en tal caso devolvería el error de la promesa rechazada y perderíamos el valor de las promesas que si fueron exitosas.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://cdn-images-1.medium.com/max/1000/1*2VORdnqkR4ZPvBEIZYu7oQ.jpeg" class="kg-image" alt><figcaption>Respuesta del método all, cuando una promesa es rechazada o tuvo un&nbsp;error</figcaption></figure><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://cdn-images-1.medium.com/max/1000/1*AibKTL0UxXyF5IKTfNJgDg.jpeg" class="kg-image" alt><figcaption>Respuesta del método allSettled, cuando una promesa es rechazada o tuvo un&nbsp;error</figcaption></figure><p>A diferencia de de <strong>Promise.all(), Promise.allSettled() </strong>devuelve un array de objetos.</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://cdn-images-1.medium.com/max/1000/1*Rcg0RnjLHzMMqlyu0r7OUQ.jpeg" class="kg-image" alt><figcaption>Respuesta del método all, cuando todas las promesas fueron&nbsp;exitosas</figcaption></figure><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://cdn-images-1.medium.com/max/1000/1*mcU3BWGOMO1ARYi96bIGJA.png" class="kg-image" alt><figcaption>Respuesta del método allSettled, cuando todas las promesas fueron&nbsp;exitosas</figcaption></figure><p>Entonces en resumen, <strong>Promise.allSettled() </strong>devuelve un array de objetos con los estados de todas las promesas (resueltas y rechazadas) y sus respectivos valores o errores (según sea el caso).</p><h2 id="-operador-de-fusi-n-nulo-nullish-coalescing-operator-"><strong>“Operador de fusión nulo” (Nullish Coalescing Operator)</strong></h2><p>En realidad no supe como traducir esto de una forma comprensible 😢</p><p>Este operador se denota con dos símbolos de interrogación cerrados <strong>??, </strong>su funcionamiento es similar al operador OR, salvo algunas cositas 😁</p><p>Me gustaría explicar estas cositas con ejemplos:</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://cdn-images-1.medium.com/max/1000/1*wLlLyRrlsVYw0H9qHkIu7g.png" class="kg-image" alt><figcaption>Evaluando la condición con el operador OR&nbsp;(||)</figcaption></figure><p>Si tenemos esta expresión, ¿Qué valor tendrá nuestra constante <strong>views</strong>?</p><p>Ya sabemos que nuestro video tiene 0 visitas 😥, pero queremos mostrar este valor en algún lado de la aplicación utilizando la constante <strong>views, </strong>lo que estaremos haciendo es mostrar ‘Views not available yet’ y no 0 precisamente porque el operador OR interpreta el cero como falso e inmediatamente se le asigna el valor por defecto.</p><p>Pero esto no está bueno, porque en realidad las views si las tenemos, en este caso es 0, de ser <em>null</em> o <em>undefined </em>si sería correcto asignar el valor por defecto.</p><figure class="kg-card kg-image-card"><img src="https://cdn-images-1.medium.com/max/1000/1*PvYZnFjIyRTPCYPvcNXARg.png" class="kg-image" alt></figure><p>En resumen (||) es similar a (??), con la única excepción de que último solo contempla valores <em>null</em> o <em>undefined</em> para evaluar la siguiente expresión.</p><h2 id="encadenamiento-opcional-optional-chaining-">Encadenamiento Opcional (Optional Chaining)</h2><p>Utilizando en el mismo ejemplo del video, que pasa si queremos obtener el nombre del autor a partir del siguiente código:</p><figure class="kg-card kg-image-card"><img src="https://cdn-images-1.medium.com/max/1000/1*vZ3JSLcFDEy85ZL_ASmy9w.png" class="kg-image" alt></figure><p>Como verán en <strong>authorName </strong>logramos obtener el nombre del autor del video sin problemas, pero en authorName2 obtenemos un error, esto se debe a que la propiedad <strong>author</strong> no existe en el objeto <strong>video2, </strong>debemos verificar si existe antes de intentar recuperarla, una de las formas que teníamos de hacer esto eran las siguientes:</p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://cdn-images-1.medium.com/max/1000/1*99kNoPAO1MVCcp0TWyLkww.png" class="kg-image" alt><figcaption>Varias alternativas de acceder de manera segura al nombre del&nbsp;autor.</figcaption></figure><p>Estas son solo alguna de las formas que tenemos para acceder a propiedades de objeto de manera segura, y las expresiones pueden llegar a ser mucho más extensas si tenemos muchos subniveles.</p><p>Para solucionar esto llegaron los “Encadenamientos Opcionales” denotados con el símbolo de interrogación cerrado (?) y ubicados antes de cada (.), usando este nuevo operador podemos simplificar nuestra expresión sin obtener errores, el ejemplo anterior quedaría de la siguiente forma:</p><figure class="kg-card kg-image-card"><img src="https://cdn-images-1.medium.com/max/1000/1*5BJohVRI23zQhQkPgUZiYQ.png" class="kg-image" alt></figure><p>Si alguna vez trabajaron con angular recordaran que esta característica estaba soportaba en el template de los componentes, pero no en nuestros archivos con typescript.</p><h2 id="globalthis"><strong>GlobalThis</strong></h2><p>Como sabemos JavaScript es un lenguaje multiplaforma, es muy versátil y nos permite platorma. Uno de los inconvenientes que teníamos era poder acceder al objeto “global” de nuestro entorno, y es que según en donde estemos ejecutando nuestro lenguaje la manera de acceder a este objeto global cambiaba.</p><p>Si quisiéramos obtener este objeto global independientemente del entorno, teníamos que realizar algo similar a esto:</p><figure class="kg-card kg-image-card"><img src="https://cdn-images-1.medium.com/max/1000/1*s8rP92oABBdUD-4YolghWg.png" class="kg-image" alt></figure><p>Ahora con el <strong>globalThis </strong>no hace falta, ya que podemos acceder desde cualquier entorno/plataforma con solo llamarlo 😀</p><h2 id="conclusi-n">Conclusión</h2><p>Estas son las novedades de esta versión más destacadas de esta versión, espero que las hayas entendido y a ¡¡disfrutarlas!!.</p> ]]>
+                <![CDATA[ <p>En este artículo me gustaría explicar un poco, todas las novedades ya disponibles en JavaScript.</p><p>Pero antes de empezar quisiera explicar algunas cosas:</p><h2 id="-qu-es-ecmascript"><strong>¿Qué es Ecmascript?</strong></h2><p>Ecmascript es el estándar definido en ECMA-262 para los lenguajes de <em>scripting de propósito general,</em> entre ellos se encuentra nuestro lenguaje favorito <em>JavaScript.</em></p><p>Esto es bastante confuso incluso hasta para mi, la forma más fácil que se me hace de entender esto, es ver a EcmaScript como si fuese la RAE (quien es la que establece las normativas para el idioma Español) de JavaScript.</p><p>Bueno, a continuación en este artículo quisiera compartir, las nuevas características presentadas en este estándar.</p><p>Ahora si, ¿Qué hay de nuevo en esta versión?</p><h2 id="importaciones-din-micas-dynamic-imports-">Importaciones Dinámicas (Dynamic Imports)</h2><p>Algo que pasaba mucho en JavaScript, es que no podíamos importar módulos según sean necesarios.</p><figure class="kg-card kg-code-card"><pre><code class="language-javascript">import * as myModule from './someModule.js/'
+// o 
+import { myModule } from './someModule.js/'
+
+const button = document.getElementById('button')
+
+button.addEventListener('click', () =&gt; myModule.doSomething())</code></pre><figcaption>Importación de Módulos antes de ES11</figcaption></figure><p>En este ejemplo estaríamos utilizando el método <em>doSomething() </em>de <em>myModule, </em>en el evento click de algún botón. Independientemente de cuando ocurra el evento click, aquí hay varios temas que debemos tener en cuenta:</p><ul><li>La importación de nuestro modulo se produce durante el tiempo de carga del módulo actual.</li><li>No hay forma de cambiar la “dirección” u “origen” de nuestro modulo, dinámicamente.</li><li>Muy probablemente nuestro módulo quede sin usarse (aunque este ya haya sido cargado), si no se produce el click tan esperado.</li></ul><p>Todo esto afecta el rendimiento de la aplicación que estemos desarrollando.</p><p>Con los <em>imports dinámicos, </em>nos despedimos de estos problemas:</p><figure class="kg-card kg-code-card"><pre><code class="language-javascript">const customPath = someExpression ? './somePath' : './anotherPath'
+
+const button = document.getElementById('button')
+
+button.addEventListener('click', async () =&gt; {
+    const myModule = await import(`${customPath}/myModule.js`)
+    myModule.doSomething()
+})</code></pre><figcaption>Importación dinámica de módulos implementada en ES11</figcaption></figure><p><strong>Import</strong> recibe el path donde se encuentra nuestro módulo y devuelve una promesa al terminar.</p><h2 id="n-meros-enteros-m-s-grandes-bigint-">Números Enteros más “grandes” (BigInt)</h2><p>Hasta ahora en JavaScript podíamos hacer cálculos matemáticos cuyos resultados no sean mayores a 2⁵³ — 1, es decir, hasta <strong>Number.MAX_SAFE_INTEGER.</strong></p><p>Les muestro un ejemplo sencillo de que pasa cuando nos sobrepasamos de este valor.</p><pre><code class="language-javascript">Number.MAX_SAFE_INTEGER
+// 9007199254740991
+Number.MAX_SAFE_INTEGER + 1
+// 9007199254740992
+Number.MAX_SAFE_INTEGER + 2
+// 9007199254740992
+Number.MAX_SAFE_INTEGER + 3
+// 9007199254740994</code></pre><p>Con este ejemplo sabemos que JavaScript, no es capaz de representar cálculos matemáticos que superen el valor de <strong>Number.MAX_SAFE_INTEGER.</strong></p><p>Para solventar este problema se ha añadido un nuevo tipo de dato numérico, llamado BigInt que como su nombre indica solo soporta números enteros.</p><p>La forma de utilizar este tipo de dato, es igual que <strong>Number </strong>o con la terminación “n” precedido del número.</p><pre><code class="language-javascript">BigInt(Number.MAX_SAFE_INTEGER)
+// 9007199254740991n
+BigInt(Number.MAX_SAFE_INTEGER) + BigInt(1)
+// 9007199254740992n
+BigInt(Number.MAX_SAFE_INTEGER) + BigInt(2)
+// 9007199254740993n
+BigInt(Number.MAX_SAFE_INTEGER) + BigInt(3)
+// 9007199254740994n
+
+BigInt(Number.MAX_SAFE_INTEGER) + 3n
+// 9007199254740994n
+9007199254740991n + 3n
+// 90071992547409914n</code></pre><blockquote>BigInt y Number, no son compatibles entre sí por lo que no podemos hacer operaciones entre ambos.</blockquote><h2 id="promise-allsettled-">Promise.allSettled()</h2><p>Este método para las promesas viene añadir una característica que le faltaba al <strong>Promise.all()</strong>, el cual era resolver todas las promesas que le pasábamos independientemente de que alguna sea rechazada.</p><p>Recordemos <strong>Promise.all() </strong>lo que hacía es devolver un array con las respuestas de todas nuestras promesas SIEMPRE Y CUANDO NO HAYA SIDO RECHAZADA NINGUNA, en tal caso devolvería el error de la promesa rechazada y perderíamos el valor de las promesas que si fueron exitosas.</p><figure class="kg-card kg-code-card"><pre><code class="language-javascript">var promise1 = Promise.resolve(3)
+var promise2 = new Promise((resolve, reject) =&gt; setTimeout(() =&gt; reject('Error from PromiseAll'), 1000))
+var promises = [promise1, promise2]
+
+Promise.all(promises)
+    .then(results =&gt; console.log(results))
+
+// Output: Uncaught (in promise) Error from PromiseAll</code></pre><figcaption>Respuesta del método all, cuando una promesa es rechazada o tuvo un error</figcaption></figure><figure class="kg-card kg-code-card"><pre><code class="language-javascript">var promise1 = Promise.resolve(3)
+var promise2 = new Promise((resolve, reject) =&gt; setTimeout(() =&gt; reject('Error from PromiseAllSettled'), 1000))
+var promises = [promise1, promise2]
+
+Promise.allSettled(promises)
+    .then(results =&gt; console.log(results))
+
+/* Output:
+
+[
+   {
+      status: 'fulfilled',
+      value: 3
+   },
+   {
+      status: 'rejected',
+      reason: 'Error from PromiseAllSettled'
+   }
+]
+
+*/</code></pre><figcaption>Respuesta del método allSettled, cuando una promesa es rechazada o tuvo un error</figcaption></figure><p>A diferencia de de <strong>Promise.all(), Promise.allSettled() </strong>devuelve un array de objetos.</p><figure class="kg-card kg-code-card"><pre><code class="language-javascript">var promise1 = Promise.resolve(3)
+var promise2 = new Promise((resolve, reject) =&gt; setTimeout(() =&gt; resolve('Promesa Exitosa'), 1000))
+var promises = [promise1, promise2]
+
+Promise.all(promises)
+    .then(results =&gt; console.log(results))
+
+// Output: [3, 'Promesa Exitosa']</code></pre><figcaption>Respuesta del método all, cuando todas las promesas fueron exitosas</figcaption></figure><figure class="kg-card kg-code-card"><pre><code class="language-javascript">var promise1 = Promise.resolve(3)
+var promise2 = new Promise((resolve, reject) =&gt; setTimeout(() =&gt; resolve('Promesa Exitosa'), 1000))
+var promises = [promise1, promise2]
+
+Promise.allSettled(promises)
+    .then(results =&gt; console.log(results))
+
+/* Output:
+
+[
+   {
+      status: fulfilled,
+      value: 3
+   },
+   {
+      status: 'fulfilled',
+      reason: 'Promesa Exitosa'
+   }
+]
+
+*/</code></pre><figcaption>Respuesta del método allSettled, cuando todas las promesas fueron exitosas</figcaption></figure><p>Entonces en resumen, <strong>Promise.allSettled() </strong>devuelve un array de objetos con los estados de todas las promesas (resueltas y rechazadas) y sus respectivos valores o errores (según sea el caso).</p><h2 id="-operador-de-fusi-n-nulo-nullish-coalescing-operator-"><strong>“Operador de fusión nulo” (Nullish Coalescing Operator)</strong></h2><p>En realidad no supe como traducir esto de una forma comprensible 😢</p><p>Este operador se denota con dos símbolos de interrogación cerrados <strong>??, </strong>su funcionamiento es similar al operador OR, salvo algunas cositas 😁</p><p>Me gustaría explicar estas cositas con ejemplos:</p><figure class="kg-card kg-code-card"><pre><code class="language-javascript">const video = {
+   title: 'My awasome video',
+   views: 0
+}
+
+const views = video.views || 'Views not available yet'
+// views: 'Views not available yet'</code></pre><figcaption>Evaluando la condición con el operador OR (||)</figcaption></figure><p>Si tenemos esta expresión, ¿Qué valor tendrá nuestra constante <strong>views</strong>?</p><p>Ya sabemos que nuestro video tiene 0 visitas 😥, pero queremos mostrar este valor en algún lado de la aplicación utilizando la constante <strong>views, </strong>lo que estaremos haciendo es mostrar ‘Views not available yet’ y no 0 precisamente porque el operador OR interpreta el cero como falso e inmediatamente se le asigna el valor por defecto.</p><p>Pero esto no está bueno, porque en realidad las views si las tenemos, en este caso es 0, de ser <em>null</em> o <em>undefined </em>si sería correcto asignar el valor por defecto.</p><figure class="kg-card kg-code-card"><pre><code class="language-javascript">const video = {
+   title: 'My awasome video',
+   views: 0
+}
+
+const views = video.views ?? 'Views not available yet'
+// views: 0</code></pre><figcaption>Evaluando la condición con el operador de fusión nulo (??)</figcaption></figure><p>En resumen (||) es similar a (??), con la única excepción de que último solo contempla valores <em>null</em> o <em>undefined</em> para evaluar la siguiente expresión.</p><h2 id="encadenamiento-opcional-optional-chaining-">Encadenamiento Opcional (Optional Chaining)</h2><p>Utilizando en el mismo ejemplo del video, que pasa si queremos obtener el nombre del autor a partir del siguiente código:</p><pre><code class="language-javascript">const video = {
+   title: 'My awasome video',
+   views: 0,
+   author: {
+      name: 'Diego'
+   }
+}
+
+const authorName = video.author.name || 'Unknown'
+// authorName: 'Diego'
+
+const video2 = {
+   title: 'My awasome video',
+   views: 0
+}
+
+const authorName2 = video2.author.name || 'Unknown'
+// Output: Uncaught TypeError: Cannot read property 'name' of undefined</code></pre><p>Como verán en <strong>authorName </strong>logramos obtener el nombre del autor del video sin problemas, pero en <strong>authorName2 </strong>obtenemos un error, esto se debe a que la propiedad <strong>author</strong> no existe en el objeto <strong>video2, </strong>debemos verificar si existe antes de intentar recuperarla, una de las formas que teníamos de hacer esto eran las siguientes:</p><figure class="kg-card kg-code-card"><pre><code class="language-javascript">const video = {
+   title: 'My awesome video',
+   views: 0
+}
+
+const authorName = (video.author || {}).name || 'Unknown'
+// authorName: 'Unknown'
+
+// OR
+
+const authorName = video.author &amp;&amp; video.author.name || 'Unknown'
+// authorName: 'Unknown'</code></pre><figcaption>Varias alternativas de acceder de manera segura al nombre del autor</figcaption></figure><p>Estas son solo alguna de las formas que tenemos para acceder a propiedades de objeto de manera segura, y las expresiones pueden llegar a ser mucho más extensas si tenemos muchos subniveles.</p><p>Para solucionar esto llegaron los “Encadenamientos Opcionales” denotados con el símbolo de interrogación cerrado (?) y ubicados antes de cada (.), usando este nuevo operador podemos simplificar nuestra expresión sin obtener errores, el ejemplo anterior quedaría de la siguiente forma:</p><pre><code class="language-javascript">const video = {
+   title: 'My awesome video',
+   views: 0
+}
+
+const authorName = video.author?.name || 'Unknown'
+// authorName: 'Unknown'</code></pre><p>Si alguna vez trabajaron con angular recordaran que esta característica estaba soportaba en el template de los componentes, pero no en nuestros archivos con typescript.</p><h2 id="globalthis"><strong>GlobalThis</strong></h2><p>Como sabemos JavaScript es un lenguaje multiplaforma, es muy versátil y nos permite platorma. Uno de los inconvenientes que teníamos era poder acceder al objeto “global” de nuestro entorno, y es que según en donde estemos ejecutando nuestro lenguaje la manera de acceder a este objeto global cambiaba.</p><p>Si quisiéramos obtener este objeto global independientemente del entorno, teníamos que realizar algo similar a esto:</p><pre><code class="language-javascript">const globalObject = () =&gt; {
+    if (typeof self !== 'undefined') { return self; } // Web Workers
+    if (typeof window !== 'undefined') { return self; } // Web Workers
+    if (typeof global !== 'undefined') { return self; } // Web Workers
+    throw new Error('can not find globalObject')
+}</code></pre><p>Ahora con el <strong>globalThis </strong>no hace falta, ya que podemos acceder desde cualquier entorno/plataforma con solo llamarlo 😀</p><h2 id="conclusi-n">Conclusión</h2><p>Estas son las novedades de esta versión más destacadas de esta versión, espero que las hayas entendido y a ¡¡disfrutarlas!!.</p> ]]>
             </content:encoded>
         </item>
         
