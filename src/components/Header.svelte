@@ -47,15 +47,6 @@
         text-decoration: none;
         font-weight: 300;
         font-size: 14px;
-        -webkit-box-shadow: 0 8px 30px rgba(0,0,0,.12);
-        -moz-box-shadow: 0 8px 30px rgba(0,0,0,.12);
-        box-shadow: 0 8px 30px rgba(0,0,0,.12);
-        transition: ease-in all .3s;
-    }
-    .Header a:hover {
-        -webkit-box-shadow: 0 8px 30px rgba(0,0,0,.2);
-        -moz-box-shadow: 0 8px 30px rgba(0,0,0,.2);
-        box-shadow: 0 8px 30px rgba(0,0,0,.2);
     }
     .Header a:active {
         transform: scale(.9);
@@ -66,33 +57,33 @@
     .Header .twitter {
         display: flex;
         align-items: center;
-        padding: 10px 15px;
+        /* padding: 10px 15px; */
         border-radius: 17px;
-        background: #1da1f2;
-        color: white;
+        /* background: #1da1f2;
+        color: white; */
+        color: black;
     }
     .Header .linkedin {
         display: flex;
         align-items: center;
-        padding: 10px 15px;
+        /* padding: 10px 15px; */
         border-radius: 17px;
-        background: #0077b5;
-        color: white;
+        /* background: #0077b5;
+        color: white; */
+        color: black;
     }
     .Header .github {
         display: flex;
         align-items: center;
-        padding: 10px 15px;
+        /* padding: 10px 15px; */
         border-radius: 17px;
-        background: #000000;
-        color: white;
+        /* background: #000000;
+        color: white; */
+        color: black;
     }
 
     @media screen and (max-width: 576px) {
         .Header a {
-            -webkit-box-shadow: none;
-            -moz-box-shadow: none;
-            box-shadow: none;
             color: black;
         }
         .Header span {
@@ -114,17 +105,17 @@
                 <ul>
                     <li>
                         <a class="twitter" href="https://twitter.com/dartilesm" target="_blank" rel="noreferrer" on:click={analyticsTracking('github')}>
-                            <span>Twitter</span><TwitterIcon  size="24" />
+                            <TwitterIcon  size="24" />
                         </a>
                     </li>
                     <li>
                         <a class="linkedin" href="https://www.linkedin.com/in/dartiles" target="_blank" rel="noreferrer" on:click={analyticsTracking('github')}>
-                            <span>LinkedIn</span><LinkedinIcon  size="24" />
+                            <LinkedinIcon  size="24" />
                         </a>
                     </li>
                     <li>
                         <a class="github" href="https://github.com/dartilesm" target="_blank" rel="noreferrer" on:click={analyticsTracking('github')}>
-                            <span>Github</span> <GithubIcon  size="24" />
+                             <GithubIcon  size="24" />
                         </a>
                     </li>
                 </ul>

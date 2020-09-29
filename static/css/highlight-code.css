@@ -21,6 +21,7 @@ pre[data-lang] {
   word-break: normal;
   word-wrap: normal;
   line-height: 1.5;
+  padding: .7em;
 
   -moz-tab-size: 4;
   -o-tab-size: 4;
@@ -34,7 +35,7 @@ pre[data-lang] {
 
 /* Code blocks */
 pre[data-lang] {
-  padding: 1em;
+  padding: 1em 1em 1.4em 1em;
   margin: 0.5em 0;
   overflow: inherit;
   border-radius: 0.3em;
@@ -44,6 +45,18 @@ pre[data-lang] {
 
 :not(figure) > pre {
   margin: 16px 40px 30px 40px !important;
+}
+code::-webkit-scrollbar {
+	width: 1px;
+	height: 5px;
+}
+
+code::-webkit-scrollbar-track {
+	background: black;
+}
+
+code::-webkit-scrollbar-thumb {
+	background: white;
 }
 
 pre[data-lang]::before {
@@ -80,19 +93,6 @@ pre[data-lang="html"]::before {
   padding: 0.1em;
   border-radius: 0.3em;
   white-space: normal;
-}
-
-code::-webkit-scrollbar {
-	width: 1px;
-	height: 5px;
-}
-
-code::-webkit-scrollbar-track {
-	background: black;
-}
-
-code::-webkit-scrollbar-thumb {
-	background: white;
 }
 
 .token.comment,
@@ -167,4 +167,15 @@ code::-webkit-scrollbar-thumb {
 
 .token.entity {
   cursor: help;
+}
+
+
+/* Media Queries */
+
+@media screen and (max-width: 577px) {
+	
+code::-webkit-scrollbar {
+	width: 2px;
+	height: 2px;
+}
 }
