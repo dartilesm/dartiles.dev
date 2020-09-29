@@ -11,7 +11,7 @@
     }
     .Header-container {
         display: grid;
-        grid-template-columns: minmax(auto, 1024px);
+        grid-template-columns: minmax(auto, 1200px);
         justify-content: center;
         align-items: center;
     }
