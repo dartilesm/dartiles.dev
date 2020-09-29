@@ -18,7 +18,7 @@
         justify-content: space-between;
     }
 
-    @media screen and (max-width: 576px) {
+    @media screen and (max-width: 992px) {
         .Main-container {
             display: block;
         }
