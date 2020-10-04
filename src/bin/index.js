@@ -94,7 +94,7 @@ const createRss = async data => {
 const createSitemap = async data => {
     const parseItems = await data.map(item => {
         return `<url>
-        <loc>${blogUrl}/${item.slug}</loc>
+        <loc>${blogUrl}/blog/${item.slug}</loc>
         <lastmod>${getSiteMapDate(item.createdAt)}</lastmod>
         <priority>0.8</priority>
      </url>`
