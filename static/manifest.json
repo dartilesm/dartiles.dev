@@ -2,7 +2,7 @@
 	"background_color": "#ffffff",
 	"theme_color": "#333333",
 	"name": "Blog de Diego Artiles",
-	"short_name": "blog.dartiles.live",
+	"short_name": "dartiles.live",
 	"display": "minimal-ui",
 	"start_url": "/",
 	"icons": [

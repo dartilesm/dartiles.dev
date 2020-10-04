@@ -18,7 +18,7 @@ const writeFile = async obj => {
 
 const blogTitle = 'Diego Artiles Blog'
 const blogDesc = 'Blog de Diego Artiles'
-const blogUrl = 'https://blog.dartiles.live'
+const blogUrl = 'https://dartiles.live'
 const blogCover = 'https://www.filepicker.io/api/file/vPMx0ySXm2L1l53rR77Q'
 const blogFavicon = 'favicon.png'
 

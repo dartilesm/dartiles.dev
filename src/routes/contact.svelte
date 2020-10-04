@@ -14,7 +14,7 @@
 	<meta name="og:site_name" content="Diego Artiles" />
 	<meta name="og:description" content="Blog de Diego Artiles" />
 	<meta name="og:image" content="https://www.filepicker.io/api/file/vPMx0ySXm2L1l53rR77Q" />
-	<meta name="og:url" content="https://blog.dartiles.live" />
+	<meta name="og:url" content="https://dartiles.live" />
 	<meta name="og:locale" content="es_ES">
 	<meta name="og:type" content="article">
 </svelte:head>

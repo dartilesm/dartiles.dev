@@ -14,7 +14,7 @@
             <![CDATA[Diego Artiles Blog]]>
         </title>
         <title>
-            https://blog.dartiles.live
+            https://dartiles.live
         </title>
     </image>
     <generator>
@@ -23,7 +23,7 @@
     <lastBuildDate>
         Mon, 28 Sep 2020 01:26:27 GMT
     </lastBuildDate>
-    <atom:link href="https://blog.dartiles.live/rss.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://dartiles.live/rss.xml" rel="self" type="application/rss+xml" />
     <ttl>68</ttl>
     
         <item>
@@ -31,7 +31,7 @@
                 <![CDATA[Novedades de EcmaScript 2020 o ES11]]>
             </title>
             <link>
-                https://blog.dartiles.live/blog/novedades-de-ecmascript-2020-o-es11
+                https://dartiles.live/blog/novedades-de-ecmascript-2020-o-es11
             </link>
             <description>
                 <![CDATA[ Descubre las nuevas características que trae esta nueva versión de nuestro lenguaje favorito Javascript ❤ ]]>
@@ -193,7 +193,7 @@ const authorName = video.author?.name || 'Unknown'
                 <![CDATA[Aprende más sobre los Frontend Developers]]>
             </title>
             <link>
-                https://blog.dartiles.live/blog/aprende-mas-sobre-los-frontend-developers
+                https://dartiles.live/blog/aprende-mas-sobre-los-frontend-developers
             </link>
             <description>
                 <![CDATA[ Descubre las diferencias entre Maquetadores y Desarrolladores Frontend 😁 ]]>
