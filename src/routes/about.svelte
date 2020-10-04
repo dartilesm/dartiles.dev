@@ -2,10 +2,10 @@
 	import { onMount } from 'svelte'
 	let viewportHeight = ''
 
-	onMount(async () => {
+	onMount(() => {
 		if (document.readyState === 'complete') viewportHeight = `${window.innerHeight}px`
 
-		document.addEventListener('readystatechange', async () => {
+		document.addEventListener('readystatechange', () => {
 			viewportHeight = document.readyState === 'complete' ?  `${window.innerHeight}px` : '100vh'
 		})
 	})

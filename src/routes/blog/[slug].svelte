@@ -15,26 +15,71 @@
 
 <script>
 	import { onMount } from 'svelte'
+	import { stores } from '@sapper/app'
 	import timeFormatter from '../../utils/timeFormater'
 	import readingTime from '../../utils/readingTime'
 	import highlightCode from '../../utils/highlightCode';
+	import Sidebar from '../../components/Sidebar.svelte';
 	export let post;
-
+	let allHeadingElements = []
+	let allHeadingTexts = []
+	let isStickySidebar = false
 	const init = () => {
 		highlightCode()
 		let d = document, s = d.createElement('script');
 		s.src = 'https://dartilesdev.disqus.com/embed.js';
 		s.setAttribute('data-timestamp', +new Date());
 		(d.head || d.body).appendChild(s);
+		allHeadingElements = Array.from(document.querySelector('.Post-content').querySelectorAll('h2'))
+		allHeadingTexts = allHeadingElements.map(element => ({
+			innerText: element.innerText,
+			element: element,
+			isActive: false
+		}))
 	}
 
-	onMount(async () => {
-		document.readyState === 'complete' ? await init() : 
-			document.addEventListener('readystatechange', async () => document.readyState === 'complete' && await init())
+	const checkScrollPosition = () => {
+		const navBar = document.querySelector('nav.Nav')
+		isStickySidebar = window.pageYOffset > navBar.offsetTop
+		for (const headingText of allHeadingTexts) {
+			const offsetYDistance = window.pageYOffset + headingText.element.getBoundingClientRect().top - window.scrollY
+			if (offsetYDistance > 0 && offsetYDistance < 100) {
+				allHeadingTexts.forEach(element => element.isActive = false)
+				headingText.isActive = true
+				break
+			}
+		}
+		allHeadingTexts = [...allHeadingTexts]
+	}
+
+	const onTemaryClick = item => {
+		const { element } = allHeadingTexts.find(element => element.innerText === item)
+		element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+	}
+
+	onMount(() => {
+		checkScrollPosition()
+		document.readyState === 'complete' ? init() : 
+			document.addEventListener('readystatechange', async () => document.readyState === 'complete' && init())
+		window.onscroll = () => checkScrollPosition()
+
+		stores().page.subscribe(() => {
+			allHeadingElements = Array.from(document.querySelector('.Post-content').querySelectorAll('h2'))
+			allHeadingTexts = allHeadingElements.map(element => ({
+				innerText: element.innerText,
+				element: element,
+				isActive: false
+			}))
+		})
 	})
 </script>
 
 <style>
+	.Post-container {
+		display: grid;
+		grid-gap: 20px;
+		grid-template-columns: minmax(200px, 2fr) 1fr;
+	}
 	.Post {
 		background-color: white;
 		border-left: 1px solid #e6e6e6;
@@ -63,6 +108,7 @@
 
 	.Post-content {
 		padding: 10px;
+		transition: all ease .5s;
 	}
 
 	h2 {
@@ -80,6 +126,12 @@
 	.Post-comments {
 		margin: 2em 0 0 0 0;
 		padding: 10px;
+	}
+
+	@media screen and (max-width: 992px) {
+		.Post-container {
+			grid-template-columns: minmax(200px, 2fr);
+		}
 	}
 </style>
 
@@ -104,21 +156,24 @@
 	<meta name="og:type" content="article">
 </svelte:head>
 
-<div class="Post">
-	<div class="Post-image" style="background-image: url({post.image})">
-		<div class="Post-title">
-			<h2>{post.title}</h2>
-			<p>
-				<time datatime="{post.createdTime}">📅 {timeFormatter(post.published_at)}</time>
-				<span>{readingTime(post.html)}</span>
-			</p>
+<div class="Post-container">
+	<div class="Post">
+		<div class="Post-image" style="background-image: url({post.image})">
+			<div class="Post-title">
+				<h2>{post.title}</h2>
+				<p>
+					<time datatime="{post.createdTime}">📅 {timeFormatter(post.published_at)}</time>
+					<span>{readingTime(post.html)}</span>
+				</p>
+			</div>
+		</div>
+		<div class="Post-content">
+			{@html post.html}
+		</div>
+		<div class="Post-comments">	
+			<div id="disqus_thread" />
 		</div>
 	</div>
-	<div class="Post-content">
-		{@html post.html}
-	</div>
-	<div class="Post-comments">	
-		<div id="disqus_thread" />
-	</div>
+	<Sidebar currentPost={post} temary={allHeadingTexts} onTemaryClick={onTemaryClick} isStickySidebar={isStickySidebar}></Sidebar>
 </div>
 

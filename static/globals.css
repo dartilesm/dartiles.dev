@@ -43,16 +43,19 @@ a {
   font-size: 2.5em;
   font-weight: 500;
   color: #0071ef;
+  scroll-margin: 10px;
 }
 .Post-content h2 {
   font-size: 2em;
   font-weight: 500;
   color: #0071ef;
+  scroll-margin: 10px;
 }
-.Post-content h2 {
+.Post-content h3 {
   font-size: 1.5em;
   font-weight: 500;
   color: #0271ef;
+  scroll-margin: 10px;
 }
 .Post-content img {
   width: 100%;
