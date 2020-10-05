@@ -111,18 +111,6 @@
 		transition: all ease .5s;
 	}
 
-	h2 {
-		font-size: 28px;
-		margin: 0;
-		padding: 0;
-	}
-
-	p {
-		font-size: 14px;
-		font-weight: 300;
-		margin: 0px;
-		padding: 0;
-	}
 	.Post-comments {
 		margin: 2em 0 0 0 0;
 		padding: 10px;
