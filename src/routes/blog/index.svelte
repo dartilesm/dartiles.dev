@@ -18,20 +18,20 @@
 </style>
 
 <svelte:head>
-	<title>Blog</title>
+	<title>Blog | Dartiles Dev</title>
 
-	<meta name="description" content="Blog de Diego Artiles">
+	<meta name="description" content="Blog de programación 👨‍💻 - Javascript, React, Svelte, Angular NodeJS y más ☕">
 
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="@dartilesm" />
 	<meta name="twitter:creator" content="@dartilesm" />
-	<meta name="twitter:title" content="Diego Artiles" />
-	<meta name="twitter:description" content="Blog de Diego Artiles" />
+	<meta name="twitter:title" content="Dartiles Dev" />
+	<meta name="twitter:description" content="Blog de programación 👨‍💻 - Javascript, React, Svelte, Angular NodeJS y más ☕" />
 	<meta name="twitter:image" content="https://www.filepicker.io/api/file/vPMx0ySXm2L1l53rR77Q" />
 	
-	<meta name="og:title" content="Diego Artiles" />
-	<meta name="og:site_name" content="Diego Artiles" />
-	<meta name="og:description" content="Blog de Diego Artiles" />
+	<meta name="og:title" content="Dartiles Dev" />
+	<meta name="og:site_name" content="Dartiles Dev" />
+	<meta name="og:description" content="Blog de programación 👨‍💻 - Javascript, React, Svelte, Angular NodeJS y más ☕" />
 	<meta name="og:image" content="https://www.filepicker.io/api/file/vPMx0ySXm2L1l53rR77Q" />
 	<meta name="og:url" content="https://dartiles.live" />
 	<meta name="og:locale" content="es_ES">

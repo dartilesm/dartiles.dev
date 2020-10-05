@@ -2,15 +2,15 @@
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
        <url>
           <loc>https://dartiles.live</loc>
-          <lastmod>2020-09-28T01:26:27.740Z</lastmod>
+          <lastmod>2020-10-05T02:26:44.752Z</lastmod>
           <priority>1.0</priority>
        </url>
        <url>
-        <loc>https://dartiles.live/novedades-de-ecmascript-2020-o-es11</loc>
+        <loc>https://dartiles.live/blog/novedades-de-ecmascript-2020-o-es11</loc>
         <lastmod>2020-09-19T23:49:23.000Z</lastmod>
         <priority>0.8</priority>
      </url><url>
-        <loc>https://dartiles.live/aprende-mas-sobre-los-frontend-developers</loc>
+        <loc>https://dartiles.live/blog/aprende-mas-sobre-los-frontend-developers</loc>
         <lastmod>2020-09-19T15:33:42.000Z</lastmod>
         <priority>0.8</priority>
      </url>
