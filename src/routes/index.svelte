@@ -38,7 +38,7 @@
 </style>
 
 <svelte:head>
-	<title>Dartiles Dev</title>
+	<title>Dartiles Dev | Blog de programación ☕💻</title>
 	<meta name="title" content="Dartiles Dev | Blog de programación ☕💻">
 	<meta name="description" content="Blog de programación 👨‍💻 - Javascript, React, Svelte, Angular NodeJS y más ☕">
 	<meta name="keywords" content="javascript, react, svelte, angular, nodejs, nestjs, tutoriales, cursos, express, firebase, heroku, vercel, jquery, html, css, bootstrap, material">
