@@ -34,6 +34,7 @@
     .Temary-list li {
         padding-left: 1.2em;
         transition: ease-in all .25s;
+        cursor: pointer;
     }
 
     .Temary-list li.active {
@@ -52,12 +53,12 @@
 </style>
 
 <div class="Sidebar-container">
-    <div class="Sidebar {isStickySidebar ? 'sticky' : ''}">
+    <div class="Sidebar" class:sticky={isStickySidebar}>
         <div class="Temary-container">
             <h2>Temario</h2>
             <ul class="Temary-list">
                 {#each temary as element}
-                <li class={element.isActive ? 'active' : ''} on:click={() => onTemaryClick(element.innerText)}>
+                <li class:active={element.isActive} on:click={() => onTemaryClick(element.innerText)}>
                     <span class="Temary-list-icon"><ChevronRightIcon class="Temary-list-icon" size="1.5x"/></span>
                     <p>{element.innerText}</p>
                 </li>

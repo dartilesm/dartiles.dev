@@ -21,7 +21,7 @@
         Svelte
     </generator>
     <lastBuildDate>
-        Mon, 28 Sep 2020 01:26:27 GMT
+        Mon, 05 Oct 2020 03:00:50 GMT
     </lastBuildDate>
     <atom:link href="https://blog.dartiles.live/rss.xml" rel="self" type="application/rss+xml" />
     <ttl>68</ttl>
@@ -47,7 +47,7 @@
             </pubDate>
             <media:content url="https://www.filepicker.io/api/file/vPMx0ySXm2L1l53rR77Q" medium="image" />
             <content:encoded>
-                <![CDATA[ <p>En este artículo me gustaría explicar un poco, todas las novedades ya disponibles en JavaScript.</p><p>Pero antes de empezar quisiera explicar algunas cosas:</p><h2 id="-qu-es-ecmascript"><strong>¿Qué es Ecmascript?</strong></h2><p>Ecmascript es el estándar definido en ECMA-262 para los lenguajes de <em>scripting de propósito general,</em> entre ellos se encuentra nuestro lenguaje favorito <em>JavaScript.</em></p><p>Esto es bastante confuso incluso hasta para mi, la forma más fácil que se me hace de entender esto, es ver a EcmaScript como si fuese la RAE (quien es la que establece las normativas para el idioma Español) de JavaScript.</p><p>Bueno, a continuación en este artículo quisiera compartir, las nuevas características presentadas en este estándar.</p><p>Ahora si, ¿Qué hay de nuevo en esta versión?</p><h2 id="importaciones-din-micas-dynamic-imports-">Importaciones Dinámicas (Dynamic Imports)</h2><p>Algo que pasaba mucho en JavaScript, es que no podíamos importar módulos según sean necesarios.</p><figure class="kg-card kg-code-card"><pre><code class="language-javascript">import * as myModule from './someModule.js/'
+                <![CDATA[ <p>En este artículo me gustaría explicar un poco, todas las novedades ya disponibles en JavaScript.</p><p>Pero antes de empezar quisiera explicar algunas cosas:</p><h2 id="-qu-es-ecmascript"><strong>¿Qué es Ecmascript?</strong></h2><p>Ecmascript es el estándar definido en ECMA-262 para los lenguajes de <em>scripting de propósito general,</em> entre ellos se encuentra nuestro lenguaje favorito <em>JavaScript.</em></p><p>Esto es bastante confuso incluso hasta para mi, la forma más fácil que se me hace de entender esto, es ver a EcmaScript como si fuese la RAE (quien es la que establece las normativas para el idioma Español) de JavaScript.</p><p>Bueno, a continuación en este artículo quisiera compartir, las nuevas características presentadas en este estándar.</p><p>Ahora si, ¿Qué hay de nuevo en esta versión?</p><h2 id="importaciones-din-micas-dynamic-imports-"><strong>Importaciones Dinámicas (Dynamic Imports)</strong></h2><p>Algo que pasaba mucho en JavaScript, es que no podíamos importar módulos según sean necesarios.</p><figure class="kg-card kg-code-card"><pre><code class="language-javascript">import * as myModule from './someModule.js/'
 // o 
 import { myModule } from './someModule.js/'
 
@@ -60,7 +60,7 @@ const button = document.getElementById('button')
 button.addEventListener('click', async () =&gt; {
     const myModule = await import(`${customPath}/myModule.js`)
     myModule.doSomething()
-})</code></pre><figcaption>Importación dinámica de módulos implementada en ES11</figcaption></figure><p><strong>Import</strong> recibe el path donde se encuentra nuestro módulo y devuelve una promesa al terminar.</p><h2 id="n-meros-enteros-m-s-grandes-bigint-">Números Enteros más “grandes” (BigInt)</h2><p>Hasta ahora en JavaScript podíamos hacer cálculos matemáticos cuyos resultados no sean mayores a 2⁵³ — 1, es decir, hasta <strong>Number.MAX_SAFE_INTEGER.</strong></p><p>Les muestro un ejemplo sencillo de que pasa cuando nos sobrepasamos de este valor.</p><pre><code class="language-javascript">Number.MAX_SAFE_INTEGER
+})</code></pre><figcaption>Importación dinámica de módulos implementada en ES11</figcaption></figure><p><strong>Import</strong> recibe el path donde se encuentra nuestro módulo y devuelve una promesa al terminar.</p><h2 id="n-meros-enteros-m-s-grandes-bigint-"><strong>Números Enteros más “grandes” (BigInt)</strong></h2><p>Hasta ahora en JavaScript podíamos hacer cálculos matemáticos cuyos resultados no sean mayores a 2⁵³ — 1, es decir, hasta <strong>Number.MAX_SAFE_INTEGER.</strong></p><p>Les muestro un ejemplo sencillo de que pasa cuando nos sobrepasamos de este valor.</p><pre><code class="language-javascript">Number.MAX_SAFE_INTEGER
 // 9007199254740991
 Number.MAX_SAFE_INTEGER + 1
 // 9007199254740992
@@ -79,7 +79,7 @@ BigInt(Number.MAX_SAFE_INTEGER) + BigInt(3)
 BigInt(Number.MAX_SAFE_INTEGER) + 3n
 // 9007199254740994n
 9007199254740991n + 3n
-// 90071992547409914n</code></pre><blockquote>BigInt y Number, no son compatibles entre sí por lo que no podemos hacer operaciones entre ambos.</blockquote><h2 id="promise-allsettled-">Promise.allSettled()</h2><p>Este método para las promesas viene añadir una característica que le faltaba al <strong>Promise.all()</strong>, el cual era resolver todas las promesas que le pasábamos independientemente de que alguna sea rechazada.</p><p>Recordemos <strong>Promise.all() </strong>lo que hacía es devolver un array con las respuestas de todas nuestras promesas SIEMPRE Y CUANDO NO HAYA SIDO RECHAZADA NINGUNA, en tal caso devolvería el error de la promesa rechazada y perderíamos el valor de las promesas que si fueron exitosas.</p><figure class="kg-card kg-code-card"><pre><code class="language-javascript">var promise1 = Promise.resolve(3)
+// 90071992547409914n</code></pre><blockquote>BigInt y Number, no son compatibles entre sí por lo que no podemos hacer operaciones entre ambos.</blockquote><h2 id="promise-allsettled-"><strong>Promise.allSettled()</strong></h2><p>Este método para las promesas viene añadir una característica que le faltaba al <strong>Promise.all()</strong>, el cual era resolver todas las promesas que le pasábamos independientemente de que alguna sea rechazada.</p><p>Recordemos <strong>Promise.all() </strong>lo que hacía es devolver un array con las respuestas de todas nuestras promesas SIEMPRE Y CUANDO NO HAYA SIDO RECHAZADA NINGUNA, en tal caso devolvería el error de la promesa rechazada y perderíamos el valor de las promesas que si fueron exitosas.</p><figure class="kg-card kg-code-card"><pre><code class="language-javascript">var promise1 = Promise.resolve(3)
 var promise2 = new Promise((resolve, reject) =&gt; setTimeout(() =&gt; reject('Error from PromiseAll'), 1000))
 var promises = [promise1, promise2]
 
@@ -145,7 +145,7 @@ const views = video.views || 'Views not available yet'
 }
 
 const views = video.views ?? 'Views not available yet'
-// views: 0</code></pre><figcaption>Evaluando la condición con el operador de fusión nulo (??)</figcaption></figure><p>En resumen (||) es similar a (??), con la única excepción de que último solo contempla valores <em>null</em> o <em>undefined</em> para evaluar la siguiente expresión.</p><h2 id="encadenamiento-opcional-optional-chaining-">Encadenamiento Opcional (Optional Chaining)</h2><p>Utilizando en el mismo ejemplo del video, que pasa si queremos obtener el nombre del autor a partir del siguiente código:</p><pre><code class="language-javascript">const video = {
+// views: 0</code></pre><figcaption>Evaluando la condición con el operador de fusión nulo (??)</figcaption></figure><p>En resumen (||) es similar a (??), con la única excepción de que último solo contempla valores <em>null</em> o <em>undefined</em> para evaluar la siguiente expresión.</p><h2 id="encadenamiento-opcional-optional-chaining-"><strong>Encadenamiento Opcional (Optional Chaining)</strong></h2><p>Utilizando en el mismo ejemplo del video, que pasa si queremos obtener el nombre del autor a partir del siguiente código:</p><pre><code class="language-javascript">const video = {
    title: 'My awasome video',
    views: 0,
    author: {
@@ -184,7 +184,7 @@ const authorName = video.author?.name || 'Unknown'
     if (typeof window !== 'undefined') { return self; } // Web Workers
     if (typeof global !== 'undefined') { return self; } // Web Workers
     throw new Error('can not find globalObject')
-}</code></pre><p>Ahora con el <strong>globalThis </strong>no hace falta, ya que podemos acceder desde cualquier entorno/plataforma con solo llamarlo 😀</p><h2 id="conclusi-n">Conclusión</h2><p>Estas son las novedades de esta versión más destacadas de esta versión, espero que las hayas entendido y a ¡¡disfrutarlas!!.</p> ]]>
+}</code></pre><p>Ahora con el <strong>globalThis </strong>no hace falta, ya que podemos acceder desde cualquier entorno/plataforma con solo llamarlo 😀</p><h2 id="conclusi-n"><strong>Conclusión</strong></h2><p>Estas son las novedades de esta versión más destacadas de esta versión, espero que las hayas entendido y a ¡¡disfrutarlas!!.</p> ]]>
             </content:encoded>
         </item>
         
