@@ -107,6 +107,11 @@ const createSitemap = async data => {
           <lastmod>${getSiteMapDate()}</lastmod>
           <priority>1.0</priority>
        </url>
+       <url>
+          <loc>${blogUrl}/about</loc>
+          <lastmod>${getSiteMapDate()}</lastmod>
+          <priority>0.9</priority>
+       </url>
        ${parseItems}
     </urlset>`
 
