@@ -36,22 +36,16 @@ const createRss = async data => {
             <link>
                 ${blogUrl}/blog/${item.slug}
             </link>
+            <guid>
+                ${blogUrl}/blog/${item.slug}
+            </guid>
             <description>
                 <![CDATA[ ${item.desc} ]]>
             </description>
-            <category>
-                <![CDATA[ ${item.tag} ]]>
-            </category>
-            <dc:creator>
-                <![CDATA[ ${blogTitle} ]]>
-            </dc:creator>
             <pubDate>
                 ${pubDate}
             </pubDate>
             <media:content url="${blogCover}" medium="image" />
-            <content:encoded>
-                <![CDATA[ ${item.html} ]]>
-            </content:encoded>
         </item>
         `
     }).join('')

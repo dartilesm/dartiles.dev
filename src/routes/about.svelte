@@ -25,11 +25,11 @@
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="@dartilesm" />
 	<meta name="twitter:creator" content="@dartilesm" />
-	<meta name="twitter:title" content="Dartiles Dev" />
+	<meta name="twitter:title" content="Acerca de mi" />
 	<meta name="twitter:description" content="Descubre más acerca de mi y mi experiencia 🤩" />
 	<meta name="twitter:image" content="https://www.filepicker.io/api/file/vPMx0ySXm2L1l53rR77Q" />
 	
-	<meta name="og:title" content="Dartiles Dev" />
+	<meta name="og:title" content="Acerca de mi" />
 	<meta name="og:site_name" content="Dartiles Dev" />
 	<meta name="og:description" content="Descubre más acerca de mi y mi experiencia 🤩" />
 	<meta name="og:image" content="https://www.filepicker.io/api/file/vPMx0ySXm2L1l53rR77Q" />

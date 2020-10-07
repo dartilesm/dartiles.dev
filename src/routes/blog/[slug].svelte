@@ -84,21 +84,21 @@
 </style>
 
 <svelte:head>
-	<title>{post.title} | Dartiles Dev</title>
+	<title>{post.meta_title || post.title} | Dartiles Dev</title>
 
-	<meta name="description" content="{post.desc}">
-	<meta name="keywords" content="javascript, react, svelte, angular, nodejs, nestjs, tutoriales, cursos, express, firebase, heroku, vercel, jquery, html, css, bootstrap, material">
-	
+	<meta name="description" content="{post.meta_description || post.excerpt}">
+	<link rel="canonical" href="https://dartiles.live/blog/{post.slug}">
+
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="@dartilesm" />
 	<meta name="twitter:creator" content="@dartilesm" />
-	<meta name="twitter:title" content="Blog de Diego Artiles" />
-	<meta name="twitter:description" content="{post.desc}" />
+	<meta name="twitter:title" content="{post.meta_title || post.title}" />
+	<meta name="twitter:description" content="{post.meta_description || post.excerpt}" />
 	<meta name="twitter:image" content="https://dartiles.live/{post.image}" />
 	
-	<meta name="og:title" content="Blog de Diego Artiles" />
-	<meta name="og:site_name" content="Blog de Diego Artiles" />
-	<meta name="og:description" content="{post.desc}" />
+	<meta name="og:title" content="{post.meta_title || post.title}" />
+	<meta name="og:site_name" content="dartiles.live" />
+	<meta name="og:description" content="{post.meta_description || post.excerpt}" />
 	<meta name="og:image" content="https://dartiles.live/{post.image}" />
 	<meta name="og:url" content="https://dartiles.live" />
 	<meta name="og:locale" content="es_ES">
