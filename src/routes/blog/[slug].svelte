@@ -15,26 +15,99 @@
 
 <script>
 	import { onMount } from 'svelte'
+	import { stores } from '@sapper/app'
 	import timeFormatter from '../../utils/timeFormater'
 	import readingTime from '../../utils/readingTime'
+	import { formatPostContent } from '../../utils/postHelper'
+	import initilizeDisqus from '../../utils/disqus'
 	import highlightCode from '../../utils/highlightCode';
+	import Sidebar from '../../components/Sidebar.svelte';
 	export let post;
+
+	let allHeadingContents = []
+	let allHeadingTexts = []
+	let isStickySidebar = false
+	let postContentElement
+	let observer
+
+	let windowWidth
+
+	const onResizeWindow = () => windowWidth > 992 && formatContentAndWatchElements()
+
+	const onObserveElements = entries => {
+		entries.forEach(entry => {
+			const currentElementIndex = allHeadingTexts.findIndex(heading => heading.element.id === entry.target.attributes['data-ref'].value)
+			if (entry.intersectionRatio > 0) {
+				allHeadingTexts[currentElementIndex].isActive = true
+			} else {
+				allHeadingTexts[currentElementIndex].isActive = false
+			}
+		})
+		allHeadingTexts = [...allHeadingTexts]
+	}
+
+	const formatContentAndWatchElements = (format) => {
+		if (format || !document.querySelector('.heading-content')) formatPostContent(postContentElement)
+		
+		observer = new IntersectionObserver(onObserveElements)
+
+		allHeadingContents = Array.from(document.querySelectorAll('.heading-content'))
+
+		allHeadingContents.forEach(element => observer.observe(element, { threshold: 1.0 }))
+
+		checkScrollPosition()
+	}
 
 	const init = () => {
 		highlightCode()
-		let d = document, s = d.createElement('script');
-		s.src = 'https://dartilesdev.disqus.com/embed.js';
-		s.setAttribute('data-timestamp', +new Date());
-		(d.head || d.body).appendChild(s);
+		initilizeDisqus()
+		allHeadingTexts = Array.from(postContentElement.querySelectorAll('h2')).map(element => ({
+			innerText: element.innerText,
+			element: element,
+			isActive: false
+		}))
+
+		if (windowWidth > 992) {
+			formatContentAndWatchElements(true)
+		}
+
 	}
 
-	onMount(async () => {
-		document.readyState === 'complete' ? await init() : 
-			document.addEventListener('readystatechange', async () => document.readyState === 'complete' && await init())
+	const checkScrollPosition = () => {
+		const navBar = document.querySelector('nav.Nav')
+		isStickySidebar = window.pageYOffset > navBar.offsetTop
+	}
+
+	const onTemaryClick = item => {
+		const { element } = allHeadingTexts.find(element => element.innerText === item)
+		element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+	}
+
+	onMount(() => {
+		document.readyState === 'complete' ? init() : 
+			document.addEventListener('readystatechange', async () => document.readyState === 'complete' && init())
+
+		stores().page.subscribe(() => {
+			allHeadingTexts = Array.from(postContentElement.querySelectorAll('h2')).map(element => ({
+				innerText: element.innerText,
+				element: element,
+				isActive: false
+			}))
+			if (observer) {				
+				observer.disconnect()
+				
+				windowWidth > 992 && formatContentAndWatchElements(true)
+			}
+		})
 	})
 </script>
 
 <style>
+	.Post-container {
+		display: grid;
+		grid-gap: 20px;
+		grid-template-columns: minmax(200px, 2fr) 1fr;
+	}
 	.Post {
 		background-color: white;
 		border-left: 1px solid #e6e6e6;
@@ -63,23 +136,18 @@
 
 	.Post-content {
 		padding: 10px;
+		transition: all ease .5s;
 	}
 
-	h2 {
-		font-size: 28px;
-		margin: 0;
-		padding: 0;
-	}
-
-	p {
-		font-size: 14px;
-		font-weight: 300;
-		margin: 0px;
-		padding: 0;
-	}
 	.Post-comments {
 		margin: 2em 0 0 0 0;
 		padding: 10px;
+	}
+
+	@media screen and (max-width: 992px) {
+		.Post-container {
+			grid-template-columns: minmax(200px, 2fr);
+		}
 	}
 </style>
 
@@ -105,21 +173,30 @@
 	<meta name="og:type" content="article">
 </svelte:head>
 
-<div class="Post">
-	<div class="Post-image" style="background-image: url({post.image})">
-		<div class="Post-title">
-			<h2>{post.title}</h2>
-			<p>
-				<time datatime="{post.createdTime}">📅 {timeFormatter(post.published_at)}</time>
-				<span>{readingTime(post.html)}</span>
-			</p>
+<svelte:window 
+	bind:innerWidth={windowWidth} 
+	on:scroll={checkScrollPosition} 
+	on:resize={onResizeWindow}
+/>
+
+<div class="Post-container">
+	<div class="Post">
+		<div class="Post-image" style="background-image: url({post.image})">
+			<div class="Post-title">
+				<h2>{post.title}</h2>
+				<p>
+					<time datatime="{post.createdTime}">📅 {timeFormatter(post.published_at)}</time>
+					<span>{readingTime(post.html)}</span>
+				</p>
+			</div>
+		</div>
+		<div class="Post-content" bind:this={postContentElement}>
+			{@html post.html}
+		</div>
+		<div class="Post-comments">	
+			<div id="disqus_thread" />
 		</div>
 	</div>
-	<div class="Post-content">
-		{@html post.html}
-	</div>
-	<div class="Post-comments">	
-		<div id="disqus_thread" />
-	</div>
+	<Sidebar currentPost={post} temary={allHeadingTexts} onTemaryClick={onTemaryClick} isStickySidebar={isStickySidebar}></Sidebar>
 </div>
 
