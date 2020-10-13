@@ -134,6 +134,14 @@
     	bottom: 0;
 	}
 
+	.Post-title h2 {
+		margin: 0
+	}
+	
+	.Post-title p {
+		margin: 0
+	}
+
 	.Post-content {
 		padding: 10px;
 		transition: all ease .5s;
