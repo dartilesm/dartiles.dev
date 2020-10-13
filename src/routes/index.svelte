@@ -14,7 +14,7 @@
 
 <style>
 	.Home {
-		margin: 2em 0;
+		padding: 2em 0;
 		min-height: calc(100vh - 251px);
 	}
 	.Posts {
@@ -29,12 +29,13 @@
 			grid-template-columns: 1fr; 
 		}
 	}
-	
-	@media screen and (max-width: 576px) {
+
+	@media screen and (max-width: 993px) {
 		.Home {
-			padding: 0 1em;
+			padding: 2em 1em;
 		}
     }
+
 </style>
 
 <svelte:head>

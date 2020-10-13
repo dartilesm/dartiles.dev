@@ -18,38 +18,64 @@
 	import { stores } from '@sapper/app'
 	import timeFormatter from '../../utils/timeFormater'
 	import readingTime from '../../utils/readingTime'
+	import { formatPostContent } from '../../utils/postHelper'
+	import initilizeDisqus from '../../utils/disqus'
 	import highlightCode from '../../utils/highlightCode';
 	import Sidebar from '../../components/Sidebar.svelte';
 	export let post;
-	let allHeadingElements = []
+
+	let allHeadingContents = []
 	let allHeadingTexts = []
 	let isStickySidebar = false
+	let postContentElement
+	let observer
+
+	let windowWidth
+
+	const onResizeWindow = () => windowWidth > 992 && formatContentAndWatchElements()
+
+	const onObserveElements = entries => {
+		entries.forEach(entry => {
+			const currentElementIndex = allHeadingTexts.findIndex(heading => heading.element.id === entry.target.attributes['data-ref'].value)
+			if (entry.intersectionRatio > 0) {
+				allHeadingTexts[currentElementIndex].isActive = true
+			} else {
+				allHeadingTexts[currentElementIndex].isActive = false
+			}
+		})
+		allHeadingTexts = [...allHeadingTexts]
+	}
+
+	const formatContentAndWatchElements = (format) => {
+		if (format || !document.querySelector('.heading-content')) formatPostContent(postContentElement)
+		
+		observer = new IntersectionObserver(onObserveElements)
+
+		allHeadingContents = Array.from(document.querySelectorAll('.heading-content'))
+
+		allHeadingContents.forEach(element => observer.observe(element, { threshold: 1.0 }))
+
+		checkScrollPosition()
+	}
+
 	const init = () => {
 		highlightCode()
-		let d = document, s = d.createElement('script');
-		s.src = 'https://dartilesdev.disqus.com/embed.js';
-		s.setAttribute('data-timestamp', +new Date());
-		(d.head || d.body).appendChild(s);
-		allHeadingElements = Array.from(document.querySelector('.Post-content').querySelectorAll('h2'))
-		allHeadingTexts = allHeadingElements.map(element => ({
+		initilizeDisqus()
+		allHeadingTexts = Array.from(postContentElement.querySelectorAll('h2')).map(element => ({
 			innerText: element.innerText,
 			element: element,
 			isActive: false
 		}))
+
+		if (windowWidth > 992) {
+			formatContentAndWatchElements(true)
+		}
+
 	}
 
 	const checkScrollPosition = () => {
 		const navBar = document.querySelector('nav.Nav')
 		isStickySidebar = window.pageYOffset > navBar.offsetTop
-		for (const headingText of allHeadingTexts) {
-			const offsetYDistance = window.pageYOffset + headingText.element.getBoundingClientRect().top - window.scrollY
-			if (offsetYDistance > 0 && offsetYDistance < 100) {
-				allHeadingTexts.forEach(element => element.isActive = false)
-				headingText.isActive = true
-				break
-			}
-		}
-		allHeadingTexts = [...allHeadingTexts]
 	}
 
 	const onTemaryClick = item => {
@@ -58,18 +84,20 @@
 	}
 
 	onMount(() => {
-		checkScrollPosition()
 		document.readyState === 'complete' ? init() : 
 			document.addEventListener('readystatechange', async () => document.readyState === 'complete' && init())
-		window.onscroll = () => checkScrollPosition()
 
 		stores().page.subscribe(() => {
-			allHeadingElements = Array.from(document.querySelector('.Post-content').querySelectorAll('h2'))
-			allHeadingTexts = allHeadingElements.map(element => ({
+			allHeadingTexts = Array.from(postContentElement.querySelectorAll('h2')).map(element => ({
 				innerText: element.innerText,
 				element: element,
 				isActive: false
 			}))
+			if (observer) {				
+				observer.disconnect()
+				
+				windowWidth > 992 && formatContentAndWatchElements(true)
+			}
 		})
 	})
 </script>
@@ -144,6 +172,12 @@
 	<meta name="og:type" content="article">
 </svelte:head>
 
+<svelte:window 
+	bind:innerWidth={windowWidth} 
+	on:scroll={checkScrollPosition} 
+	on:resize={onResizeWindow}
+/>
+
 <div class="Post-container">
 	<div class="Post">
 		<div class="Post-image" style="background-image: url({post.image})">
@@ -155,7 +189,7 @@
 				</p>
 			</div>
 		</div>
-		<div class="Post-content">
+		<div class="Post-content" bind:this={postContentElement}>
 			{@html post.html}
 		</div>
 		<div class="Post-comments">	

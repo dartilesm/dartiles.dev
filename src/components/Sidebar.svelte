@@ -33,19 +33,15 @@
 
     .Temary-list li {
         padding-left: 1.2em;
-        transition: ease-in all .25s;
         cursor: pointer;
+        border-left: 3px solid transparent;
     }
 
     .Temary-list li.active {
         color: #0271ef;
-        font-weight: 500;
-        font-size: 1.3rem;
-    }
-
-    .Temary-list li .Temary-list-icon {
-        position: absolute;
-        left: -8px;
+        font-weight: 400;
+        font-size: 1rem;
+        border-left: 3px solid #0271ef;
     }
     .Temary-list li p {
         margin: 0;
@@ -59,7 +55,7 @@
             <ul class="Temary-list">
                 {#each temary as element}
                 <li class:active={element.isActive} on:click={() => onTemaryClick(element.innerText)}>
-                    <span class="Temary-list-icon"><ChevronRightIcon class="Temary-list-icon" size="1.5x"/></span>
+                    <!-- <span class="Temary-list-icon"><ChevronRightIcon class="Temary-list-icon" size="1.5x"/></span> -->
                     <p>{element.innerText}</p>
                 </li>
                 {/each}
