@@ -14,7 +14,7 @@
 </script>
 
 <script>
-	import { onMount } from 'svelte'
+	import { onDestroy, onMount } from 'svelte'
 	import { stores } from '@sapper/app'
 	import timeFormatter from '../../utils/timeFormater'
 	import readingTime from '../../utils/readingTime'
@@ -31,6 +31,22 @@
 	let observer
 
 	let windowWidth
+
+
+	const unSubscribePageChanges = stores().page.subscribe(({params}) => {
+		if (postContentElement) {
+			allHeadingTexts = Array.from(postContentElement.querySelectorAll('h2')).map(element => ({
+				innerText: element.innerText,
+				element: element,
+				isActive: false
+			}))
+			if (observer) {				
+				observer.disconnect()
+				
+				windowWidth > 992 && formatContentAndWatchElements(true)
+			}
+		}
+	})
 
 	const onResizeWindow = () => windowWidth > 992 && formatContentAndWatchElements()
 
@@ -86,20 +102,9 @@
 	onMount(() => {
 		document.readyState === 'complete' ? init() : 
 			document.addEventListener('readystatechange', async () => document.readyState === 'complete' && init())
-
-		stores().page.subscribe(() => {
-			allHeadingTexts = Array.from(postContentElement.querySelectorAll('h2')).map(element => ({
-				innerText: element.innerText,
-				element: element,
-				isActive: false
-			}))
-			if (observer) {				
-				observer.disconnect()
-				
-				windowWidth > 992 && formatContentAndWatchElements(true)
-			}
-		})
 	})
+
+	onDestroy(unSubscribePageChanges)
 </script>
 
 <style>
