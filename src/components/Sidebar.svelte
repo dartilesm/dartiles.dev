@@ -34,13 +34,14 @@
     .Temary-list li {
         padding-left: 1.2em;
         cursor: pointer;
-        border-left: 3px solid transparent;
+        border-left: 3px solid #0000001f;
+        margin: 5px 0;
+        font-size: .9rem;
     }
 
     .Temary-list li.active {
         color: #0271ef;
         font-weight: 400;
-        font-size: 1rem;
         border-left: 3px solid #0271ef;
     }
     .Temary-list li p {
@@ -51,7 +52,7 @@
 <div class="Sidebar-container">
     <div class="Sidebar" class:sticky={isStickySidebar}>
         <div class="Temary-container">
-            <h2>Temario</h2>
+            <h3>Temario</h3>
             <ul class="Temary-list">
                 {#each temary as element}
                 <li class:active={element.isActive} on:click={() => onTemaryClick(element.innerText)}>
@@ -62,7 +63,7 @@
             </ul>
         </div>
         <div class="Post-container">
-            <h2>Otras publicaciones</h2>
+            <h3>Otras publicaciones</h3>
             {#each recommendedPosts as post}
                 <Post {post}/>
             {/each}

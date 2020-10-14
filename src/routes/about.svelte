@@ -33,7 +33,7 @@
 	<meta name="og:site_name" content="Dartiles Dev" />
 	<meta name="og:description" content="Descubre más acerca de mi y mi experiencia 🤩" />
 	<meta name="og:image" content="https://www.filepicker.io/api/file/vPMx0ySXm2L1l53rR77Q" />
-	<meta name="og:url" content="https://dartiles.live" />
+	<meta name="og:url" content="https://dartiles.dev" />
 	<meta name="og:locale" content="es_ES">
 	<meta name="og:type" content="article">
 </svelte:head>

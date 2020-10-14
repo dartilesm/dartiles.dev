@@ -30,10 +30,10 @@
 	<meta name="twitter:image" content="https://www.filepicker.io/api/file/vPMx0ySXm2L1l53rR77Q" />
 	
 	<meta name="og:title" content="Blog" />
-	<meta name="og:site_name" content="dartiles.live" />
+	<meta name="og:site_name" content="dartiles.dev" />
 	<meta name="og:description" content="Blog de programación 👨‍💻 - Javascript, React, Svelte, Angular NodeJS y más ☕" />
 	<meta name="og:image" content="https://www.filepicker.io/api/file/vPMx0ySXm2L1l53rR77Q" />
-	<meta name="og:url" content="https://dartiles.live" />
+	<meta name="og:url" content="https://dartiles.dev" />
 	<meta name="og:locale" content="es_ES">
 	<meta name="og:type" content="article">
 </svelte:head>
