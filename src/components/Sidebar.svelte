@@ -10,7 +10,7 @@
     let recommendedPosts = []
 
 
-    $: recommendedPosts = posts.filter(post => post.title !== currentPost.title).slice(0, 2)
+    $: recommendedPosts = posts.filter(post => post.title !== currentPost.title).slice(0, 1)
 </script>
 
 <style>

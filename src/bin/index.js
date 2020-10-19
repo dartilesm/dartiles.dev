@@ -47,7 +47,7 @@ const createRss = async (data) => {
             <pubDate>
                 ${pubDate}
             </pubDate>
-            <media:content url="${blogCover}" medium="image" />
+            <media:content url="${blogUrl}/${item.image}" medium="image" />
         </item>
         `;
     })
