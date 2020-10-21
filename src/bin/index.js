@@ -94,7 +94,6 @@ const createSitemap = async (data) => {
       return `<url>
         <loc>${blogUrl}/blog/${item.slug}</loc>
         <lastmod>${getSiteMapDate(item.createdAt)}</lastmod>
-        <priority>0.8</priority>
      </url>`;
     })
     .join("");
@@ -104,12 +103,10 @@ const createSitemap = async (data) => {
        <url>
           <loc>${blogUrl}</loc>
           <lastmod>${getSiteMapDate()}</lastmod>
-          <priority>1.0</priority>
        </url>
        <url>
           <loc>${blogUrl}/about</loc>
           <lastmod>${getSiteMapDate()}</lastmod>
-          <priority>0.9</priority>
        </url>
        ${parseItems}
     </urlset>`;
