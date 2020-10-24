@@ -14,21 +14,26 @@
 </script>
 
 <script>
-	import { onDestroy, onMount } from 'svelte'
-	import { stores } from '@sapper/app'
-	import timeFormatter from '../../utils/timeFormater'
-	import readingTime from '../../utils/readingTime'
-	import { formatPostContent } from '../../utils/postHelper'
-	import initilizeDisqus from '../../utils/disqus'
-	import highlightCode from '../../utils/highlightCode';
+	import { stores } from '@sapper/app';
+	import { onDestroy,onMount } from 'svelte';
 	import Sidebar from '../../components/Sidebar.svelte';
+	import SocialToolbox from '../../components/SocialToolbox.svelte';
+	import initilizeDisqus from '../../utils/disqus';
+	import highlightCode from '../../utils/highlightCode';
+	import { formatPostContent } from '../../utils/postHelper';
+	import readingTime from '../../utils/readingTime';
+	import timeFormatter from '../../utils/timeFormater';
+
+
 	export let post;
 
 	let allHeadingContents = []
 	let allHeadingTexts = []
 	let isStickySidebar = false
+	let isSocialToolBoxFloating = false
 	let postContentElement
 	let observer
+	let disqusElement
 
 	let windowWidth
 
@@ -92,6 +97,7 @@
 	const checkScrollPosition = () => {
 		const navBar = document.querySelector('nav.Nav')
 		isStickySidebar = window.pageYOffset > navBar.offsetTop
+		isSocialToolBoxFloating = isStickySidebar && (disqusElement.offsetTop - disqusElement.offsetHeight) > window.pageYOffset
 	}
 
 	const onTemaryClick = item => {
@@ -157,6 +163,36 @@
 		padding: 10px;
 	}
 
+	.Social-media-container {
+        background-color: white;
+        display: flex;
+        width: fit-content;
+        padding: 0;
+        border-radius: 10px;
+        -webkit-box-shadow: 0 8px 30px rgba(0,0,0,.12);
+        -moz-box-shadow: 0 8px 30px rgba(0,0,0,.12);
+        box-shadow: 0 8px 30px rgba(0,0,0,.12);
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: scale(0) translateX(-120%) translateY(100px);
+		transition: all ease .25s;
+		opacity: 0;
+    }
+
+    .Social-media-container:hover {
+        -webkit-box-shadow: 0 8px 30px rgba(0,0,0,.2);
+        -moz-box-shadow: 0 8px 30px rgba(0,0,0,.2);
+        box-shadow: 0 8px 30px rgba(0,0,0,.2);
+    }
+
+	.Social-media-container.isFloating {
+		opacity: 1;
+		height: auto;
+		width: auto;
+		transform: scale(1) translateX(-50%) translateY(0);
+	}
+
 	@media screen and (max-width: 992px) {
 		.Post-container {
 			grid-template-columns: minmax(200px, 2fr);
@@ -206,10 +242,18 @@
 		<div class="Post-content" bind:this={postContentElement}>
 			{@html post.html}
 		</div>
+		<div class="Social-media-container" class:isFloating={isSocialToolBoxFloating}>
+			<SocialToolbox 
+				commentsElement={disqusElement}
+				buttonText="Compartir"
+				text={post.meta_title || post.title}
+				postUrl="https://dartiles.dev/blog/{post.slug}"
+				twitterUsername="dartilesm"/>
+		</div>
 		<div class="Post-comments">	
-			<div id="disqus_thread" />
+			<div id="disqus_thread" bind:this={disqusElement} />
 		</div>
 	</div>
-	<Sidebar currentPost={post} temary={allHeadingTexts} onTemaryClick={onTemaryClick} isStickySidebar={isStickySidebar}></Sidebar>
+	<Sidebar currentPost={post} temary={allHeadingTexts} {onTemaryClick} {isStickySidebar} showTemary={windowWidth > 992}></Sidebar>
 </div>
 

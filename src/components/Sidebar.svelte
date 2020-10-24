@@ -7,6 +7,7 @@
     export let temary
     export let isStickySidebar
     export let onTemaryClick
+    export let showTemary
     let recommendedPosts = []
 
 
@@ -51,6 +52,7 @@
 
 <div class="Sidebar-container">
     <div class="Sidebar" class:sticky={isStickySidebar}>
+        {#if showTemary}
         <div class="Temary-container">
             <h3>Temario</h3>
             <ul class="Temary-list">
@@ -62,6 +64,7 @@
                 {/each}
             </ul>
         </div>
+        {/if}
         <div class="Post-container">
             <h3>Otras publicaciones</h3>
             {#each recommendedPosts as post}
