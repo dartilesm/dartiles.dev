@@ -1,5 +1,6 @@
 <script>
     import { TwitterIcon, MessageSquareIcon  } from 'svelte-feather-icons';
+	import { sendEventGA } from '../utils/analytics';
 
 	export let text;
 	export let postUrl;
@@ -19,6 +20,7 @@
 	$: href = `https://twitter.com/intent/tweet?${query}`;
 	
 	const shareViaTwitter = () => {
+		sendEventGA('social', 'social-toolbox', 'share-twitter-click')
 		const width = 600;
 		const height = 400;
 		const horizontalPosition = (screen.width - width) / 2;
@@ -28,7 +30,10 @@
 		window.open(href, '_blank', features);
 	}
 
-	const goToCommentArea = () => commentsElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+	const goToCommentArea = () => {
+		sendEventGA('social', 'social-toolbox', 'comment-click')
+		commentsElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+	}
 
 </script>
 

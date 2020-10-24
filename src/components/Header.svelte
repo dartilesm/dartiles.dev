@@ -1,5 +1,5 @@
 <script>
-    import analyticsTracking from '../utils/analytics';
+    import { sendEventGA } from '../utils/analytics';
     import { GithubIcon, TwitterIcon, LinkedinIcon } from 'svelte-feather-icons'
 </script>
 
@@ -104,17 +104,17 @@
             <div class="Header-social">
                 <ul>
                     <li>
-                        <a class="twitter" href="https://twitter.com/dartilesm" target="_blank" rel="noreferrer" on:click={analyticsTracking('github')}>
+                        <a class="twitter" href="https://twitter.com/intent/follow?screen_name=dartilesm" target="_blank" rel="noreferrer" on:click={sendEventGA('social', 'header', 'twitter-button')}>
                             <TwitterIcon  size="24" />
                         </a>
                     </li>
                     <li>
-                        <a class="linkedin" href="https://www.linkedin.com/in/dartiles" target="_blank" rel="noreferrer" on:click={analyticsTracking('github')}>
+                        <a class="linkedin" href="https://www.linkedin.com/in/dartiles" target="_blank" rel="noreferrer" on:click={sendEventGA('social', 'header', 'linkedin-button')}>
                             <LinkedinIcon  size="24" />
                         </a>
                     </li>
                     <li>
-                        <a class="github" href="https://github.com/dartilesm" target="_blank" rel="noreferrer" on:click={analyticsTracking('github')}>
+                        <a class="github" href="https://github.com/dartilesm" target="_blank" rel="noreferrer" on:click={sendEventGA('social', 'header', 'github-button')}>
                              <GithubIcon  size="24" />
                         </a>
                     </li>

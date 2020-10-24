@@ -18,6 +18,7 @@
 	import { onDestroy,onMount } from 'svelte';
 	import Sidebar from '../../components/Sidebar.svelte';
 	import SocialToolbox from '../../components/SocialToolbox.svelte';
+	import { sendEventGA } from '../../utils/analytics';
 	import initilizeDisqus from '../../utils/disqus';
 	import highlightCode from '../../utils/highlightCode';
 	import { formatPostContent } from '../../utils/postHelper';
@@ -103,6 +104,7 @@
 	const onTemaryClick = item => {
 		const { element } = allHeadingTexts.find(element => element.innerText === item)
 		element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+		sendEventGA('post', 'temary', 'item-click')
 	}
 
 	onMount(() => {

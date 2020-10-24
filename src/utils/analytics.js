@@ -1,9 +1,9 @@
-const analyticsTracking = (eventName) => {
-    if (typeof windows !== 'undefined') {
-        window.ga('send', 'event', 'social', 'click', eventName, {
-            nonInteraction: true
+export const sendEventGA = (event_category, event_label, value) => {
+    if (typeof window !== 'undefined' && gtag) {
+        gtag('event', 'social-links', {
+            event_category,
+            event_label,
+            value
         })
     }
 }
-
-export default analyticsTracking
