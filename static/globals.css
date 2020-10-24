@@ -40,7 +40,7 @@ a {
   font-weight: 300;
 }
 
-.Post-container .Post-content h2 {
+.Post-container .Post-content h2, .Post-container .Post-content h3 {
   color: #0271ef;
 }
 
@@ -55,7 +55,7 @@ a {
   scroll-margin: 10px;
 }
 .Post-content h3 {
-  font-size: 1.2em;
+  font-size: 1.4em;
   font-weight: 400;
   scroll-margin: 10px;
 }
