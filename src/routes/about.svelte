@@ -18,7 +18,7 @@
 </style>
 
 <svelte:head>
-	<title>Acerca de mi | Dartiles Dev</title>
+	<title>Acerca de mi</title>
 
 	<meta name="description" content="Descubre más acerca de mi y mi experiencia 🤩">
 

@@ -203,7 +203,7 @@
 </style>
 
 <svelte:head>
-	<title>{post.meta_title || post.title} | Dartiles Dev</title>
+	<title>{post.meta_title || post.title}</title>
 
 	<meta name="description" content="{post.meta_description || post.excerpt}">
 	<link rel="canonical" href="https://dartiles.dev/blog/{post.slug}">

@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>Contacto | Dartiles Dev</title>
+    <title>Contacto</title>
 
     <meta name="description" content="Blog de Diego Artiles">
 
