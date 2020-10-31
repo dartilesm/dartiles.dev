@@ -88,7 +88,7 @@
             </div>
             <div class="Post-tags"></div>
             <div class="Post-desc">
-                <p>{post.desc}</p>
+                <p>{post.meta_description || post.excerpt}</p>
             </div>
         </div>
     </div>

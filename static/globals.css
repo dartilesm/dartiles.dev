@@ -40,7 +40,7 @@ a {
   font-weight: 300;
 }
 
-.Post-container .Post-content h2, .Post-container .Post-content h3 {
+.Post-container .Post-content h2, .Post-container .Post-content h3, .Post-container .Post-content a {
   color: #0271ef;
 }
 

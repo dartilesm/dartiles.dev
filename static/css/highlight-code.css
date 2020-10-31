@@ -5,7 +5,6 @@ https://prismjs.com/download.html?themes#themes=prism-okaidia&languages=markup+c
  * Loosely based on Monokai textmate theme by http://www.monokai.nl/
  * @author ocodia
  */
-
 code[class*="language-"],
 pre[data-lang] {
   display: block;
@@ -75,6 +74,10 @@ pre[data-lang]::before {
   text-transform: uppercase;
 }
 
+pre[data-lang="jsx"]::before {
+  background-color: #3fcfff;
+  color: black;
+}
 pre[data-lang="javascript"]::before {
   background-color: #f7e428;
   color: black;
@@ -89,10 +92,12 @@ pre[data-lang="html"]::before {
 }
 
 /* Inline code */
-:not(pre) > code[class*="language-"] {
+:not(pre) > code {
   padding: 0.1em;
   border-radius: 0.3em;
   white-space: normal;
+  background: #eee;
+  padding: 4px 5px;
 }
 
 .token.comment,
