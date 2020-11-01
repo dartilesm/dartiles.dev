@@ -21,7 +21,7 @@
 		display: grid;
 		justify-content: space-between;
 		grid-gap: 15px;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr;
 	}
 
 	@media screen and (max-width: 768px) {
@@ -33,6 +33,9 @@
 	@media screen and (max-width: 993px) {
 		.Home {
 			padding: 2em 1em;
+		}
+		.Posts {
+			grid-template-columns: 1fr 1fr;
 		}
     }
 

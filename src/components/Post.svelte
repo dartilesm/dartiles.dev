@@ -2,7 +2,7 @@
     import { goto } from '@sapper/app';
     import readingTime from '../utils/readingTime';
     import timeFormatter from '../utils/timeFormater';
-
+    import { CalendarIcon, BookOpenIcon, TagIcon } from 'svelte-feather-icons'
 
     const navigateTo = path => {
         goto(path);
@@ -59,6 +59,26 @@
         margin-top: 5px;
         padding: 0;
     }
+    .Post-title p time, .Post-title p span, .Post-title span {
+        display: inline-flex;
+        align-items: center;
+    }
+    .Post-title span.tag {
+        background-color: #000;
+        padding: 3px 5px;
+        border-radius: 4px;
+        font-size: .6em;
+        color: white;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
+    .Post-title p span {
+        margin-left: 10px;
+    }
+    .Post-title p span, .Post-title p time {
+        font-weight: 500;
+        font-size: 1.1em;
+    }
     .Post-desc p {
         color: #333;
         font-size: 16px;
@@ -80,10 +100,19 @@
                 <h3>
                     {post.title}
                 </h3>
+                <span class="tag">
+                    <TagIcon size="14"/>
+                    &nbsp;&nbsp;{post.primary_tag.name}
+                </span>
                 <p>
-                    <time datetime={post.published_at}>📅 {timeFormatter(post.published_at)}</time>
-                    <span class="dot">.</span>
-                    <span>{readingTime(post.html)}</span>
+                    <time datetime={post.published_at}>
+                        <CalendarIcon size="20" />
+                        &nbsp;&nbsp;{timeFormatter(post.published_at)}
+                    </time>
+                    <span>
+                        <BookOpenIcon size="20" />
+                        &nbsp;&nbsp;{readingTime(post.html)}
+                    </span>
                 </p>
             </div>
             <div class="Post-tags"></div>

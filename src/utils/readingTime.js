@@ -3,7 +3,7 @@ const readingTime = text => {
     const numOfWords = text.split(/\s/g).length;
     const minutes = numOfWords / wordPerMinute;
     const readTime = Math.ceil(minutes)
-    return `📖 ${readTime} Min.`;
+    return `${readTime} Min`;
 }
 
 export default readingTime
