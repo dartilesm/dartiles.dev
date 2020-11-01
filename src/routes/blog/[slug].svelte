@@ -19,7 +19,7 @@
 	import Sidebar from '../../components/Sidebar.svelte';
 	import SocialToolbox from '../../components/SocialToolbox.svelte';
 	import { sendEventGA } from '../../utils/analytics';
-	import initilizeDisqus from '../../utils/disqus';
+	import disqus from '../../utils/disqus';
 	import highlightCode from '../../utils/highlightCode';
 	import { formatPostContent } from '../../utils/postHelper';
 	import readingTime from '../../utils/readingTime';
@@ -51,6 +51,7 @@
 				
 				windowWidth > 992 && formatContentAndWatchElements(true)
 			}
+			disqus.refresh()
 		}
 	})
 
@@ -82,7 +83,7 @@
 
 	const init = () => {
 		highlightCode()
-		initilizeDisqus()
+		disqus.init()
 		allHeadingTexts = Array.from(postContentElement.querySelectorAll('h2')).map(element => ({
 			innerText: element.innerText,
 			element: element,
