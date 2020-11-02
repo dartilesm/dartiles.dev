@@ -34,10 +34,13 @@
 		.Home {
 			padding: 2em 1em;
 		}
+	}
+	@media (min-width: 769px) and (max-width: 993px) {
 		.Posts {
 			grid-template-columns: 1fr 1fr;
 		}
-    }
+	}
+	
 
 </style>
 
