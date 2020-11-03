@@ -52,6 +52,7 @@
 				windowWidth > 992 && formatContentAndWatchElements(true)
 			}
 			disqus.refresh()
+			highlightCode()
 		}
 	})
 
