@@ -18,21 +18,21 @@
 </style>
 
 <svelte:head>
-	<title>Acerca de mi</title>
+	<title>Diego Artiles - Frontend Developer | Acerca de mi</title>
 
-	<meta name="description" content="Descubre más acerca de mi y mi experiencia 🤩">
+	<meta name="description" content="En esta sección te cuento un poco sobre mi carrera y mi experiencia">
 
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="@dartilesm" />
 	<meta name="twitter:creator" content="@dartilesm" />
-	<meta name="twitter:title" content="Acerca de mi" />
-	<meta name="twitter:description" content="Descubre más acerca de mi y mi experiencia 🤩" />
-	<meta name="twitter:image" content="https://dartiles.dev/media/main/main-image.jpg" />
+	<meta name="twitter:title" content="Diego Artiles - Frontend Developer | Acerca de mi" />
+	<meta name="twitter:description" content="En esta sección te cuento un poco sobre mi carrera y mi experiencia" />
+	<meta name="twitter:image" content="https://dartiles.dev/media/main/main-image.jpf" />
 	
-	<meta property="og:title" content="Acerca de mi" />
+	<meta property="og:title" content="Diego Artiles - Frontend Developer | Acerca de mi" />
 	<meta property="og:site_name" content="Dartiles Dev" />
-	<meta property="og:description" content="Descubre más acerca de mi y mi experiencia 🤩" />
-	<meta property="og:image" content="https://dartiles.dev/media/main/main-image.jpg" />
+	<meta property="og:description" content="En esta sección te cuento un poco sobre mi carrera y mi experiencia" />
+	<meta property="og:image" content="https://dartiles.dev/media/main/main-image.jpf" />
 	<meta property="og:url" content="https://dartiles.dev" />
 	<meta property="og:locale" content="es_ES">
 	<meta property="og:type" content="article">
