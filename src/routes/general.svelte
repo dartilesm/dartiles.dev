@@ -34,15 +34,15 @@
 	<meta name="twitter:creator" content="@dartilesm" />
 	<meta name="twitter:title" content="General" />
 	<meta name="twitter:description" content="Blog de programación 👨‍💻 - Javascript, React, Svelte, Angular NodeJS y más ☕" />
-	<meta name="twitter:image" content="https://www.filepicker.io/api/file/vPMx0ySXm2L1l53rR77Q" />
+	<meta name="twitter:image" content="https://dartiles.dev/media/main/main-image.jpf" />
 	
-	<meta name="og:title" content="General" />
-	<meta name="og:site_name" content="dartiles.dev" />
-	<meta name="og:description" content="Blog de programación 👨‍💻 - Javascript, React, Svelte, Angular NodeJS y más ☕" />
-	<meta name="og:image" content="https://www.filepicker.io/api/file/vPMx0ySXm2L1l53rR77Q" />
-	<meta name="og:url" content="https://dartiles.dev" />
-	<meta name="og:locale" content="es_ES">
-	<meta name="og:type" content="article">
+	<meta property="og:title" content="General" />
+	<meta property="og:site_name" content="dartiles.dev" />
+	<meta property="og:description" content="Blog de programación 👨‍💻 - Javascript, React, Svelte, Angular NodeJS y más ☕" />
+	<meta property="og:image" content="https://dartiles.dev/media/main/main-image.jpf" />
+	<meta property="og:url" content="https://dartiles.dev" />
+	<meta property="og:locale" content="es_ES">
+	<meta property="og:type" content="article">
 </svelte:head>
 
 <div class="General">

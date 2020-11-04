@@ -45,25 +45,28 @@
 </style>
 
 <svelte:head>
-	<title>Dartiles Dev | Blog de programación ☕💻</title>
-	<meta name="title" content="Dartiles Dev | Blog de programación ☕💻">
-	<meta name="description" content="Blog de programación 👨‍💻 - Javascript, React, Svelte, Angular NodeJS y más ☕">
-	<meta name="keywords" content="javascript, react, svelte, angular, nodejs, nestjs, tutoriales, cursos, express, firebase, heroku, vercel, jquery, html, css, bootstrap, material">
+	<!-- Primary Meta Tags -->
+	<title>📰 Dartiles Dev | 💡 Angular, React, Svelte, Javascript, Node y más </title>
+	<meta name="title" content="📰 Dartiles Dev | 💡 Angular, React, Svelte, Javascript, Node y más ">
+	<meta name="description" content="Refuerza tus conocimientos en todas las librerías y frameworks de Javascript, descubre trucos y consejos para ser un mejor programador frontend 💖">
+	<meta name="keywords" content="javascript, react, svelte, angular, nodejs, nestjs, tutoriales, hooks de react, trucos de svelte, react hooks, redux, jsx">
 
-	<meta name="twitter:card" content="summary_large_image" />
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://dartiles.dev/">
+	<meta property="og:title" content="📰 Dartiles Dev | 💡 Angular, React, Svelte, Javascript, Node y más ">
+	<meta property="og:description" content="Refuerza tus conocimientos en todas las librerías y frameworks de Javascript, descubre trucos y consejos para ser un mejor programador frontend 💖">
+	<meta property="og:image" content="https://dartiles.dev/media/main/main-image.jpf">
+	<meta property="og:locale" content="es_ES">
+
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@dartilesm" />
 	<meta name="twitter:creator" content="@dartilesm" />
-	<meta name="twitter:title" content="Dartiles Dev | Blog de programación ☕💻" />
-	<meta name="twitter:description" content="Blog de programación 👨‍💻 - Javascript, React, Svelte, Angular NodeJS y más ☕" />
-	<meta name="twitter:image" content="https://www.filepicker.io/api/file/vPMx0ySXm2L1l53rR77Q" />
-	
-	<meta name="og:title" content="Dartiles Dev | Blog de programación ☕💻" />
-	<meta name="og:site_name" content="dartiles.dev" />
-	<meta name="og:description" content="Blog de programación 👨‍💻 - Javascript, React, Svelte, Angular NodeJS y más ☕" />
-	<meta name="og:image" content="https://www.filepicker.io/api/file/vPMx0ySXm2L1l53rR77Q" />
-	<meta name="og:url" content="https://dartiles.dev" />
-	<meta name="og:locale" content="es_ES">
-	<meta name="og:type" content="website">
+	<meta name="twitter:url" content="https://dartiles.dev/">
+	<meta name="twitter:title" content="📰 Dartiles Dev | 💡 Angular, React, Svelte, Javascript, Node y más ">
+	<meta name="twitter:description" content="Refuerza tus conocimientos en todas las librerías y frameworks de Javascript, descubre trucos y consejos para ser un mejor programador frontend 💖">
+	<meta name="twitter:image" content="https://dartiles.dev/media/main/main-image.jpf">
 </svelte:head>
 
 <div class="Home">
