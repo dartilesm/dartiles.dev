@@ -20,7 +20,7 @@ const writeFile = async (obj) => {
 const blogTitle = "Diego Artiles Blog";
 const blogDesc = "Blog de Diego Artiles";
 const blogUrl = "https://dartiles.dev";
-const blogCover = "https://dartiles.dev/media/main/main-image.jpf";
+const blogCover = "https://dartiles.dev/media/main/main-image.jpg";
 const blogFavicon = "favicon.png";
 
 const getDate = (date) => (date ? new Date(date).toUTCString() : new Date().toUTCString());

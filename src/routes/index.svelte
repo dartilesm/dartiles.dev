@@ -56,7 +56,7 @@
 	<meta property="og:url" content="https://dartiles.dev/">
 	<meta property="og:title" content="📰 Dartiles Dev | 💡 Angular, React, Svelte, Javascript, Node y más ">
 	<meta property="og:description" content="Refuerza tus conocimientos en todas las librerías y frameworks de Javascript, descubre trucos y consejos para ser un mejor programador frontend 💖">
-	<meta property="og:image" content="https://dartiles.dev/media/main/main-image.jpf">
+	<meta property="og:image" content="https://dartiles.dev/media/main/main-image.jpg">
 	<meta property="og:locale" content="es_ES">
 
 	<!-- Twitter -->
@@ -66,7 +66,7 @@
 	<meta name="twitter:url" content="https://dartiles.dev/">
 	<meta name="twitter:title" content="📰 Dartiles Dev | 💡 Angular, React, Svelte, Javascript, Node y más ">
 	<meta name="twitter:description" content="Refuerza tus conocimientos en todas las librerías y frameworks de Javascript, descubre trucos y consejos para ser un mejor programador frontend 💖">
-	<meta name="twitter:image" content="https://dartiles.dev/media/main/main-image.jpf">
+	<meta name="twitter:image" content="https://dartiles.dev/media/main/main-image.jpg">
 </svelte:head>
 
 <div class="Home">

@@ -34,12 +34,12 @@
 	<meta name="twitter:creator" content="@dartilesm" />
 	<meta name="twitter:title" content="General" />
 	<meta name="twitter:description" content="Blog de programación 👨‍💻 - Javascript, React, Svelte, Angular NodeJS y más ☕" />
-	<meta name="twitter:image" content="https://dartiles.dev/media/main/main-image.jpf" />
+	<meta name="twitter:image" content="https://dartiles.dev/media/main/main-image.jpg" />
 	
 	<meta property="og:title" content="General" />
 	<meta property="og:site_name" content="dartiles.dev" />
 	<meta property="og:description" content="Blog de programación 👨‍💻 - Javascript, React, Svelte, Angular NodeJS y más ☕" />
-	<meta property="og:image" content="https://dartiles.dev/media/main/main-image.jpf" />
+	<meta property="og:image" content="https://dartiles.dev/media/main/main-image.jpg" />
 	<meta property="og:url" content="https://dartiles.dev" />
 	<meta property="og:locale" content="es_ES">
 	<meta property="og:type" content="article">
