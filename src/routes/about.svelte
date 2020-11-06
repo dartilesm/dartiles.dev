@@ -33,7 +33,7 @@
 	<meta property="og:site_name" content="Dartiles Dev" />
 	<meta property="og:description" content="En esta sección te cuento un poco sobre mi carrera y mi experiencia" />
 	<meta property="og:image" content="https://dartiles.dev/media/main/main-image.jpf" />
-	<meta property="og:url" content="https://dartiles.dev" />
+	<meta property="og:url" content="https://dartiles.dev/about" />
 	<meta property="og:locale" content="es_ES">
 	<meta property="og:type" content="article">
 </svelte:head>
