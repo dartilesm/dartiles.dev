@@ -231,7 +231,7 @@
 	<meta property="og:site_name" content="dartiles.dev" />
 	<meta property="og:description" content="{post.meta_description || post.excerpt}" />
 	<meta property="og:image" content="https://dartiles.dev/{post.image}" />
-	<meta property="og:url" content="https://dartiles.dev" />
+	<meta property="og:url" content="https://dartiles.dev/blog/{post.slug}" />
 	<meta property="og:locale" content="es_ES">
 	<meta property="og:type" content="article">
 </svelte:head>
