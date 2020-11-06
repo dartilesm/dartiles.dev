@@ -62,7 +62,38 @@ a {
 .Post-content img {
   width: 100%;
   height: auto;
+  cursor: pointer;
 }
+
+.Post-content img.opened {
+  position: fixed;
+  z-index: 100000;
+  max-height: 80vh;
+  width: auto;
+  max-width: 90%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  top: 50%;
+}
+.Post-content figure.opened {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background-color: #000000e0;
+  top: -16px;
+  left: -40px;
+}
+
+.Post-content figure.opened figcaption {
+  position: fixed;
+  bottom: 40px;
+  color: white;
+  padding: 0 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .Post-content ul {
   line-height: 1.5;
 }

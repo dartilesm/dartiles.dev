@@ -1,9 +1,8 @@
-export const sendEventGA = (event_category, event_label, value) => {
+export const sendEventGA = (event_name, event_category, event_label) => {
     if (typeof window !== 'undefined' && gtag) {
-        gtag('event', 'social-links', {
+        gtag('event', event_name, {
             event_category,
-            event_label,
-            value
+            event_label
         })
     }
 }

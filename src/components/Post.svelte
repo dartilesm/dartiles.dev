@@ -86,9 +86,6 @@
         margin: 0px;
         word-break: break-word;
     }
-    .dot {
-        font-weight: 700;
-    }
 </style>
 
 <div class="Post-item" on:click="{navigateTo(`blog/${post.slug}`)}">

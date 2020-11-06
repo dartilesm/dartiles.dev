@@ -21,6 +21,7 @@
 	import { sendEventGA } from '../../utils/analytics';
 	import disqus from '../../utils/disqus';
 	import highlightCode from '../../utils/highlightCode';
+	import toggleImage from '../../utils/openImage';
 	import { formatPostContent } from '../../utils/postHelper';
 	import readingTime from '../../utils/readingTime';
 	import timeFormatter from '../../utils/timeFormater';
@@ -107,6 +108,15 @@
 		const { element } = allHeadingTexts.find(element => element.innerText === item)
 		element.scrollIntoView({ behavior: 'smooth', block: 'start' })
 		sendEventGA('post', 'temary', 'item-click')
+	}
+
+	const postContentClick = event => {
+		if (event.srcElement.tagName === 'IMG') {
+			toggleImage(event.srcElement)
+		} else if (event.srcElement.querySelector('img.opened')) {
+			toggleImage(event.srcElement.querySelector('img.opened'))
+		}
+		
 	}
 
 	onMount(() => {
@@ -243,7 +253,7 @@
 				</p>
 			</div>
 		</div>
-		<div class="Post-content" bind:this={postContentElement}>
+		<div class="Post-content" bind:this={postContentElement} on:click={postContentClick}>
 			{@html post.html}
 		</div>
 		<div class="Social-media-container" class:isFloating={isSocialToolBoxFloating}>
