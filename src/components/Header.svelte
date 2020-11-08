@@ -26,6 +26,7 @@
         font-weight: 700;
         letter-spacing: 0.8px;
         cursor: pointer;
+        width: 150px;
     }
     .Header h1 span {
         display: block;

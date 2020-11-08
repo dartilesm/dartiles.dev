@@ -119,7 +119,7 @@ const fetchData = async () => {
   const data = await response.json();
   const posts = await data.posts.map((post) => {
     // Generate feature image
-    const postDir = `./static/media/${post.slug}`;
+    const postDir = `./static/media/blog/${post.slug}`;
     const coverImg = `${postDir}/${post.slug}.png`;
     !fs.existsSync(postDir) && fs.mkdirSync(postDir);
 
@@ -134,7 +134,7 @@ const fetchData = async () => {
         .replace(/[`~!@#$%^&*()_|+\-=?;:'",<>\{\}\[\]\\\/]/gi, "-");
       !fs.existsSync(`${postDir}/${fileName}`) &&
         request(url).pipe(fs.createWriteStream(`${postDir}/${fileName}`));
-      url = `./media/${post.slug}/${fileName}`;
+      url = `./media/blog/${post.slug}/${fileName}`;
       return url;
     });
 
@@ -146,7 +146,7 @@ const fetchData = async () => {
       createdAt: post.created_at,
       id: post.id,
       desc: post.excerpt,
-      image: `media/${post.slug}/${post.slug}.png`,
+      image: `media/blog/${post.slug}/${post.slug}.png`,
     };
   });
 

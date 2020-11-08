@@ -24,7 +24,7 @@
 	import toggleImage from '../../utils/openImage';
 	import { formatPostContent } from '../../utils/postHelper';
 	import readingTime from '../../utils/readingTime';
-	import timeFormatter from '../../utils/timeFormater';
+	import { timeFormatter } from '../../utils/dateHelper';
 
 
 	export let post;

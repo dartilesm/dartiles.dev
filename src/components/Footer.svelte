@@ -38,10 +38,12 @@
 <footer class="Footer">
     <div class="Footer-container">
         <div class="Footer-content">
-            <div class="Footer-svelte">Sitio desarrollado con Svelte
+            <div class="Footer-svelte">
+                <p>Sitio desarrollado con Svelte</p>
                 <img src="svelte.png" alt="Svelte">
             </div>
-            <div class="Footer-svelte">Sitio en construcción 
+            <div class="Footer-svelte">
+                <p>Sitio en construcción</p>
                 <ToolIcon size="24" />
             </div>
         </div>

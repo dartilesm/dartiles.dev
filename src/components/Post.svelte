@@ -1,14 +1,15 @@
 <script>
     import { goto } from '@sapper/app';
+    import Card from './Card.svelte'
     import readingTime from '../utils/readingTime';
-    import timeFormatter from '../utils/timeFormater';
+    import { timeFormatter } from '../utils/dateHelper';
     import { CalendarIcon, BookOpenIcon, TagIcon } from 'svelte-feather-icons'
-
-    const navigateTo = path => {
-        goto(path);
-    }
-
     export let post
+
+    const navigateTo = () => goto(`blog/${post.slug}`)
+
+
+
 </script>
 
 <style>
@@ -43,6 +44,11 @@
         justify-content: space-between;
         grid-gap: 5px;
         grid-template-columns: 1fr;
+    }
+
+    .Post-content h3 {
+        font-size: 1.1em;
+        color: black;
     }
     .Post-head {
         padding: 10px;
@@ -88,7 +94,7 @@
     }
 </style>
 
-<div class="Post-item" on:click="{navigateTo(`blog/${post.slug}`)}">
+<Card onClick="{navigateTo}">
     <div class="Post-content">
         <div class="Post-image" style="background-image: url({post.image})">
         </div>
@@ -118,4 +124,4 @@
             </div>
         </div>
     </div>
-</div>
+</Card>
