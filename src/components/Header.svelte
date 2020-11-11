@@ -110,12 +110,12 @@
                         </a>
                     </li>
                     <li>
-                        <a class="linkedin" href="https://www.linkedin.com/in/dartiles" target="_blank" rel="noreferrer" on:click={sendEventGA('social', 'header', 'linkedin-button')}>
+                        <a class="linkedin" href="https://www.linkedin.com/in/dartiles/" target="_blank" rel="noreferrer" on:click={sendEventGA('social', 'header', 'linkedin-button')}>
                             <LinkedinIcon  size="24" />
                         </a>
                     </li>
                     <li>
-                        <a class="github" href="https://github.com/dartilesm" target="_blank" rel="noreferrer" on:click={sendEventGA('social', 'header', 'github-button')}>
+                        <a class="github" href="https://github.com/dartilesm/" target="_blank" rel="noreferrer" on:click={sendEventGA('social', 'header', 'github-button')}>
                              <GithubIcon  size="24" />
                         </a>
                     </li>
