@@ -13,22 +13,6 @@
 </script>
 
 <style>
-    /* @import url('https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/atom-one-dark.min.css'); */
-    .Post-item {
-        color: #191a22;
-        position: relative;
-        cursor: pointer;
-        border-radius: 5px;
-        background-color: white;
-        -webkit-box-shadow: 0 8px 30px rgba(0,0,0,.12);
-        -moz-box-shadow: 0 8px 30px rgba(0,0,0,.12);
-        box-shadow: 0 8px 30px rgba(0,0,0,.12);
-    }
-    .Post-item:hover {
-        -webkit-box-shadow: 0 8px 30px rgba(0,0,0,.2);
-        -moz-box-shadow: 0 8px 30px rgba(0,0,0,.2);
-        box-shadow: 0 8px 30px rgba(0,0,0,.2);
-    }
     .Post-image {
         width: 100%;
         height: 200px;
@@ -105,7 +89,7 @@
                 </h3>
                 <span class="tag">
                     <TagIcon size="14"/>
-                    &nbsp;&nbsp;{post.primary_tag.name}
+                    &nbsp;&nbsp;{(post.primary_tag || {}).name}
                 </span>
                 <p>
                     <time datetime={post.published_at}>

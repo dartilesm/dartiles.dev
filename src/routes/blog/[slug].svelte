@@ -24,6 +24,7 @@
 	import toggleImage from '../../utils/openImage';
 	import { formatPostContent } from '../../utils/postHelper';
 	import readingTime from '../../utils/readingTime';
+	import { CalendarIcon, BookOpenIcon } from 'svelte-feather-icons'
 	import { timeFormatter } from '../../utils/dateHelper';
 
 
@@ -152,12 +153,16 @@
 	.Post-title {
 		position: absolute;
 		width: 100%;
-		background: linear-gradient(to bottom,rgba(0,0,0,0) 0%,rgba(0,0,0,.7) 100%);
+		background: linear-gradient(to bottom,rgb(0 0 0 / 0%) 0%,rgb(51 51 51 / 90%) 100%);
 		padding: 20px 10px 10px 10px;
 		color: white;
 		box-sizing: border-box;
     	bottom: 0;
 	}
+	.Post-title p time, .Post-title p span, .Post-title span {
+        display: inline-flex;
+        align-items: center;
+    }
 
 	.Post-title h2 {
 		margin: 0
@@ -248,9 +253,15 @@
 			<div class="Post-title">
 				<h2>{post.title}</h2>
 				<p>
-					<time datatime="{post.createdTime}">📅 {timeFormatter(post.published_at)}</time>
-					<span>{readingTime(post.html)}</span>
-				</p>
+                    <time datetime={post.published_at}>
+                        <CalendarIcon size="20" />
+                        &nbsp;&nbsp;{timeFormatter(post.published_at)}&nbsp;&nbsp;
+                    </time>
+                    <span>
+                        <BookOpenIcon size="20" />
+                        &nbsp;&nbsp;{readingTime(post.html)}
+                    </span>
+                </p>
 			</div>
 		</div>
 		<div class="Post-content" bind:this={postContentElement} on:click={postContentClick}>

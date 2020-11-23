@@ -3,9 +3,11 @@
   "description": "blog with svelte",
   "version": "0.0.1",
   "scripts": {
+    "predev": "node src/bin/index",
     "dev": "sapper dev",
     "build": "sapper build",
-    "export": "node src/bin/index.js && sapper export --entry blog",
+    "preexport": "node src/bin/index",
+    "export": "sapper export --entry blog",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open"

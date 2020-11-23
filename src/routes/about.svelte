@@ -170,7 +170,7 @@
 			</div>
 			<div class="profile-main-info-container">
 				<div>
-					<h1>Hola 👋, Soy Diego Artiles</h1>
+					<h1>Hola 👋, soy Diego Artiles</h1>
 					<h3>Frontend Developer</h3>
 					<br>
 					<div class="profile-info-container">
@@ -215,7 +215,7 @@
 	<Card>
 		<div class="inner-container">
 			<div class="inner-header">
-				<h2>Descripción</h2>
+				<h2>Acerca de Mi</h2>
 			</div>
 			<div class="inner-body">
 				<p>
