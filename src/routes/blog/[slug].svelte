@@ -153,8 +153,8 @@
 	.Post-title {
 		position: absolute;
 		width: 100%;
-		background: linear-gradient(to bottom,rgb(0 0 0 / 0%) 0%,rgb(51 51 51 / 90%) 100%);
-		padding: 20px 10px 10px 10px;
+		background-color: rgba(0, 0, 0, .75);
+    		padding: 10px;
 		color: white;
 		box-sizing: border-box;
     	bottom: 0;
@@ -251,7 +251,7 @@
 	<div class="Post">
 		<div class="Post-image" style="background-image: url({post.image})">
 			<div class="Post-title">
-				<h2>{post.title}</h2>
+				<h1>{post.title}</h1>
 				<p>
                     <time datetime={post.published_at}>
                         <CalendarIcon size="20" />
