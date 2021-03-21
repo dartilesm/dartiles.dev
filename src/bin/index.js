@@ -128,7 +128,7 @@ const fetchData = async () => {
       request(post.feature_image).pipe(fs.createWriteStream(coverImg));
       compressImages(postDir)
     // Generate internal post image
-    post.html = post.html.replace(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/g, (url) => {
+    post.html = post.html.replace(/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png|webp)/g, (url) => {
       const fileName = url
         .split("/images/")[1]
         .replace(/[`~!@#$%^&*()_|+\-=?;:'",<>\{\}\[\]\\\/]/gi, "-");
@@ -136,7 +136,7 @@ const fetchData = async () => {
         request(url).pipe(fs.createWriteStream(`${postDir}/${fileName}`));
       url = `./media/blog/${post.slug}/${fileName}`;
       return url;
-    });
+    }).replace(/src=\"([^\"]*)\"/gm, 'src="$1" loading="lazy"')
 
     return {
       ...post,
