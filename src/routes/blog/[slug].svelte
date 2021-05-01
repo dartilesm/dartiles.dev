@@ -35,8 +35,8 @@
 	let isStickySidebar = false
 	let isSocialToolBoxFloating = false
 	let postContentElement
-	let observer
 	let disqusElement
+	let observer
 
 	let windowWidth
 
