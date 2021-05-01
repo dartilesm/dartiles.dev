@@ -6,7 +6,7 @@ const compress_images = require("compress-images");
 dotenv.config();
 
 let postsObj = require("../routes/blog/_posts.json");
-const API = process.env.GHOST_API;
+const dartilesAPI = process.env.DARTILES_API;
 
 const writeFile = async (obj) => {
   const parseData = JSON.stringify(obj);
@@ -115,9 +115,9 @@ const createSitemap = async (data) => {
 };
 
 const fetchData = async () => {
-  const response = await fetch(API);
-  const data = await response.json();
-  const posts = await data.posts.map((post) => {
+  const data = await fetch(`${dartilesAPI}/posts`);
+  const { data: response } = await data.json()
+  const posts = await response.map((post) => {
     // Generate feature image
     const postDir = `./static/media/blog/${post.slug}`;
     const coverImg = `${postDir}/${post.slug}.png`;
