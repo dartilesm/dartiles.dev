@@ -24,7 +24,7 @@
 	import toggleImage from '../../utils/openImage';
 	import { formatPostContent } from '../../utils/postHelper';
 	import readingTime from '../../utils/readingTime';
-	import { CalendarIcon, BookOpenIcon } from 'svelte-feather-icons'
+	import { CalendarIcon, BookOpenIcon, UserIcon } from 'svelte-feather-icons'
 	import { timeFormatter } from '../../utils/dateHelper';
 
 
@@ -158,9 +158,15 @@
 					color: white;
 					box-sizing: border-box;
 					bottom: 0;
+					.post__title {
+						margin-bottom: 10px;
+					}
 					.post__details {
 						margin: 0;
-						.post__details-time, .post__details-reading-time {
+						display: flex;
+    					align-items: center;
+						flex-wrap: wrap;
+						.post__details-time, .post__details-reading-time, .post__details-author {
 							display: inline-flex;
 							align-items: center;
 						}
@@ -212,7 +218,12 @@
 		<div class="post__image" style="background-image: url({post.image})">
 			<div class="post__title-container">
 				<h1 class="post__title">{post.title}</h1>
-				<p class="post__details">
+				<div class="post__details">
+					<span class="post__details-author">
+                        <UserIcon size="20" />
+                        &nbsp;&nbsp;{post.primary_author?.name}
+                    </span>
+					&nbsp;&nbsp;•&nbsp;&nbsp;
                     <time class="post__details-time" datetime={post.published_at}>
                         <CalendarIcon size="20" />
                         &nbsp;&nbsp;{timeFormatter(post.published_at)}&nbsp;&nbsp;
@@ -221,7 +232,7 @@
                         <BookOpenIcon size="20" />
                         &nbsp;&nbsp;{readingTime(post.html)}
                     </span>
-                </p>
+				</div>
 			</div>
 		</div>
 		<div class="post__content" bind:this={postContentElement} on:click={postContentClick}>
