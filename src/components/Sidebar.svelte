@@ -26,6 +26,9 @@
             top: 15px;
         }
         .sidebar__temary-container {
+            .sidebar__title {
+                font-size: 1.17rem;
+            }
             .sidebar__temary-list {
                 list-style: none;
                 padding: 0;
@@ -55,7 +58,7 @@
     <div class="sidebar__container" class:sticky={isStickySidebar}>
         {#if showTemary}
             <div class="sidebar__temary-container">
-                <h3>Temario</h3>
+                <h3 class="sidebar__title">Temario</h3>
                 <ul class="sidebar__temary-list">
                     {#each temary as element}
                         <li class="sidebar__temary-item" class:active={element.isActive} on:click={() => onTemaryClick(element.innerText)}>
@@ -65,8 +68,8 @@
                 </ul>
             </div>
         {/if}
-        <div class="Post-container">
-            <h3>Otras publicaciones</h3>
+        <div class="post-container">
+            <h3 class="sidebar__title">Otras publicaciones</h3>
             {#each recommendedPosts as post}
                 <Post {post}/>
             {/each}
