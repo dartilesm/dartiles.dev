@@ -100,7 +100,7 @@
 	}
 
 	const checkScrollPosition = () => {
-		const navBar = document.querySelector('nav.Nav')
+		const navBar = document.querySelector('nav.nav')
 		isStickySidebar = window.pageYOffset > navBar.offsetTop
 		isSocialToolBoxFloating = isStickySidebar && (disqusElement.offsetTop - disqusElement.offsetHeight) > window.pageYOffset
 	}
@@ -128,93 +128,53 @@
 	onDestroy(unSubscribePageChanges)
 </script>
 
-<style>
-	.Post-container {
+<style lang="scss">
+	@import 'queries';
+	.post {
 		display: grid;
 		grid-gap: 20px;
 		grid-template-columns: minmax(200px, 2fr) 1fr;
-	}
-	.Post {
-		background-color: white;
-		border-left: 1px solid #e6e6e6;
-		border-right: 1px solid #e6e6e6;
-	}
-	.Post-image {
-		width: 100%;
-		height: 400px;
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
-		position: relative;
-		top: 0;
-		left: 0;
-	}
-
-	.Post-title {
-		position: absolute;
-		width: 100%;
-		background-color: rgba(0, 0, 0, .75);
-    		padding: 10px;
-		color: white;
-		box-sizing: border-box;
-    	bottom: 0;
-	}
-	.Post-title p time, .Post-title p span, .Post-title span {
-        display: inline-flex;
-        align-items: center;
-    }
-
-	.Post-title h2 {
-		margin: 0
-	}
-	
-	.Post-title p {
-		margin: 0
-	}
-
-	.Post-content {
-		padding: 10px;
-		transition: all ease .5s;
-	}
-
-	.Post-comments {
-		margin: 2em 0 0 0 0;
-		padding: 10px;
-	}
-
-	.Social-media-container {
-        background-color: white;
-        display: flex;
-        width: fit-content;
-        padding: 0;
-        border-radius: 10px;
-        -webkit-box-shadow: 0 8px 30px rgba(0,0,0,.12);
-        -moz-box-shadow: 0 8px 30px rgba(0,0,0,.12);
-        box-shadow: 0 8px 30px rgba(0,0,0,.12);
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: scale(0) translateX(-120%) translateY(100px);
-		transition: all ease .25s;
-		opacity: 0;
-    }
-
-    .Social-media-container:hover {
-        -webkit-box-shadow: 0 8px 30px rgba(0,0,0,.2);
-        -moz-box-shadow: 0 8px 30px rgba(0,0,0,.2);
-        box-shadow: 0 8px 30px rgba(0,0,0,.2);
-    }
-
-	.Social-media-container.isFloating {
-		opacity: 1;
-		height: auto;
-		width: auto;
-		transform: scale(1) translateX(-50%) translateY(0);
-	}
-
-	@media screen and (max-width: 992px) {
-		.Post-container {
+		@include for-size(medium) {
 			grid-template-columns: minmax(200px, 2fr);
+		}
+		.post__container {
+			background-color: white;
+			border-left: 1px solid #e6e6e6;
+			border-right: 1px solid #e6e6e6;
+			.post__image {
+				width: 100%;
+				height: 400px;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: center;
+				position: relative;
+				top: 0;
+				left: 0;
+				.post__title-container {
+					position: absolute;
+					width: 100%;
+					background-color: rgba(0, 0, 0, .75);
+					padding: 10px;
+					color: white;
+					box-sizing: border-box;
+					bottom: 0;
+					.post__details {
+						margin: 0;
+						.post__details-time, .post__details-reading-time {
+							display: inline-flex;
+							align-items: center;
+						}
+					}
+				}
+			}
+			.post__content {
+				padding: 10px;
+				transition: all ease .5s;
+			}
+			.post__comments {
+				margin: 2em 0 0 0 0;
+				padding: 10px;
+			}
 		}
 	}
 </style>
@@ -247,35 +207,35 @@
 	on:resize={onResizeWindow}
 />
 
-<div class="Post-container">
-	<div class="Post">
-		<div class="Post-image" style="background-image: url({post.image})">
-			<div class="Post-title">
-				<h1>{post.title}</h1>
-				<p>
-                    <time datetime={post.published_at}>
+<div class="post">
+	<div class="post__container">
+		<div class="post__image" style="background-image: url({post.image})">
+			<div class="post__title-container">
+				<h1 class="post__title">{post.title}</h1>
+				<p class="post__details">
+                    <time class="post__details-time" datetime={post.published_at}>
                         <CalendarIcon size="20" />
                         &nbsp;&nbsp;{timeFormatter(post.published_at)}&nbsp;&nbsp;
                     </time>
-                    <span>
+                    <span class="post__details-reading-time">
                         <BookOpenIcon size="20" />
                         &nbsp;&nbsp;{readingTime(post.html)}
                     </span>
                 </p>
 			</div>
 		</div>
-		<div class="Post-content" bind:this={postContentElement} on:click={postContentClick}>
+		<div class="post__content" bind:this={postContentElement} on:click={postContentClick}>
 			{@html post.html}
 		</div>
-		<div class="Social-media-container" class:isFloating={isSocialToolBoxFloating}>
-			<SocialToolbox 
-				commentsElement={disqusElement}
-				buttonText="Compartir"
-				text={post.meta_title || post.title}
-				postUrl="https://dartiles.dev/blog/{post.slug}"
-				twitterUsername="dartilesm"/>
-		</div>
-		<div class="Post-comments">	
+		<SocialToolbox 
+			commentsElement={disqusElement}
+			buttonText="Compartir"
+			text={post.meta_title || post.title}
+			postUrl="https://dartiles.dev/blog/{post.slug}"
+			twitterUsername="dartilesm"
+			isFloating={isSocialToolBoxFloating}
+		/>
+		<div class="post__comments">	
 			<div id="disqus_thread" bind:this={disqusElement} />
 		</div>
 	</div>

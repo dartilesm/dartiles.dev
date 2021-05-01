@@ -164,13 +164,7 @@ const compressImages = dir => {
     { png: { engine: "pngquant", command: ["--quality=90", "-o"] } },
     { svg: { engine: "svgo", command: "--multipass" } },
     { gif: { engine: "gif2webp", command: ["--colors", "64", "--use-col=web"] } },
-    function (error, completed, statistic) {
-      console.log("-------------");
-      console.log(error);
-      console.log(completed);
-      console.log(statistic);
-      console.log("-------------");
-    }
+    function (error, completed, statistic) {}
   );
 };
 
