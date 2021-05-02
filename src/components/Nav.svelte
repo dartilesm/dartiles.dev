@@ -7,7 +7,7 @@
 		border-bottom: 1px solid rgba(255,0,121,0.2);
 		font-weight: 300;
 		padding: 0 1em;
-		background-color: #fafbfc;
+		background-color: #fff;
 		color: #191a22;
 		.nav__container {
 			display: grid;

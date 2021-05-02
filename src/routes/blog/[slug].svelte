@@ -101,8 +101,8 @@
 
 	const checkScrollPosition = () => {
 		const navBar = document.querySelector('nav.nav')
-		isStickySidebar = window.pageYOffset > navBar.offsetTop
-		isSocialToolBoxFloating = isStickySidebar && (disqusElement.offsetTop - disqusElement.offsetHeight) > window.pageYOffset
+		isStickySidebar = window.pageYOffset > navBar?.offsetTop
+		isSocialToolBoxFloating = isStickySidebar && (disqusElement?.offsetTop - disqusElement?.offsetHeight) > window.pageYOffset
 	}
 
 	const onTemaryClick = item => {

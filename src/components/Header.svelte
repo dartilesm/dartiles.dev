@@ -1,34 +1,43 @@
 <script>
     import { sendEventGA } from '../utils/analytics';
     import { GithubIcon, TwitterIcon, LinkedinIcon } from 'svelte-feather-icons'
+    import { goto } from '@sapper/app';
+
+    
+    const goToHome = () => {
+        goto('.', {
+            replaceState: true
+        })
+    }
 </script>
 
 <style lang="scss">
     .header__container {
-        background-color: #fafbfc;
+        background-color: #fff;
         color: #191a22;
         padding: 1em;
         display: grid;
         grid-template-columns: minmax(auto, 1200px);
         justify-content: center;
         align-items: center;
+        border-bottom: 1px solid rgba(24, 28, 248, 0.2);
         .header__content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            .header__title {
-                color: #191a22;
-                font-size: 20px;
-                font-weight: 700;
-                letter-spacing: 0.8px;
-                cursor: pointer;
-                width: 150px;
-                .header__description {
-                    display: block;
-                    font-size: 13px;
-                    font-weight: 300;
-                    letter-spacing: normal;
-                    margin-top: 0.3em 0 0 0;
+            .header__logo-container {
+                display: inline-flex;
+                align-items: center;
+                .header__title {
+                    color: #000;
+                    font-size: 20px;
+                    font-weight: 900;
+                    letter-spacing: 0.8px;
+                    cursor: pointer;
+                    width: 150px;
+                    margin: 0 0 0 5px;
+                    font-family: 'Hammersmith One', sans-serif;
+                    text-shadow: 0 0 black;
                 }
             }
             .header__social-list {
@@ -56,11 +65,9 @@
 <header class="header">
     <div class="header__container">
         <div class="header__content">
-            <div class="header__logo">
-                <h1 class="header__title">
-                    Diego Artiles
-                    <span class="header__description">Frontend Developer</span>
-                </h1>
+            <div class="header__logo-container" on:click={goToHome}>
+                <img class="header__logo" src="logo.png" alt="logo" style="max-width: 35px"/>
+                <h1 class="header__title">Dartiles</h1>
             </div>
             <div class="header__social">
                 <ul class="header__social-list">

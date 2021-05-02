@@ -118,10 +118,12 @@
                         <BookOpenIcon size="20" />
                         &nbsp;&nbsp;{readingTime(post.html)}
                     </span>
-                    <span class="post-card__details-tag">
-                        <TagIcon size="13"/>
-                        &nbsp;&nbsp;{post.primary_tag?.name}
-                    </span>
+                    {#if post.primary_tag?.name}
+                        <span class="post-card__details-tag">
+                            <TagIcon size="13"/>
+                            &nbsp;&nbsp;{post.primary_tag?.name}
+                        </span>
+                    {/if}
                 </div>
             </div>
             <div class="post-card__description-container">
