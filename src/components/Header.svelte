@@ -1,14 +1,6 @@
 <script>
     import { sendEventGA } from '../utils/analytics';
-    import { GithubIcon, TwitterIcon, LinkedinIcon } from 'svelte-feather-icons'
-    import { goto } from '@sapper/app';
-
-    
-    const goToHome = () => {
-        goto('.', {
-            replaceState: true
-        })
-    }
+    import { GithubIcon, TwitterIcon, LinkedinIcon } from 'svelte-feather-icons';
 </script>
 
 <style lang="scss">
@@ -28,6 +20,7 @@
             .header__logo-container {
                 display: inline-flex;
                 align-items: center;
+                text-decoration: none;
                 .header__title {
                     color: #000;
                     font-size: 20px;
@@ -65,10 +58,10 @@
 <header class="header">
     <div class="header__container">
         <div class="header__content">
-            <div class="header__logo-container" on:click={goToHome}>
+            <a href="." rel="prefetch" class="header__logo-container">
                 <img class="header__logo" src="logo.png" alt="logo" style="max-width: 35px"/>
                 <h1 class="header__title">Dartiles</h1>
-            </div>
+            </a>
             <div class="header__social">
                 <ul class="header__social-list">
                     <li class="header__social-item">
