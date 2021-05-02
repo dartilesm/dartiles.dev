@@ -221,7 +221,7 @@
 				<div class="post__details">
 					<span class="post__details-author">
                         <UserIcon size="20" />
-                        &nbsp;&nbsp;{(post.primary_author || {}).name}
+                        &nbsp;&nbsp;{post.primary_author?.name}
                     </span>
 					&nbsp;&nbsp;•&nbsp;&nbsp;
                     <time class="post__details-time" datetime={post.published_at}>

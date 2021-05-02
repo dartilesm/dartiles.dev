@@ -62,7 +62,7 @@
       width: 100%;
     }
     .about-card__description-footer {
-      .about-card__description-footer-text-link {
+      .about-card__description-footer-link {
         color: #0271ef;
         text-decoration: none;
       }

@@ -107,7 +107,7 @@
                     {post.title}
                 </h3>
                 <span class="post-card__author">
-                    por <span class="post-card__author-bold">{(post.primary_author || {}).name}</span>
+                    por <span class="post-card__author-bold">{post.primary_author?.name}</span>
                 </span>
                 <div class="post-card__details">
                     <time  class="post-card__details-time" datetime={post.published_at}>
@@ -120,7 +120,7 @@
                     </span>
                     <span class="post-card__details-tag">
                         <TagIcon size="13"/>
-                        &nbsp;&nbsp;{(post.primary_tag || {}).name}
+                        &nbsp;&nbsp;{post.primary_tag?.name}
                     </span>
                 </div>
             </div>

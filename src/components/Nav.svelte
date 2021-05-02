@@ -41,12 +41,12 @@
 							&::hover {
 								color: rgba(25, 26, 34, 1);
 							}
-							&[aria-current] {
+							&.current {
 								position: relative;
 								display: inline-block;
 							}
 
-							&[aria-current]::after {
+							&.current::after {
 								position: absolute;
 								content: '';
 								width: 100%;
@@ -70,10 +70,10 @@
 			<div class="nav__social">
 				<ul class="nav__list">
 					<li class="nav__item">
-						<a class="nav__item-link" rel=prefetch aria-current="{segment === undefined ? 'page' : undefined}" href=".">Inicio</a>
+						<a class="nav__item-link" rel=prefetch class:current={segment === undefined} href=".">Inicio</a>
 					</li>
 					<li class="nav__item">
-						<a class="nav__item-link" rel=prefetch aria-current="{segment === 'about' ? 'page' : undefined}" href="about">Acerca de mi</a>
+						<a class="nav__item-link" rel=prefetch class:current={segment === 'about'} href="about">Acerca de mi</a>
 					</li>
 				</ul>
 			</div>
