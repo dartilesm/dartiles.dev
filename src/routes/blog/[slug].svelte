@@ -100,8 +100,8 @@
 	}
 
 	const checkScrollPosition = () => {
-		const navBar = document.querySelector('nav.nav')
-		isStickySidebar = window.pageYOffset > navBar?.offsetTop
+		const header = document.querySelector('header.header')
+		isStickySidebar = window.pageYOffset > header?.offsetTop
 		isSocialToolBoxFloating = isStickySidebar && (disqusElement?.offsetTop - disqusElement?.offsetHeight) > window.pageYOffset
 	}
 
