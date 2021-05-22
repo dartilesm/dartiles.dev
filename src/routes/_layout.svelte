@@ -9,4 +9,3 @@
 <Main>
 	<slot></slot>
 </Main>
-<Footer />

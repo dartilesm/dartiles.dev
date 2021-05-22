@@ -1,10 +1,8 @@
 <script context="module">
-	export async function preload({ params, query }) {
-		// the `slug` parameter is available because
-		// this file is called [slug].svelte
+	export async function preload({ params }) {
 		const res = await this.fetch(`blog/${params.slug}.json`);
 		const data = await res.json();
-
+		
 		if (res.status === 200) {
 			return { post: data };
 		} else {
@@ -39,9 +37,28 @@
 	let observer
 
 	let windowWidth
+	
+	const init = () => {
+		highlightCode()
+		disqus.init()
+		allHeadingTexts = Array.from(postContentElement.querySelectorAll('h2')).map(element => ({
+			innerText: element.innerText,
+			element: element,
+			isActive: false
+		}))
 
+		if (windowWidth > 992) {
+			formatContentAndWatchElements(true)
+		}
 
-	const unSubscribePageChanges = stores().page.subscribe(({params}) => {
+	}
+
+	onMount(() => {
+		document.readyState === 'complete' ? init() : 
+			document.addEventListener('readystatechange', async () => document.readyState === 'complete' && init())
+	})
+
+	const watchPagesChanges = stores().page.subscribe(() => {
 		if (postContentElement) {
 			allHeadingTexts = Array.from(postContentElement.querySelectorAll('h2')).map(element => ({
 				innerText: element.innerText,
@@ -58,16 +75,16 @@
 		}
 	})
 
+	onDestroy(() => {
+		watchPagesChanges()
+	})
+
 	const onResizeWindow = () => windowWidth > 992 && formatContentAndWatchElements()
 
 	const onObserveElements = entries => {
 		entries.forEach(entry => {
 			const currentElementIndex = allHeadingTexts.findIndex(heading => heading.element.id === entry.target.attributes['data-ref'].value)
-			if (entry.intersectionRatio > 0) {
-				allHeadingTexts[currentElementIndex].isActive = true
-			} else {
-				allHeadingTexts[currentElementIndex].isActive = false
-			}
+			allHeadingTexts[currentElementIndex].isActive = entry.intersectionRatio > 0
 		})
 		allHeadingTexts = [...allHeadingTexts]
 	}
@@ -82,21 +99,6 @@
 		allHeadingContents.forEach(element => observer.observe(element, { threshold: 1.0 }))
 
 		checkScrollPosition()
-	}
-
-	const init = () => {
-		highlightCode()
-		disqus.init()
-		allHeadingTexts = Array.from(postContentElement.querySelectorAll('h2')).map(element => ({
-			innerText: element.innerText,
-			element: element,
-			isActive: false
-		}))
-
-		if (windowWidth > 992) {
-			formatContentAndWatchElements(true)
-		}
-
 	}
 
 	const checkScrollPosition = () => {
@@ -120,12 +122,6 @@
 		
 	}
 
-	onMount(() => {
-		document.readyState === 'complete' ? init() : 
-			document.addEventListener('readystatechange', async () => document.readyState === 'complete' && init())
-	})
-
-	onDestroy(unSubscribePageChanges)
 </script>
 
 <style lang="scss">
@@ -240,10 +236,10 @@
 		</div>
 		<SocialToolbox 
 			commentsElement={disqusElement}
-			buttonText="Compartir"
 			text={post.meta_title || post.title}
 			postUrl="https://dartiles.dev/blog/{post.slug}"
 			twitterUsername="dartilesm"
+			hashtags={post.primary_tag.slug}
 			isFloating={isSocialToolBoxFloating}
 		/>
 		<div class="post__comments">	
