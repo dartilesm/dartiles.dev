@@ -8,7 +8,7 @@
 </script>
 
 <script>
-	import Post from '../components/Post.svelte'
+	import Post from '../components/Post/PostItem.svelte'
 	export let posts;
 </script>
 

@@ -1,6 +1,6 @@
 <script>
     import posts from '../routes/blog/_posts.js';
-    import Post from './Post.svelte';
+    import Post from './Post/PostItem.svelte';
 
 
     export let currentPost

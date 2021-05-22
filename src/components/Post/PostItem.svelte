@@ -1,9 +1,10 @@
 <script>
     import { goto } from '@sapper/app';
-    import Card from './Card.svelte'
-    import readingTime from '../utils/readingTime';
-    import { timeFormatter } from '../utils/dateHelper';
-    import { CalendarIcon, BookOpenIcon, TagIcon, UserIcon } from 'svelte-feather-icons'
+    import { BookOpenIcon,CalendarIcon,TagIcon } from 'svelte-feather-icons';
+    import readingTime from '../../utils/readingTime';
+    import { timeFormatter } from '../../utils/dateHelper';
+    import Card from '../Card.svelte';
+
     export let post
 
     const navigateTo = () => goto(`blog/${post.slug}`)

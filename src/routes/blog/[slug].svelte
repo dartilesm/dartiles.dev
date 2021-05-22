@@ -13,17 +13,18 @@
 
 <script>
 	import { stores } from '@sapper/app';
-	import { onDestroy,onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
+	import { BookOpenIcon,CalendarIcon,UserIcon } from 'svelte-feather-icons';
 	import Sidebar from '../../components/Sidebar.svelte';
 	import SocialToolbox from '../../components/SocialToolbox.svelte';
 	import { sendEventGA } from '../../utils/analytics';
+	import { timeFormatter } from '../../utils/dateHelper';
 	import disqus from '../../utils/disqus';
 	import highlightCode from '../../utils/highlightCode';
 	import toggleImage from '../../utils/openImage';
 	import { formatPostContent } from '../../utils/postHelper';
 	import readingTime from '../../utils/readingTime';
-	import { CalendarIcon, BookOpenIcon, UserIcon } from 'svelte-feather-icons'
-	import { timeFormatter } from '../../utils/dateHelper';
+
 
 
 	export let post;
@@ -75,16 +76,16 @@
 		}
 	})
 
-	onDestroy(() => {
-		watchPagesChanges()
-	})
+	onDestroy(() => { watchPagesChanges })
 
 	const onResizeWindow = () => windowWidth > 992 && formatContentAndWatchElements()
 
 	const onObserveElements = entries => {
 		entries.forEach(entry => {
-			const currentElementIndex = allHeadingTexts.findIndex(heading => heading.element.id === entry.target.attributes['data-ref'].value)
-			allHeadingTexts[currentElementIndex].isActive = entry.intersectionRatio > 0
+			const currentElementIndex = allHeadingTexts.findIndex(heading => heading.element.id === entry.target.attributes['data-ref']?.value)
+			if (allHeadingTexts[currentElementIndex]) {
+				allHeadingTexts[currentElementIndex].isActive = entry.intersectionRatio > 0
+			}
 		})
 		allHeadingTexts = [...allHeadingTexts]
 	}
@@ -232,7 +233,7 @@
 			</div>
 		</div>
 		<div class="post__content" bind:this={postContentElement} on:click={postContentClick}>
-			{@html post.html}
+			{@html `${post.html}`}
 		</div>
 		<SocialToolbox 
 			commentsElement={disqusElement}
