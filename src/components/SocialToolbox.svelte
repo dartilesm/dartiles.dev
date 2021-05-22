@@ -4,9 +4,9 @@
 
 	export let text;
 	export let postUrl;
-	export let hashtags;
+	export let hashtags = '';
 	export let twitterUsername;
-    export let related;
+    export let related = '';
     export let commentsElement;
     export let isFloating;
 	
@@ -103,7 +103,7 @@
 
 <div class="social-box" class:is-floating={isFloating}>
 	<div class="social-box__twitter-container" on:click={shareViaTwitter}>
-		<TwitterIcon  size="24" class="twitter-icon" currentColor="yellow"/>
+		<TwitterIcon  size="24" class="twitter-icon"/>
 		<p class="social-box__social-text">Compartir</p>
 	</div>
 	<span class="social-box__limiter">|</span>

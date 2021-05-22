@@ -1,7 +1,7 @@
 <script>
-    import Post from './Post.svelte'
-    import posts from '../routes/blog/_posts.js'
-    import { ChevronRightIcon } from 'svelte-feather-icons'
+    import posts from '../routes/blog/_posts.js';
+    import Post from './Post.svelte';
+
 
     export let currentPost
     export let temary
