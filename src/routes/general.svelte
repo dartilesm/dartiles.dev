@@ -7,7 +7,7 @@
 </script>
 
 <script>
-    import Post from '../components/Post.svelte'
+    import Post from '../components/Post/PostItem.svelte'
     import { filterByTags } from '../utils/postFilter'
     export let posts;
 

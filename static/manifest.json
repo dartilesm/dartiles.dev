@@ -1,8 +1,8 @@
 {
 	"background_color": "#ffffff",
-	"theme_color": "#333333",
-	"name": "Blog de Diego Artiles",
-	"short_name": "dartiles.live",
+	"theme_color": "#272fa2",
+	"name": "dartiles",
+	"short_name": "dartiles",
 	"display": "minimal-ui",
 	"start_url": "/",
 	"icons": [

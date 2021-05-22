@@ -1,8 +1,8 @@
 <script>
     import { ToolIcon } from 'svelte-feather-icons'
 </script>
-<style>
-    .Footer {
+<style lang="scss">
+    .footer {
         background: rgba(28, 41, 56, 0.8);
         color: white;
         padding: 1.5em 0;
@@ -10,39 +10,39 @@
         font-size: 13px;
         padding: 16px;
         font-weight: 300;
+        .footer__container {
+            display: grid;
+            grid-template-columns: minmax(auto, 1200px);
+            justify-content: center;
+            align-items: center;
+            .footer__content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .footer__svelte {
+                    display: flex;
+                    align-items: center;
+                    .footer__svelte-logo {
+                        margin: 0 0 0 0.5em;
+                    }
+                }
+
+            }
+        }
     }
 
-    .Footer-container {
-        display: grid;
-        grid-template-columns: minmax(auto, 1200px);
-        justify-content: center;
-        align-items: center;
-    }
 
-    .Footer-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
 
-    .Footer-svelte {
-        display: flex;
-        align-items: center;
-    }
-
-    .Footer-svelte img {
-        margin: 0 0 0 0.5em;
-    }
 </style>
 
-<footer class="Footer">
-    <div class="Footer-container">
-        <div class="Footer-content">
-            <div class="Footer-svelte">
+<footer class="footer">
+    <div class="footer__container">
+        <div class="footer__content">
+            <div class="footer__svelte">
                 <p>Sitio desarrollado con Svelte</p>
-                <img src="svelte.png" alt="Svelte">
+                <img class="footer__svelte-logo" src="svelte.png" alt="Svelte">
             </div>
-            <div class="Footer-svelte">
+            <div class="footer__svelte">
                 <p>Sitio en construcción</p>
                 <ToolIcon size="24" />
             </div>

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import "./css/highlight-code.css";
 
 @font-face {
@@ -33,7 +33,7 @@ a {
   color: inherit;
 }
 
-.Post-content p {
+.post__content p {
   color: #333;
   font-size: 18px;
   line-height: 28px;
@@ -43,32 +43,32 @@ a {
   font-weight: 300;
 }
 
-.Post-container .Post-content h2, .Post-container .Post-content h3, .Post-container .Post-content a {
+.post__container .post__content h2, .post__container .post__content h3, .post__container .post__content a {
   color: #0271ef;
 }
 
-.Post-content h1 {
+.post__content h1 {
   font-size: 2em;
   font-weight: 400;
   scroll-margin: 10px;
 }
-.Post-content h2 {
+.post__content h2 {
   font-size: 1.8em;
   font-weight: 400;
   scroll-margin: 10px;
 }
-.Post-content h3 {
+.post__content h3 {
   font-size: 1.4em;
   font-weight: 400;
   scroll-margin: 10px;
 }
-.Post-content img {
+.post__content img {
   width: 100%;
   height: auto;
   cursor: pointer;
 }
 
-.Post-content img.opened {
+.post__content img.opened {
   position: fixed;
   z-index: 100000;
   max-height: 80vh;
@@ -78,7 +78,7 @@ a {
   transform: translateX(-50%) translateY(-50%);
   top: 50%;
 }
-.Post-content figure.opened {
+.post__content figure.opened {
   position: fixed;
   z-index: 10;
   width: 100%;
@@ -88,7 +88,7 @@ a {
   left: -40px;
 }
 
-.Post-content figure.opened figcaption {
+.post__content figure.opened figcaption {
   position: fixed;
   bottom: 40px;
   color: white;
@@ -97,14 +97,14 @@ a {
   transform: translateX(-50%);
 }
 
-.Post-content ul {
+.post__content ul {
   line-height: 1.5;
 }
-.Post-content li {
+.post__content li {
   margin: 0 0 0.5em 0;
 }
 
-.Post-content .youtube {
+.post__content .youtube {
   position: absolute;
   top: 0;
   left: 0;
@@ -112,7 +112,7 @@ a {
   height: 100%;
 }
 
-.Post-content .kg-embed-card {
+.post__content .kg-embed-card {
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
@@ -120,18 +120,14 @@ a {
   margin: 0.4em 0 1.6em;
 }
 
-.Post-content figcaption {
+.post__content figcaption {
   margin-top: 25px;
   text-align: center;
 }
-.Post-content blockquote {
+.post__content blockquote {
   background: lightyellow;
   padding: 20px;
   border-radius: 4px;
-}
-
-.Sidebar h3 {
-  font-size: 1.17rem;
 }
 
 @media (min-width: 400px) {

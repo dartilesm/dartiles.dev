@@ -1,16 +1,16 @@
 export const formatPostContent = content => {
 	const allHeadingElements = Array.from(content.querySelectorAll('h2'))
 
-    allHeadingElements.forEach((element, index) => {
+    allHeadingElements.forEach((headingElement, index) => {
         if (allHeadingElements.length > index) {
-			const siblingElements = getSiblingElements(element, allHeadingElements[index + 1])
+			const siblingElements = getSiblingElements(headingElement, allHeadingElements[index + 1])
 			
 			const wrapper = document.createElement('div')
-			wrapper.setAttribute('data-ref', element.id)
+			wrapper.setAttribute('data-ref', headingElement.id)
 			wrapper.setAttribute('class', 'heading-content')
 			
             siblingElements.forEach(element => wrapper.appendChild(element))
-            content.insertBefore(wrapper, element.nextSibling)
+            content.insertBefore(wrapper, headingElement.nextSibling)
         }
     })
 
