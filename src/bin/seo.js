@@ -85,10 +85,6 @@ const createSiteMap = (data) => {
           <loc>${blog.url}</loc>
           <lastmod>${getSiteMapDate()}</lastmod>
        </url>
-       <url>
-          <loc>${blog.url}/about</loc>
-          <lastmod>${getSiteMapDate()}</lastmod>
-       </url>
        ${parseItems}
     </urlset>`;
 
