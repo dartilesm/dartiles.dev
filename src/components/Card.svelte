@@ -1,5 +1,6 @@
 <script>
-    export let onClick
+    export let onClick = () => {}
+    export let toLink
 </script>
 
 <style lang="scss">
@@ -9,6 +10,7 @@
         position: relative;
         border-radius: 5px;
         background-color: white;
+        text-decoration: none;
         @include box-shadow(rgba(0,0,0,.12));
         &.is-clickeable {
             cursor: pointer;
@@ -18,7 +20,12 @@
         }
     }
 </style>
-
+{#if toLink}
+<a rel="prefetch" href={toLink} class="Card-container" class:is-clickeable={!!toLink}>
+    <slot></slot>
+</a>
+{:else}
 <div class="Card-container" on:click={onClick} class:is-clickeable={!!onClick}>
     <slot></slot>
 </div>
+{/if}

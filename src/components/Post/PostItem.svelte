@@ -1,13 +1,11 @@
 <script>
-    import { goto } from '@sapper/app';
     import { BookOpenIcon,CalendarIcon,TagIcon } from 'svelte-feather-icons';
-    import readingTime from '../../utils/readingTime';
     import { timeFormatter } from '../../utils/dateHelper';
+    import readingTime from '../../utils/readingTime';
     import Card from '../Card.svelte';
 
-    export let post
 
-    const navigateTo = () => goto(`blog/${post.slug}`)
+    export let post
 
 
 
@@ -98,7 +96,7 @@
     }
 </style>
 
-<Card onClick="{navigateTo}">
+<Card toLink="blog/{post.slug}">
     <div class="post-card">
         <div class="post-card__header" style="background-image: url({post.image})">
         </div>

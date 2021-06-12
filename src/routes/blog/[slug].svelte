@@ -15,6 +15,7 @@
 	import { stores } from '@sapper/app';
 	import { onMount, onDestroy } from 'svelte';
 	import { BookOpenIcon,CalendarIcon,UserIcon } from 'svelte-feather-icons';
+	import GridLayout from '../../components/Grid/GridLayout2Fr.svelte';
 	import Sidebar from '../../components/Sidebar.svelte';
 	import SocialToolbox from '../../components/SocialToolbox.svelte';
 	import { sendEventGA } from '../../utils/analytics';
@@ -126,59 +127,45 @@
 </script>
 
 <style lang="scss">
-	@import 'queries';
-	.post {
-		display: grid;
-		grid-gap: 20px;
-		grid-template-columns: minmax(200px, 2fr) 1fr;
-		@include for-size(medium) {
-			grid-template-columns: minmax(200px, 2fr);
-		}
-		.post__container {
-			background-color: white;
-			border-left: 1px solid #e6e6e6;
-			border-right: 1px solid #e6e6e6;
-			.post__image {
-				width: 100%;
-				height: 400px;
-				background-size: cover;
-				background-repeat: no-repeat;
-				background-position: center;
-				position: relative;
-				top: 0;
-				left: 0;
-				.post__title-container {
-					position: absolute;
-					width: 100%;
-					background-color: rgba(0, 0, 0, .75);
-					padding: 10px;
-					color: white;
-					box-sizing: border-box;
-					bottom: 0;
-					.post__title {
-						margin-bottom: 10px;
-					}
-					.post__details {
-						margin: 0;
-						display: flex;
-    					align-items: center;
-						flex-wrap: wrap;
-						.post__details-time, .post__details-reading-time, .post__details-author {
-							display: inline-flex;
-							align-items: center;
-						}
-					}
+	.post__image {
+		width: 100%;
+		height: 400px;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		position: relative;
+		top: 0;
+		left: 0;
+		.post__title-container {
+			position: absolute;
+			width: 100%;
+			background-color: rgba(0, 0, 0, .75);
+			padding: 10px;
+			color: white;
+			box-sizing: border-box;
+			bottom: 0;
+			.post__title {
+				margin-bottom: 10px;
+			}
+			.post__details {
+				margin: 0;
+				display: flex;
+				align-items: center;
+				flex-wrap: wrap;
+				.post__details-time, .post__details-reading-time, .post__details-author {
+					display: inline-flex;
+					align-items: center;
 				}
 			}
-			.post__content {
-				padding: 10px;
-				transition: all ease .5s;
-			}
-			.post__comments {
-				margin: 2em 0 0 0 0;
-				padding: 10px;
-			}
 		}
+	}
+	.post__content {
+		padding: 10px;
+		transition: all ease .5s;
+	}
+	.post__comments {
+		margin: 2em 0 0 0 0;
+		padding: 10px;
 	}
 </style>
 
@@ -210,25 +197,25 @@
 	on:resize={onResizeWindow}
 />
 
-<div class="post">
-	<div class="post__container">
+<GridLayout>
+	<div slot="fr-1">
 		<div class="post__image" style="background-image: url({post.image})">
 			<div class="post__title-container">
 				<h1 class="post__title">{post.title}</h1>
 				<div class="post__details">
 					<span class="post__details-author">
-                        <UserIcon size="20" />
-                        &nbsp;&nbsp;{post.primary_author?.name}
-                    </span>
+						<UserIcon size="20" />
+						&nbsp;&nbsp;{post.primary_author?.name}
+					</span>
 					&nbsp;&nbsp;•&nbsp;&nbsp;
-                    <time class="post__details-time" datetime={post.published_at}>
-                        <CalendarIcon size="20" />
-                        &nbsp;&nbsp;{timeFormatter(post.published_at)}&nbsp;&nbsp;
-                    </time>
-                    <span class="post__details-reading-time">
-                        <BookOpenIcon size="20" />
-                        &nbsp;&nbsp;{readingTime(post.html)}
-                    </span>
+					<time class="post__details-time" datetime={post.published_at}>
+						<CalendarIcon size="20" />
+						&nbsp;&nbsp;{timeFormatter(post.published_at)}&nbsp;&nbsp;
+					</time>
+					<span class="post__details-reading-time">
+						<BookOpenIcon size="20" />
+						&nbsp;&nbsp;{readingTime(post.html)}
+					</span>
 				</div>
 			</div>
 		</div>
@@ -247,6 +234,6 @@
 			<div id="disqus_thread" bind:this={disqusElement} />
 		</div>
 	</div>
-	<Sidebar currentPost={post} temary={allHeadingTexts} {onTemaryClick} {isStickySidebar} showTemary={windowWidth > 992}></Sidebar>
-</div>
+	<Sidebar slot="fr-2" currentPost={post} temary={allHeadingTexts} {onTemaryClick} {isStickySidebar} showTemary={windowWidth > 992}></Sidebar>
+</GridLayout>
 
