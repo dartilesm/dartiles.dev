@@ -1,6 +1,10 @@
 <script>
-    export let onClick = () => {}
+    import { createEventDispatcher } from 'svelte'
+    const disptach = createEventDispatcher()
+
+    const emitClick = disptach('click')
     export let toLink
+    export let isClickeable
 </script>
 
 <style lang="scss">
@@ -21,11 +25,11 @@
     }
 </style>
 {#if toLink}
-<a rel="prefetch" href={toLink} class="Card-container" class:is-clickeable={!!toLink}>
+<a rel="prefetch" href={toLink} class="Card-container is-clickeable">
     <slot></slot>
 </a>
 {:else}
-<div class="Card-container" on:click={onClick} class:is-clickeable={!!onClick}>
+<div class="Card-container" on:click={emitClick} class:is-clickeable={!!isClickeable}>
     <slot></slot>
 </div>
 {/if}

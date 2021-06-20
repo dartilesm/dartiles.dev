@@ -2,7 +2,7 @@
     import { BookOpenIcon,CalendarIcon,TagIcon } from 'svelte-feather-icons';
     import { timeFormatter } from '../../utils/dateHelper';
     import readingTime from '../../utils/readingTime';
-    import Card from '../Card.svelte';
+    import Card from '../UI/Card.svelte';
 
 
     export let post
