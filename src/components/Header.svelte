@@ -1,8 +1,21 @@
 <script>
     import { sendEventGA } from '../utils/analytics';
     import { GithubIcon, TwitterIcon, LinkedinIcon } from 'svelte-feather-icons';
+    import Button from './UI/Button.svelte'
+    import Modal from './UI/Modal.svelte'
 
     export let segment
+    let showModal = false
+    const modalOptions = {
+        title: '¡Realiza tu primer post en Dartiles!',
+        primaryText: 'Aceptar',
+    }
+    
+
+    const toggleModal = () => {
+        showModal = !showModal 
+        console.log(showModal)
+    }
 </script>
 
 <style lang="scss">
@@ -35,22 +48,30 @@
                     text-shadow: 0 0 black;
                 }
             }
-            .header__social-list {
-                margin: 0;
-                padding: 0;
-                list-style: none;
-                .header__social-item {
-                    display: inline-block;
-                    margin: 0 0.5em 0 0;
+            .header__right {
+                display: flex;
+                align-items: center;
+                :global(Button) {
+                    margin-right: 1em;
                 }
-                .header__social-link {
+                .header__social {
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
                     display: flex;
-                    align-items: center;
-                    border-radius: 17px;
-                    color: black;
-                    text-decoration: none;
-                    font-weight: 300;
-                    font-size: 14px;
+                    .header__social-item {
+                        display: inline-block;
+                        margin: 0 .5em 0 .5em
+                    }
+                    .header__social-link {
+                        display: flex;
+                        align-items: center;
+                        border-radius: 17px;
+                        color: black;
+                        text-decoration: none;
+                        font-weight: 300;
+                        font-size: 14px;
+                    }
                 }
             }
         }
@@ -64,8 +85,9 @@
                 <img class="header__logo" src="logo.png" alt="logo" style="max-width: 35px"/>
                 <h1 class="header__title">Dartiles</h1>
             </a>
-            <div class="header__social">
-                <ul class="header__social-list">
+            <div class="header__right">
+                <Button text="Redactar" on:click={toggleModal}/>
+                <ul class="header__social">
                     <li class="header__social-item">
                         <a class="header__social-link header__social-link--twitter" href="https://twitter.com/intent/follow?screen_name=dartilesm" target="_blank" rel="noreferrer" on:click={sendEventGA('social', 'header', 'twitter-button')}>
                             <TwitterIcon  size="24" />
@@ -86,3 +108,9 @@
         </div>
     </div>
 </header>
+
+{#if showModal}
+    <Modal on:close={toggleModal} options={modalOptions} on:primaryClick={toggleModal}>
+            <p>Actualmente estamos trabajando para ofrecer la posibilidad de crear publicaciones directamente desde <b>dartiles</b>, pero si estás interesado en publicar articulos aquí dejama tu correo electrónico y te daré acceso a una plataforma fácil e intuitiva para que compartas tus artículos.</p>
+    </Modal>
+{/if}

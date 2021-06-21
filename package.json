@@ -17,7 +17,8 @@
     "dotenv": "^8.2.0",
     "node-fetch": "^2.6.1",
     "polka": "next",
-    "sirv": "^1.0.0"
+    "sirv": "^1.0.0",
+    "svelte-portal": "^2.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
