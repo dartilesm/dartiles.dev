@@ -12,6 +12,7 @@
     .Card-container {
         color: #191a22;
         position: relative;
+        display: block;
         border-radius: 5px;
         background-color: white;
         text-decoration: none;
