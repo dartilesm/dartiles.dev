@@ -3,8 +3,11 @@
     const disptach = createEventDispatcher()
 
     const emitClick = disptach('click')
+    let className = '';
+
     export let toLink
     export let isClickeable
+    export { className as class };
 </script>
 
 <style lang="scss">
@@ -25,11 +28,11 @@
     }
 </style>
 {#if toLink}
-<a rel="prefetch" href={toLink} class="Card-container is-clickeable">
+<a rel="prefetch" href={toLink} class={`Card-container is-clickeable ${className}`}>
     <slot></slot>
 </a>
 {:else}
-<div class="Card-container" on:click={emitClick} class:is-clickeable={!!isClickeable}>
+<div on:click={emitClick} class={`Card-container ${!!isClickeable ? 'is-clickeable' : ''} ${className}`}>
     <slot></slot>
 </div>
 {/if}

@@ -13,8 +13,9 @@
     "cy:open": "cypress open"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "compression": "^1.7.1",
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.6.0",
     "node-fetch": "^2.6.1",
     "polka": "next",
     "sirv": "^1.0.0"
@@ -29,7 +30,7 @@
     "@rollup/plugin-commonjs": "^14.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^8.0.0",
-    "@rollup/plugin-replace": "^2.4.0",
+    "@rollup/plugin-replace": "^2.4.2",
     "@rollup/plugin-url": "^5.0.0",
     "compress-images": "^1.9.5",
     "file-loader": "^6.2.0",

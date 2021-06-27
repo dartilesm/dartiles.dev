@@ -4,6 +4,7 @@
     export let text
     export let type
     export let link
+    export let disabled = false
 
     const types = {
         primary: 'primary',
@@ -16,14 +17,15 @@
     
     const disptach = createEventDispatcher()
 
-    const emitClick = () => { 
+    const emitClick = () => {
+
         console.log('Se está dando click') 
-        disptach('click')
+        !disabled && disptach('click')
     }
 </script>
 
 <style lang="scss">
-    @import 'general';
+    @import 'variables';
     a, button {
         border: none;
         padding: 8px 10px;
@@ -43,7 +45,7 @@
             box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
         }
         &.primary {
-            background-color: #1f23ff;
+            background-color: $primary-color;
             color: white;
         }
         &.secondary {
@@ -57,11 +59,16 @@
                 border: none;
             }
         }
+        &[disabled] {
+            background-color: #a0a0a0;
+            color: #d6d6d6;
+            cursor: not-allowed;
+        }
     }
 </style>
 
 {#if link}
-    <a href={link} class={types[type] || types.primary}>{text}</a>
+    <a {disabled} href={link} class={types[type] || types.primary}>{text}</a>
 {:else}
-    <button type="button" class={types[type] || types.primary} on:click={emitClick}>{text}</button>
+    <button {disabled} type="button" class={types[type] || types.primary} on:click={emitClick}>{text}</button>
 {/if}

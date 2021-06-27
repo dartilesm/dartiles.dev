@@ -10,6 +10,7 @@ import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import preprocess from 'svelte-preprocess';
 import pkg from './package.json';
+import { config as envConfig } from 'dotenv'
 
 
 const mode = process.env.NODE_ENV;
@@ -36,10 +37,13 @@ export default {
 		plugins: [
 			replace({
 				preventAssignment: true,
-				values:{
-					'process.browser': true,
-					'process.env.NODE_ENV': JSON.stringify(mode)
-				},
+				process: JSON.stringify({
+					env: {
+						browser: true,
+						NODE_ENV: mode,
+					  ...envConfig().parsed // attached the .env config
+					}
+				  }),
 			}),
 			svelte({
 				compilerOptions: {

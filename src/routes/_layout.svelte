@@ -1,10 +1,20 @@
 <script>
 	import Header from '../components/Header.svelte';
 	import Main from '../components/Main.svelte';
-	import Footer from '../components/Footer.svelte';
 	export let segment;
+
+	let canRenderHeader = () => null
+
+	$: {
+		canRenderHeader = () => {
+			const ignoratedRoutes = ['login', 'register']
+			return ignoratedRoutes.every(ignRoutes => ignRoutes !== segment)
+		}
+	}
 </script>
-<Header {segment}/>
+{#if canRenderHeader()}
+	 <Header {segment} />
+{/if}
 
 <Main>
 	<slot></slot>

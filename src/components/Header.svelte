@@ -1,8 +1,6 @@
 <script>
     import { sendEventGA } from '../utils/analytics';
     import { GithubIcon, TwitterIcon, LinkedinIcon } from 'svelte-feather-icons';
-
-    export let segment
 </script>
 
 <style lang="scss">

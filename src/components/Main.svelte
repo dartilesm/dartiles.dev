@@ -2,6 +2,7 @@
     @import 'queries';
     .main {
         background: #f3f3f3;
+        min-height: 100vh;
         .main__container {
             position: relative;
             display: grid;
