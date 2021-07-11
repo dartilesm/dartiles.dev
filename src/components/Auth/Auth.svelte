@@ -17,9 +17,9 @@
 
     const dispatch = createEventDispatcher()
     const handleForm = async () => {
-        const { data: response, error } = isLogin ? await authService.login(user) : await authService.register(user)
+        const { name, ...loginUser } = user
+        const { data: response, error } = isLogin ? await authService.login(loginUser) : await authService.register(user)
         const { access_token } = response?.data || {}
-        
         access_token && localStorage.setItem('token', access_token)
         response && dispatch('success', response)
         error && dispatch('error', error)

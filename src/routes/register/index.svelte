@@ -1,5 +1,8 @@
 <script>
+    import { goto } from '@sapper/app';
     import Auth from '../../components/Auth/Auth.svelte';
+
+    const onSuccessLogin = () => goto('/')
 </script>
 
 <style lang="scss">
@@ -14,5 +17,5 @@
 </style>
 
 <div >
-    <Auth isLogin={false} />
+    <Auth isLogin={false} on:success={onSuccessLogin}/>
 </div>
