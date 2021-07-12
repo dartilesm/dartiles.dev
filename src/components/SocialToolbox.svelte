@@ -54,6 +54,7 @@
         transform: scale(0) translateX(-120%) translateY(100px);
 		transition: all ease .25s;
 		opacity: 0;
+		z-index: 1;
 
 		&.is-floating {
 			opacity: 1;

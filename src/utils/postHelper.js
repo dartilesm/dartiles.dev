@@ -14,6 +14,12 @@ export const formatPostContent = content => {
         }
     })
 
+	// Add attributes to anchor elements
+	Array.from(content.querySelectorAll('a')).forEach(anchor => {
+		anchor.setAttribute('rel', 'nofollow')
+		anchor.setAttribute('target', '_blank')
+	})
+
 }
 
 export const getSiblingElements = (startElement, stopElement, filter) => {
