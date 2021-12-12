@@ -4,6 +4,7 @@ yarn-error.log
 /__sapper__/
 /build
 /.svelte-kit
+/.vercel_build_output/
 /package
 .env
 /log
