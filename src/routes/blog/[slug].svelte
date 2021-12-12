@@ -1,23 +1,24 @@
 <script context="module">
-	export async function preload({ params }) {
-		const res = await this.fetch(`blog/${params.slug}.json`);
-		const data = await res.json();
+	export const load = async ({ page, fetch }) => {
+		const { params } = page
+		const res = await fetch(`/blog/${params.slug}.json`);
+		const post = await res.json();
 		
-		if (res.status === 200) {
-			return { post: data };
+		if (res.ok) {
+			return { props: { post } };
 		} else {
-			this.error(res.status, data.message);
+			error: new Error(post.message)
 		}
 	}
 </script>
 
 <script>
-	import { stores } from '@sapper/app';
+	import { getStores } from '$app/stores';
 	import { onMount, onDestroy } from 'svelte';
 	import { BookOpenIcon,CalendarIcon,UserIcon } from 'svelte-feather-icons';
-	import GridLayout from '../../components/Grid/GridLayout2Fr.svelte';
-	import Sidebar from '../../components/Sidebar.svelte';
-	import SocialToolbox from '../../components/SocialToolbox.svelte';
+	import GridLayout from '$lib/Grid/GridLayout2Fr.svelte';
+	import Sidebar from '$lib/Sidebar.svelte';
+	import SocialToolbox from '$lib/SocialToolbox.svelte';
 	import { sendEventGA } from '../../utils/analytics';
 	import { timeFormatter } from '../../utils/dateHelper';
 	import disqus from '../../utils/disqus';
@@ -25,7 +26,7 @@
 	import toggleImage from '../../utils/openImage';
 	import { formatPostContent } from '../../utils/postHelper';
 	import readingTime from '../../utils/readingTime';
-
+	import '$assets/styles/css/highlight-code.css'
 
 
 	export let post;
@@ -60,7 +61,7 @@
 			document.addEventListener('readystatechange', async () => document.readyState === 'complete' && init())
 	})
 
-	const watchPagesChanges = stores().page.subscribe(() => {
+	const watchPagesChanges = getStores().page.subscribe(() => {
 		if (postContentElement) {
 			allHeadingTexts = Array.from(postContentElement.querySelectorAll('h2')).map(element => ({
 				innerText: element.innerText,
@@ -199,7 +200,7 @@
 
 <GridLayout>
 	<div slot="fr-1">
-		<div class="post__image" style="background-image: url({post.image})">
+		<div class="post__image" style="background-image: url(/{post.image})">
 			<div class="post__title-container">
 				<h1 class="post__title">{post.title}</h1>
 				<div class="post__details">

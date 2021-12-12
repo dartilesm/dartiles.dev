@@ -1,8 +1,11 @@
-import posts from './_posts'
+import posts from './_posts.json'
 
-export async function get(req, res) {
-	res.writeHead(200, {
-		'Content-Type': 'application/json'
-	});
-	res.end(JSON.stringify(posts))
+export async function get() {
+	return {
+		status: 200,
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: posts.map(post => ({ ...post, html: post.html.replace(/^\t{3}/gm, '') }))
+	}
 }

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		%svelte.head%
+		<meta charset="utf-8" />
+		<meta name="description" content="Svelte demo app" />
+		<link rel="icon" href="/favicon1.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	</head>
+	<body>
+		<div id="svelte">%svelte.body%</div>
+
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-YRFV05RX8C"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-YRFV05RX8C');
+		</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/prism.min.js" integrity="sha512-9+422Bs3A87UkWfp+qV80Nfv9arhbCXKY1rxrF2seorI36mIIstMiuBfyKLF1yH1nnzQkEWq2xrzT4XU3Z+vrA==" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/components/prism-jsx.min.js" integrity="sha512-QORDihY3o14OZOxXmZxNbdPo4XkiD98/Wt/D8PQG5va4gLb63ZnCanJORVfpzetcJX/Dz4TTFT/I3oRe8O1/Sw==" crossorigin="anonymous"></script>
+	</body>
+</html>

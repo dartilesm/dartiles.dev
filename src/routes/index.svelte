@@ -1,48 +1,28 @@
 <script context="module">
-	
-	export function preload({ params, query }) {
-		return this.fetch(`blog.json`).then(r => r.json()).then(posts => {
-			return { posts };
-		});
+	export const prerender = true;
+	export const load = async ({ fetch }) => {
+		const response = await fetch(`blog.json`)
+
+		if (response.ok) {
+			const posts = await response.json();
+
+			return {
+				props: { posts }
+			};
+		}
+
+		const { message } = await response.json();
+
+		return {
+			error: new Error(message)
+		};
 	}
 </script>
 
 <script>
-	import Post from '../components/Post/PostItem.svelte'
+	import Post from '$lib/Post/PostItem.svelte'
 	export let posts;
 </script>
-
-<style>
-	.Home {
-		padding: 2em 0;
-		min-height: calc(100vh - 251px);
-	}
-	.Posts {
-		display: grid;
-		justify-content: space-between;
-		grid-gap: 15px;
-		grid-template-columns: 1fr 1fr 1fr;
-	}
-
-	@media screen and (max-width: 768px) {
-		.Posts {
-			grid-template-columns: 1fr; 
-		}
-	}
-
-	@media screen and (max-width: 993px) {
-		.Home {
-			padding: 2em 1em;
-		}
-	}
-	@media (min-width: 769px) and (max-width: 993px) {
-		.Posts {
-			grid-template-columns: 1fr 1fr;
-		}
-	}
-	
-
-</style>
 
 <svelte:head>
 	<!-- Primary Meta Tags -->
@@ -76,3 +56,35 @@
 		{/each}
 	</div>
 </div>
+
+<style>
+	.Home {
+		padding: 2em 0;
+		min-height: calc(100vh - 251px);
+	}
+	.Posts {
+		display: grid;
+		justify-content: space-between;
+		grid-gap: 15px;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+
+	@media screen and (max-width: 768px) {
+		.Posts {
+			grid-template-columns: 1fr; 
+		}
+	}
+
+	@media screen and (max-width: 993px) {
+		.Home {
+			padding: 2em 1em;
+		}
+	}
+	@media (min-width: 769px) and (max-width: 993px) {
+		.Posts {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	
+
+</style>

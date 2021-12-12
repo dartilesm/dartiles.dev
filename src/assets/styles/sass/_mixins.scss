@@ -1,0 +1,27 @@
+@mixin box-shadow($color) {
+    -webkit-box-shadow: $shadow $color;
+    -moz-box-shadow: $shadow $color;
+    box-shadow: $shadow $color;
+}
+
+
+
+/* Queries */
+@mixin for-size($size) {
+    @if $size == extra-small {
+        @media (max-width: 576px) { @content; }
+    } @else if $size == small {
+        @media (max-width: 768px) { @content; }
+    } @else if $size == medium {
+        @media (max-width: 992px) { @content; }
+    }
+}
+@mixin for-size-up($size) {
+    @if $size == extra-small {
+        @media (min-width: 576px) { @content; }
+    } @else if $size == small {
+        @media (min-width: 768px) { @content; }
+    } @else if $size == medium {
+        @media (min-width: 992px) { @content; }
+    }
+}

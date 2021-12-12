@@ -1,5 +1,8 @@
 <script context="module">
-	export async function preload(page, session) {
-    	return this.redirect(301, './')
+	export const load = async () => {
+    	return {
+			status: 301,
+			redirect: '/'
+		}
   	}
 </script>

@@ -1,21 +1,38 @@
-# Bienvenidos a mi sitio web
+# create-svelte
 
-**Dartiles.dev** está creado con svelte y está en constante mejora. Es un proyecto personal para impulsarme a nivel profesional, exponer un poco sobre mi y compartir conocimiento.
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
 
-## Proyectos en mente
+## Creating a project
 
-- Exponer información sobre mi, mi experiencia laboral y mi **carrera profesional.** La idea es que sea como una sección en mi página en la que sea como un CV web, que me permita además descargarlo como PDF para tenerlo siempre actualizado
+If you're seeing this, you've probably already done this step. Congrats!
 
-- Ofrecer la oportunidad a otras personas de crear su CV y **descargarlo** desde mi sitio web
+```bash
+# create a new project in the current directory
+npm init svelte@next
 
-- Compartir conocimientos, trucos, consejos y tips sobre temas relacionados con javascript
+# create a new project in my-app
+npm init svelte@next my-app
+```
 
-- **Reconocer y destacar** en mi página web a quienes deseen apoyar mi proyecto personal. Tengo en mente ofrecer una sección de mi página llamada **patrocinadores** en la que aparezcan estas personas con sus redes favoritas ❤️
+> Note: the `@next` is temporary
 
-- Ofrecer la oportunidad a otras personas de **compartir conocimientos** a través de mi sitio.
+## Developing
 
-## Otros objetivos
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-Este proyecto también está desarrollo con el objetivo de aprender **Svelte ❤️**.
+```bash
+npm run dev
 
-Por el momento me está encantando bastante, el código de este proyecto no es la mejor referencia de las mejores prácticas del framework, pero a medida que las voy descubriendo las voy agregando 😁
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
+
+```bash
+npm run build
+```
+
+> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
