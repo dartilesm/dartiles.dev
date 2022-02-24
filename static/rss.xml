@@ -21,14 +21,14 @@
         Svelte
     </generator>
     <lastBuildDate>
-        Wed, 23 Feb 2022 23:25:06 GMT
+        Thu, 24 Feb 2022 03:24:29 GMT
     </lastBuildDate>
     <atom:link href="https://dartiles.dev/rss.xml" rel="self" type="application/rss+xml" />
     <ttl>68</ttl>
     
         <item>
             <title>
-                <![CDATA[How to use Stitches in Vue or Nuxt]]>
+                <![CDATA[How to use Stitches in Vue and Nuxt]]>
             </title>
             <link>
                 https://dartiles.dev/blog/how-to-use-stitches-in-vue-nuxt
