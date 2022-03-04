@@ -1,119 +1,114 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-    <rss version="2.0">
-
-    <channel>
-    <title>
-        <![CDATA[Diego Artiles Blog]]>
-    </title>
-    <description>
-        <![CDATA[Blog de Diego Artiles]]>
-    </description>
-    <image>
-        <url>favicon.png</url>
-        <title>
-            <![CDATA[Diego Artiles Blog]]>
-        </title>
-        <title>
-            https://dartiles.dev
-        </title>
-    </image>
-    <generator>
-        Svelte
-    </generator>
-    <lastBuildDate>
-        Thu, 24 Feb 2022 03:24:29 GMT
-    </lastBuildDate>
-    <atom:link href="https://dartiles.dev/rss.xml" rel="self" type="application/rss+xml" />
-    <ttl>68</ttl>
-    
-        <item>
+    <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+        <channel>
             <title>
-                <![CDATA[How to use Stitches in Vue and Nuxt]]>
+                <![CDATA[Diego Artiles Blog]]>
             </title>
-            <link>
-                https://dartiles.dev/blog/how-to-use-stitches-in-vue-nuxt
-            </link>
-            <guid>
-                https://dartiles.dev/blog/how-to-use-stitches-in-vue-nuxt
-            </guid>
             <description>
-                <![CDATA[ Discover a few ways to use stitches in your vue app  ]]>
+                <![CDATA[Blog de Diego Artiles]]>
             </description>
-            <pubDate>
-                Wed, 23 Feb 2022 16:28:41 GMT
-            </pubDate>
-            <media:content url="https://dartiles.dev/media/blog/how-to-use-stitches-in-vue-nuxt/how-to-use-stitches-in-vue-nuxt.png" medium="image" />
-        </item>
-        
-        <item>
-            <title>
-                <![CDATA[Optional chaining without ES11? - Safely Access - Javascript Tips & Tricks]]>
-            </title>
-            <link>
-                https://dartiles.dev/blog/optional-chaining-without-es11-safely-access
-            </link>
-            <guid>
-                https://dartiles.dev/blog/optional-chaining-without-es11-safely-access
-            </guid>
-            <description>
-                <![CDATA[ Learn a bit about safely access in Javascript and many ways to achieve it without optional chaining. Come, surely learn something new together.  ]]>
-            </description>
-            <pubDate>
-                Sun, 11 Jul 2021 15:35:08 GMT
-            </pubDate>
-            <media:content url="https://dartiles.dev/media/blog/optional-chaining-without-es11-safely-access/optional-chaining-without-es11-safely-access.png" medium="image" />
-        </item>
-        
-        <item>
-            <title>
-                <![CDATA[Cosas que quizás no sabías de React]]>
-            </title>
-            <link>
-                https://dartiles.dev/blog/cosas-que-quizas-no-sabias-de-react
-            </link>
-            <guid>
-                https://dartiles.dev/blog/cosas-que-quizas-no-sabias-de-react
-            </guid>
-            <description>
-                <![CDATA[ ¿Por qué siempre hay que importar React al crear nuestros componentes? ¿Qué hace JSX por detrás? ¿Qué es el Virtual DOM? Descúbrelo en este artículo ❤ ]]>
-            </description>
-            <pubDate>
-                Sat, 14 Nov 2020 02:22:59 GMT
-            </pubDate>
-            <media:content url="https://dartiles.dev/media/blog/cosas-que-quizas-no-sabias-de-react/cosas-que-quizas-no-sabias-de-react.png" medium="image" />
-        </item>
-        
-        <item>
-            <title>
-                <![CDATA[Escribe código JSX más rápido - Como activar Emmet en React]]>
-            </title>
-            <link>
-                https://dartiles.dev/blog/escribe-codigo-jsx-mas-rapido-como-activar-emmet-en-react
-            </link>
-            <guid>
-                https://dartiles.dev/blog/escribe-codigo-jsx-mas-rapido-como-activar-emmet-en-react
-            </guid>
-            <description>
-                <![CDATA[ Descubre como escribir tus componentes en React mucho más rápido con Emmet 🤯 ]]>
-            </description>
-            <pubDate>
-                Wed, 04 Nov 2020 03:01:40 GMT
-            </pubDate>
-            <media:content url="https://dartiles.dev/media/blog/escribe-codigo-jsx-mas-rapido-como-activar-emmet-en-react/escribe-codigo-jsx-mas-rapido-como-activar-emmet-en-react.png" medium="image" />
-        </item>
-        
-        <item>
-            <title>
-                <![CDATA[useEffect, el hook de efecto de React - Ciclos de vidas en componentes funcionales]]>
-            </title>
-            <link>
-                https://dartiles.dev/blog/useeffect-react-hooks-ciclos-de-vida
-            </link>
-            <guid>
-                https://dartiles.dev/blog/useeffect-react-hooks-ciclos-de-vida
-            </guid>
-            <description>
-                <![CDATA[ Además del useState, el hook useEffect es uno de los más usados en React.
+            <image>
+                <url>favicon.png</url>
+                <title>
+                    <![CDATA[Diego Artiles Blog]]>
+                </title>
+                <title>
+                    https://dartiles.dev
+                </title>
+            </image>
+            <generator>
+                Svelte
+            </generator>
+            <lastBuildDate>
+                Fri, 04 Mar 2022 21:20:35 GMT
+            </lastBuildDate>
+            <atom:link href="https://dartiles.dev/rss.xml" rel="self" type="application/rss+xml" />
+            <ttl>68</ttl>
+                
+                <item>
+                    <title>
+                        <![CDATA[How to use Stitches in Vue and Nuxt]]>
+                    </title>
+                    <link>
+                        https://dartiles.dev/blog/how-to-use-stitches-in-vue-nuxt
+                    </link>
+                    <guid>
+                        https://dartiles.dev/blog/how-to-use-stitches-in-vue-nuxt
+                    </guid>
+                    <description>
+                        <![CDATA[ Discover a few ways to use stitches in your vue app  ]]>
+                    </description>
+                    <pubDate>
+                        Wed, 23 Feb 2022 16:28:41 GMT
+                    </pubDate>
+                    <media:content url="https://dartiles.dev/media/blog/how-to-use-stitches-in-vue-nuxt/how-to-use-stitches-in-vue-nuxt.png" medium="image" />
+                </item>
+                <item>
+                    <title>
+                        <![CDATA[Optional chaining without ES11? - Safely Access - Javascript Tips & Tricks]]>
+                    </title>
+                    <link>
+                        https://dartiles.dev/blog/optional-chaining-without-es11-safely-access
+                    </link>
+                    <guid>
+                        https://dartiles.dev/blog/optional-chaining-without-es11-safely-access
+                    </guid>
+                    <description>
+                        <![CDATA[ Learn a bit about safely access in Javascript and many ways to achieve it without optional chaining. Come, surely learn something new together.  ]]>
+                    </description>
+                    <pubDate>
+                        Sun, 11 Jul 2021 15:35:08 GMT
+                    </pubDate>
+                    <media:content url="https://dartiles.dev/media/blog/optional-chaining-without-es11-safely-access/optional-chaining-without-es11-safely-access.png" medium="image" />
+                </item>
+                <item>
+                    <title>
+                        <![CDATA[Cosas que quizás no sabías de React]]>
+                    </title>
+                    <link>
+                        https://dartiles.dev/blog/cosas-que-quizas-no-sabias-de-react
+                    </link>
+                    <guid>
+                        https://dartiles.dev/blog/cosas-que-quizas-no-sabias-de-react
+                    </guid>
+                    <description>
+                        <![CDATA[ ¿Por qué siempre hay que importar React al crear nuestros componentes? ¿Qué hace JSX por detrás? ¿Qué es el Virtual DOM? Descúbrelo en este artículo ❤ ]]>
+                    </description>
+                    <pubDate>
+                        Sat, 14 Nov 2020 02:22:59 GMT
+                    </pubDate>
+                    <media:content url="https://dartiles.dev/media/blog/cosas-que-quizas-no-sabias-de-react/cosas-que-quizas-no-sabias-de-react.png" medium="image" />
+                </item>
+                <item>
+                    <title>
+                        <![CDATA[Escribe código JSX más rápido - Como activar Emmet en React]]>
+                    </title>
+                    <link>
+                        https://dartiles.dev/blog/escribe-codigo-jsx-mas-rapido-como-activar-emmet-en-react
+                    </link>
+                    <guid>
+                        https://dartiles.dev/blog/escribe-codigo-jsx-mas-rapido-como-activar-emmet-en-react
+                    </guid>
+                    <description>
+                        <![CDATA[ Descubre como escribir tus componentes en React mucho más rápido con Emmet 🤯 ]]>
+                    </description>
+                    <pubDate>
+                        Wed, 04 Nov 2020 03:01:40 GMT
+                    </pubDate>
+                    <media:content url="https://dartiles.dev/media/blog/escribe-codigo-jsx-mas-rapido-como-activar-emmet-en-react/escribe-codigo-jsx-mas-rapido-como-activar-emmet-en-react.png" medium="image" />
+                </item>
+                <item>
+                    <title>
+                        <![CDATA[useEffect, el hook de efecto de React - Ciclos de vidas en componentes funcionales]]>
+                    </title>
+                    <link>
+                        https://dartiles.dev/blog/useeffect-react-hooks-ciclos-de-vida
+                    </link>
+                    <guid>
+                        https://dartiles.dev/blog/useeffect-react-hooks-ciclos-de-vida
+                    </guid>
+                    <description>
+                        <![CDATA[ Además del useState, el hook useEffect es uno de los más usados en React.
 Anteriormente ya explicamos como funciona el useState y como usarlo con arrays
 y
 objetos
@@ -123,70 +118,65 @@ objetos
 Ciclos de vidas en componentes funcionales
 Antes en React (versiones inferiores a la 16.8) disponíamos de varias funciones
 heredadas de la clase Component, que nos permitían acceder a diferentes moment ]]>
-            </description>
-            <pubDate>
-                Wed, 28 Oct 2020 00:04:08 GMT
-            </pubDate>
-            <media:content url="https://dartiles.dev/media/blog/useeffect-react-hooks-ciclos-de-vida/useeffect-react-hooks-ciclos-de-vida.png" medium="image" />
-        </item>
-        
-        <item>
-            <title>
-                <![CDATA[Como funciona el hook useState y como usarlos con Arrays y Objetos]]>
-            </title>
-            <link>
-                https://dartiles.dev/blog/como-funciona-el-hook-usestate-y-como-usarlos-con-arrays-y-objetos
-            </link>
-            <guid>
-                https://dartiles.dev/blog/como-funciona-el-hook-usestate-y-como-usarlos-con-arrays-y-objetos
-            </guid>
-            <description>
-                <![CDATA[ Descubre a pronfudidad como se usa el hook useState, además te muestro casos particulares que posiblemente te hayan explotado la cabeza 🤯 ]]>
-            </description>
-            <pubDate>
-                Sun, 18 Oct 2020 22:58:27 GMT
-            </pubDate>
-            <media:content url="https://dartiles.dev/media/blog/como-funciona-el-hook-usestate-y-como-usarlos-con-arrays-y-objetos/como-funciona-el-hook-usestate-y-como-usarlos-con-arrays-y-objetos.png" medium="image" />
-        </item>
-        
-        <item>
-            <title>
-                <![CDATA[Novedades de EcmaScript 2020 o ES11]]>
-            </title>
-            <link>
-                https://dartiles.dev/blog/novedades-de-ecmascript-2020-o-es11
-            </link>
-            <guid>
-                https://dartiles.dev/blog/novedades-de-ecmascript-2020-o-es11
-            </guid>
-            <description>
-                <![CDATA[ Descubre las nuevas características que trae esta nueva versión de nuestro lenguaje favorito Javascript ❤ ]]>
-            </description>
-            <pubDate>
-                Sat, 19 Sep 2020 23:49:23 GMT
-            </pubDate>
-            <media:content url="https://dartiles.dev/media/blog/novedades-de-ecmascript-2020-o-es11/novedades-de-ecmascript-2020-o-es11.png" medium="image" />
-        </item>
-        
-        <item>
-            <title>
-                <![CDATA[Los Frontends Developers]]>
-            </title>
-            <link>
-                https://dartiles.dev/blog/aprende-mas-sobre-los-frontend-developers
-            </link>
-            <guid>
-                https://dartiles.dev/blog/aprende-mas-sobre-los-frontend-developers
-            </guid>
-            <description>
-                <![CDATA[ Descubre las diferencias entre Maquetadores y Desarrolladores Frontend 😁 ]]>
-            </description>
-            <pubDate>
-                Sat, 19 Sep 2020 15:33:42 GMT
-            </pubDate>
-            <media:content url="https://dartiles.dev/media/blog/aprende-mas-sobre-los-frontend-developers/aprende-mas-sobre-los-frontend-developers.png" medium="image" />
-        </item>
-        
-    </channel>
-
+                    </description>
+                    <pubDate>
+                        Wed, 28 Oct 2020 00:04:08 GMT
+                    </pubDate>
+                    <media:content url="https://dartiles.dev/media/blog/useeffect-react-hooks-ciclos-de-vida/useeffect-react-hooks-ciclos-de-vida.png" medium="image" />
+                </item>
+                <item>
+                    <title>
+                        <![CDATA[Como funciona el hook useState y como usarlos con Arrays y Objetos]]>
+                    </title>
+                    <link>
+                        https://dartiles.dev/blog/como-funciona-el-hook-usestate-y-como-usarlos-con-arrays-y-objetos
+                    </link>
+                    <guid>
+                        https://dartiles.dev/blog/como-funciona-el-hook-usestate-y-como-usarlos-con-arrays-y-objetos
+                    </guid>
+                    <description>
+                        <![CDATA[ Descubre a pronfudidad como se usa el hook useState, además te muestro casos particulares que posiblemente te hayan explotado la cabeza 🤯 ]]>
+                    </description>
+                    <pubDate>
+                        Sun, 18 Oct 2020 22:58:27 GMT
+                    </pubDate>
+                    <media:content url="https://dartiles.dev/media/blog/como-funciona-el-hook-usestate-y-como-usarlos-con-arrays-y-objetos/como-funciona-el-hook-usestate-y-como-usarlos-con-arrays-y-objetos.png" medium="image" />
+                </item>
+                <item>
+                    <title>
+                        <![CDATA[Novedades de EcmaScript 2020 o ES11]]>
+                    </title>
+                    <link>
+                        https://dartiles.dev/blog/novedades-de-ecmascript-2020-o-es11
+                    </link>
+                    <guid>
+                        https://dartiles.dev/blog/novedades-de-ecmascript-2020-o-es11
+                    </guid>
+                    <description>
+                        <![CDATA[ Descubre las nuevas características que trae esta nueva versión de nuestro lenguaje favorito Javascript ❤ ]]>
+                    </description>
+                    <pubDate>
+                        Sat, 19 Sep 2020 23:49:23 GMT
+                    </pubDate>
+                    <media:content url="https://dartiles.dev/media/blog/novedades-de-ecmascript-2020-o-es11/novedades-de-ecmascript-2020-o-es11.png" medium="image" />
+                </item>
+                <item>
+                    <title>
+                        <![CDATA[Los Frontends Developers]]>
+                    </title>
+                    <link>
+                        https://dartiles.dev/blog/aprende-mas-sobre-los-frontend-developers
+                    </link>
+                    <guid>
+                        https://dartiles.dev/blog/aprende-mas-sobre-los-frontend-developers
+                    </guid>
+                    <description>
+                        <![CDATA[ Descubre las diferencias entre Maquetadores y Desarrolladores Frontend 😁 ]]>
+                    </description>
+                    <pubDate>
+                        Sat, 19 Sep 2020 15:33:42 GMT
+                    </pubDate>
+                    <media:content url="https://dartiles.dev/media/blog/aprende-mas-sobre-los-frontend-developers/aprende-mas-sobre-los-frontend-developers.png" medium="image" />
+                </item>
+        </channel>
     </rss>
