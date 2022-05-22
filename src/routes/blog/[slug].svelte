@@ -115,9 +115,9 @@
 
 	const postContentClick = event => {
 		if (event.srcElement.tagName === 'IMG') {
-			toggleImage(event.srcElement)
+			toggleImage(event.srcElement, post)
 		} else if (event.srcElement.querySelector('img.opened')) {
-			toggleImage(event.srcElement.querySelector('img.opened'))
+			toggleImage(event.srcElement.querySelector('img.opened'), post)
 		}
 		
 	}

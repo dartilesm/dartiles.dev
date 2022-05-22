@@ -1,8 +1,6 @@
-import { sendEventGA } from "./analytics"
-
-const toggleImage = element => {
+const toggleImage = (element, post) => {
     if (!element.className.includes('opened')) {
-        sendEventGA('image', 'open-image', 'post-image')
+        plausible('image', { props: { action: 'open', post: post.title } })
         element.closest('figure').classList.add('opened')
         element.classList.add('opened')
     } else {
