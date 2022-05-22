@@ -1,5 +1,4 @@
 <script>
-    import { sendEventGA } from '../utils/analytics';
     import { GithubIcon, TwitterIcon, LinkedinIcon } from 'svelte-feather-icons';
 </script>
 
@@ -65,17 +64,17 @@
             <div class="header__social">
                 <ul class="header__social-list">
                     <li class="header__social-item">
-                        <a class="header__social-link header__social-link--twitter" href="https://twitter.com/intent/follow?screen_name=dartilesm" target="_blank" rel="noreferrer" on:click={sendEventGA('social', 'header', 'twitter-button')}>
+                        <a class="header__social-link header__social-link--twitter" href="https://twitter.com/intent/follow?screen_name=dartilesm" target="_blank" rel="noreferrer" on:click={ plausible('header', { props: { social: 'twitter', method: 'click' } }) }>
                             <TwitterIcon  size="24" />
                         </a>
                     </li>
                     <li class="header__social-item">
-                        <a class="header__social-link header__social-link--linkedin" href="https://www.linkedin.com/in/dartiles/" target="_blank" rel="noreferrer" on:click={sendEventGA('social', 'header', 'linkedin-button')}>
+                        <a class="header__social-link header__social-link--linkedin" href="https://www.linkedin.com/in/dartiles/" target="_blank" rel="noreferrer" on:click={ plausible('header', { props: { social: 'linkedin', method: 'click' } }) }>
                             <LinkedinIcon  size="24" />
                         </a>
                     </li>
                     <li class="header__social-item">
-                        <a class="header__social-link header__social-link--github" href="https://github.com/dartilesm/" target="_blank" rel="noreferrer" on:click={sendEventGA('social', 'header', 'github-button')}>
+                        <a class="header__social-link header__social-link--github" href="https://github.com/dartilesm/" target="_blank" rel="noreferrer" on:click={ plausible('header', { props: { social: 'github', method: 'click' } }) }>
                              <GithubIcon  size="24" />
                         </a>
                     </li>

@@ -17,7 +17,6 @@
 	import { BookOpenIcon,CalendarIcon,UserIcon } from 'svelte-feather-icons';
 	import Sidebar from '../../components/Sidebar.svelte';
 	import SocialToolbox from '../../components/SocialToolbox.svelte';
-	import { sendEventGA } from '../../utils/analytics';
 	import { timeFormatter } from '../../utils/dateHelper';
 	import disqus from '../../utils/disqus';
 	import highlightCode from '../../utils/highlightCode';
@@ -111,7 +110,7 @@
 	const onTemaryClick = item => {
 		const { element } = allHeadingTexts.find(element => element.innerText === item)
 		element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-		sendEventGA('post', 'temary', 'item-click')
+		plausible('summary', { props: { post: post.title, method: 'click', item  } })
 	}
 
 	const postContentClick = event => {
