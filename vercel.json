@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+        {
+            "source": "/js/pirsch.js",
+            "destination": "https://api.pirsch.io/pa.js"
+        }
+    ]
+}
